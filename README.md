@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bilal Noori — Portfolio
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38bdf8?style=for-the-badge&logo=tailwindcss)
+![Framer Motion](https://img.shields.io/badge/Framer-Motion-ff0055?style=for-the-badge&logo=framer)
+
+A modern, responsive single-page portfolio website built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+- Single-page layout with smooth scroll navigation
+- Animated hero section with floating background elements
+- Skills section with animated progress bars
+- Work experience and education timelines
+- Project showcase with expandable cards and code examples
+- Contact form with mailto fallback
+- Fully responsive (mobile-first)
+- Dark navy/indigo color scheme
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| Utilities | clsx, tailwind-merge |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm 9+
+
+### Installation
+
+```bash
+git clone https://github.com/NooriBilal/portfolio.git
+cd portfolio
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Main page — assembles all sections
+│   └── globals.css         # Global styles + Tailwind
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx      # Sticky navigation with active section tracking
+│   │   └── Footer.tsx      # Footer with social links
+│   ├── sections/
+│   │   ├── Hero.tsx        # Animated hero with CTA buttons
+│   │   ├── About.tsx       # Personal introduction
+│   │   ├── Skills.tsx      # Skill bars organized by category
+│   │   ├── Experience.tsx  # Work experience timeline
+│   │   ├── Education.tsx   # Education timeline
+│   │   ├── Certificates.tsx# Certificate cards grid
+│   │   ├── Projects.tsx    # Project showcase cards
+│   │   └── Contact.tsx     # Contact form + social links
+│   └── ui/
+│       ├── SectionTitle.tsx # Reusable animated section header
+│       ├── ProjectCard.tsx  # Expandable project card
+│       ├── TimelineItem.tsx # Timeline row for experience/education
+│       └── SkillBadge.tsx   # Animated skill progress bar
+├── data/
+│   └── portfolio.ts        # All content data — edit to customize
+└── lib/
+    └── utils.ts            # cn() utility (clsx + tailwind-merge)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All content lives in `src/data/portfolio.ts`. Update:
 
-## Deploy on Vercel
+- `personalInfo` — name, title, email, GitHub, CV URL
+- `skills` — add/remove skills and adjust levels (0-100)
+- `experiences` — replace TODO placeholders with real work history
+- `education` — replace TODO placeholders with real education
+- `certificates` — add real certificates with credential URLs
+- `projects` — update project details and GitHub URLs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding Your CV
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Place your CV PDF at `public/cv-bilal-noori.pdf` and it will be served at `/cv-bilal-noori.pdf`.
+
+## Deployment (Vercel)
+
+### Option 1: Vercel CLI
+
+```bash
+npm i -g vercel
+vercel
+```
+
+### Option 2: GitHub Integration
+
+1. Push this repo to GitHub
+2. Go to [vercel.com](https://vercel.com) and import the repository
+3. Vercel auto-detects Next.js — click **Deploy**
+4. Your site is live at `https://your-project.vercel.app`
+
+### Environment Variables
+
+No environment variables are required for the base portfolio. If you add backend integrations (e.g., email API), set them in the Vercel dashboard under **Settings → Environment Variables**.
+
+## Contributing
+
+This is a personal portfolio — feel free to fork and use as a template for your own portfolio.
+
+## License
+
+MIT
