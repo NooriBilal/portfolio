@@ -1,5 +1,5 @@
 ---
-zuletzt_aktualisiert: 2026-06-02
+zuletzt_aktualisiert: 2026-06-03
 ---
 
 # Session-Tracker — Wo habe ich aufgehört?
@@ -60,3 +60,23 @@ zuletzt_aktualisiert: 2026-06-02
 
 ## Token-Sparregel
 Dieses Dokument ist **maximal 50 Zeilen**. Alte Einträge → `sessions/` verschieben.
+
+## 2026-06-03 | Session 5 — AKTUELLER STAND
+
+**Commit:** `e9f874a` — Vercel URL in SEO metadata aktualisiert  
+**Branch:** `main` (merged)  
+**Live:** https://portfolio-gamma-ashy-70.vercel.app/
+
+### ✅ Heute erledigt
+- SEO Metadata in `layout.tsx` verbessert (metadataBase, OG-Tags, Twitter Card)
+- Vercel Deployment live (Web Dashboard)
+- Vercel-URL in metadataBase eingetragen und gepusht
+
+### 🔴 Nächste Aufgabe (hier weitermachen!)
+**CV PDF hochladen:** `cv-bilal-noori.pdf` → `/public/` ablegen  
+**Dann:** Contact Form Backend (EmailJS)
+
+### ⏭️ Danach
+- Contact Form Backend (EmailJS oder Resend)
+- GitHub URL für UFC-Projekt (`portfolio.ts:175`) — sobald Repo publik
+- Favicon ersetzen
