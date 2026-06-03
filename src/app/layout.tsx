@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bilal-noori.vercel.app"),
+  metadataBase: new URL("https://portfolio-gamma-ashy-70.vercel.app"),
   title: "Bilal Noori — Fullstack Developer",
   description:
     "Portfolio von Bilal Noori — Fullstack Developer mit Expertise in Python, TypeScript, React, FastAPI und modernen Web-Technologien.",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio von Bilal Noori — Fullstack Developer mit Expertise in Python, TypeScript, React und FastAPI.",
     type: "website",
-    url: "https://bilal-noori.vercel.app",
+    url: "https://portfolio-gamma-ashy-70.vercel.app",
     siteName: "Bilal Noori Portfolio",
     locale: "de_DE",
   },
