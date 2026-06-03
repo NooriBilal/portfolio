@@ -8,15 +8,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bilal-noori.vercel.app"),
   title: "Bilal Noori — Fullstack Developer",
   description:
     "Portfolio von Bilal Noori — Fullstack Developer mit Expertise in Python, TypeScript, React, FastAPI und modernen Web-Technologien.",
-  keywords: ["Fullstack Developer", "Python", "TypeScript", "React", "FastAPI", "Portfolio"],
-  authors: [{ name: "Bilal Noori" }],
+  keywords: ["Fullstack Developer", "Python", "TypeScript", "React", "FastAPI", "Portfolio", "Bilal Noori"],
+  authors: [{ name: "Bilal Noori", url: "https://github.com/NooriBilal" }],
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Bilal Noori — Fullstack Developer",
-    description: "Portfolio von Bilal Noori — Fullstack Developer",
+    description:
+      "Portfolio von Bilal Noori — Fullstack Developer mit Expertise in Python, TypeScript, React und FastAPI.",
     type: "website",
+    url: "https://bilal-noori.vercel.app",
+    siteName: "Bilal Noori Portfolio",
+    locale: "de_DE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bilal Noori — Fullstack Developer",
+    description:
+      "Portfolio von Bilal Noori — Fullstack Developer mit Expertise in Python, TypeScript, React und FastAPI.",
   },
 };
 
