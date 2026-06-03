@@ -6,11 +6,11 @@ export const personalInfo = {
   name: "Bilal Noori",
   title: "Fullstack Developer",
   tagline: "Ich baue skalierbare Webanwendungen und APIs — von der Idee bis zur Produktion.",
-  email: "bilal.noori77@gmail.com",
+  email: "nooribi.bewerbung@gmail.com",
   github: "https://github.com/NooriBilal",
-  linkedin: "", // TODO: Add your LinkedIn URL
+  linkedin: "www.linkedin.com/in/bilal-noori-742510382",
   location: "Deutschland",
-  cvUrl: "/cv-bilal-noori.pdf", // TODO: Add your CV PDF to /public
+  cvUrl: "/cv-bilal-noori.pdf",
 };
 
 // ============================================================
@@ -69,7 +69,7 @@ export const skills: SkillCategory[] = [
 ];
 
 // ============================================================
-// EXPERIENCE — TODO: Replace with your actual work history
+// EXPERIENCE
 // ============================================================
 
 export interface Experience {
@@ -83,41 +83,21 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    company: "TODO: Firmenname", // TODO: Add company name
-    role: "TODO: Berufsbezeichnung", // TODO: Add your role
-    period: "2024 – heute",
+    company: "Behrens & Schuleit GmbH",
+    role: "Auszubildender Fachinformatiker für Anwendungsentwicklung",
+    period: "07.2023 – 09.2026",
     current: true,
     description: [
-      "TODO: Beschreibe deine Hauptaufgaben und Verantwortlichkeiten.",
-      "TODO: Füge konkrete Erfolge und Projekte hinzu.",
-      "TODO: Erwähne relevante Technologien und Methoden.",
+      "Entwicklung und Anpassung von Geschäftsprozessen auf der Low-Code-Plattform JobRouter.",
+      "Implementierung von Prozesslogik und Automatisierungen mit JavaScript und PHP.",
+      "Datenbankabfragen und -pflege mit MSSQL sowie Gestaltung von Benutzeroberflächen mit CSS.",
     ],
-    technologies: ["Python", "React", "PostgreSQL", "Docker"],
-  },
-  {
-    company: "TODO: Firmenname", // TODO: Add company name
-    role: "TODO: Berufsbezeichnung", // TODO: Add your role
-    period: "2022 – 2024",
-    description: [
-      "TODO: Beschreibe deine Hauptaufgaben.",
-      "TODO: Füge Projektergebnisse und Kennzahlen hinzu.",
-    ],
-    technologies: ["JavaScript", "Node.js", "SQL"],
-  },
-  {
-    company: "TODO: Firmenname / Praktikum", // TODO: Add company name
-    role: "TODO: Werkstudent / Praktikant", // TODO: Add your role
-    period: "2021 – 2022",
-    description: [
-      "TODO: Beschreibe deine Aufgaben während des Praktikums.",
-      "TODO: Füge Lern­erfahrungen und Projekte hinzu.",
-    ],
-    technologies: ["Python", "Git"],
+    technologies: ["JavaScript", "PHP", "MSSQL", "CSS", "JobRouter"],
   },
 ];
 
 // ============================================================
-// EDUCATION — TODO: Replace with your actual education
+// EDUCATION
 // ============================================================
 
 export interface Education {
@@ -131,19 +111,13 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    institution: "TODO: Universität / Hochschule", // TODO: Add institution
-    degree: "TODO: Bachelor of Science in Informatik o. Ä.", // TODO: Add degree
-    period: "2020 – heute",
+    institution: "Heinrich-Hertz-Berufskolleg Düsseldorf",
+    degree: "Fachinformatiker für Anwendungsentwicklung",
+    period: "2023 – 2026",
     description:
-      "TODO: Kurze Beschreibung des Studiengangs, Schwerpunkte und relevante Kurse.",
+      "Berufsschule im Rahmen der dualen Ausbildung. Schwerpunkte: Softwareentwicklung, Datenbanken, Netzwerktechnik und IT-Systeme.",
     pending: true,
-    pendingNote: "Abschlusszeugnis ausstehend",
-  },
-  {
-    institution: "TODO: Schule / Ausbildungsstätte",
-    degree: "Abitur / Ausbildung",
-    period: "TODO: Jahr",
-    description: "TODO: Beschreibung.",
+    pendingNote: "Abschluss voraussichtlich 09.2026",
   },
 ];
 
@@ -161,22 +135,10 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
   {
-    title: "TODO: Zertifikatname", // TODO: Add certificate
-    issuer: "TODO: Anbieter (z.B. Coursera, AWS, Google)",
+    title: "Praktikumszertifikat – Dublin",
+    issuer: "Dublin",
     date: "2024",
-    credentialUrl: "#", // TODO: Add credential URL
-  },
-  {
-    title: "TODO: Zertifikatname",
-    issuer: "TODO: Anbieter",
-    date: "2023",
-    credentialUrl: "#",
-  },
-  {
-    title: "TODO: Zertifikatname",
-    issuer: "TODO: Anbieter",
-    date: "2023",
-    credentialUrl: "#",
+    credentialUrl: "/Certificate ST - Bilal NOORI (1).pdf",
   },
   {
     title: "Weiteres Zertifikat",
@@ -239,24 +201,5 @@ async def get_fighter(
         "rankings": fighter.rankings,
         "stats": fighter.career_stats,
     }`,
-  },
-  {
-    name: "TODO: Projektname",
-    shortDescription: "TODO: Kurze Beschreibung des Projekts.",
-    longDescription:
-      "TODO: Ausführliche Beschreibung, Architektur und Ziele des Projekts. Was hast du gebaut, warum und was hast du gelernt?",
-    technologies: ["TODO", "React", "Node.js"],
-    githubUrl: "#",
-    status: "live",
-    featured: false,
-  },
-  {
-    name: "TODO: Projektname",
-    shortDescription: "TODO: Kurze Beschreibung des Projekts.",
-    longDescription: "TODO: Ausführliche Beschreibung des Projekts.",
-    technologies: ["TODO", "Python", "Docker"],
-    githubUrl: "#",
-    status: "planned",
-    featured: false,
   },
 ];
