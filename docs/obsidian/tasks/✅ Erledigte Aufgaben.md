@@ -35,3 +35,13 @@ Alle Einträge sind durch einen Git-Commit belegt.
 - [x] Obsidian-Vault angelegt (`docs/obsidian/`)
 - [x] WORKLOG.md erstellt
 - [x] CLAUDE.md mit Effizienz-Protokoll aktualisiert
+
+## Session 4 — 2026-06-03 (`9152608`)
+
+- [x] `personalInfo.linkedin` + `personalInfo.cvUrl` bereits befüllt (war schon eingetragen)
+- [x] **Berufserfahrung** eingetragen → Behrens & Schuleit GmbH, Auszubildender FIA, 07.2023–09.2026
+- [x] **Ausbildung** eingetragen → Heinrich-Hertz-Berufskolleg Düsseldorf, Abschluss 09.2026
+- [x] **Zertifikat** eingetragen → Dublin-Praktikumszertifikat mit PDF-Link
+- [x] Alle Placeholder-Erfahrungen (Job 2 + Praktikum 2021–2022) entfernt
+- [x] Zwei TODO-Projektplatzhalter entfernt — nur UFC Stats API bleibt
+- [x] Section-Kommentar-TODOs in `portfolio.ts` bereinigt
