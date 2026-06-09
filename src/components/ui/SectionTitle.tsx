@@ -17,14 +17,31 @@ export default function SectionTitle({ title, subtitle, centered = true }: Secti
       transition={{ duration: 0.6 }}
       className={`mb-12 ${centered ? "text-center" : ""}`}
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+      <h2
+        className="font-black tracking-tight mb-3"
+        style={{
+          fontSize: "clamp(32px, 4vw, 48px)",
+          color: "var(--text-primary)",
+          fontFamily: "var(--font-display)",
+        }}
+      >
         {title}
-        <span className="text-indigo-400">.</span>
+        <span style={{ color: "var(--brand-primary)" }}>.</span>
       </h2>
       {subtitle && (
-        <p className="text-slate-400 text-lg max-w-2xl mx-auto">{subtitle}</p>
+        <p
+          className="text-lg max-w-2xl mx-auto"
+          style={{ color: "var(--text-light)" }}
+        >
+          {subtitle}
+        </p>
       )}
-      <div className={`mt-4 h-1 w-16 bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full ${centered ? "mx-auto" : ""}`} />
+      <div
+        className={`mt-4 h-px w-20 rounded-full ${centered ? "mx-auto" : ""}`}
+        style={{
+          background: "linear-gradient(to right, #7c5cff, #ff7ab5, transparent)",
+        }}
+      />
     </motion.div>
   );
 }

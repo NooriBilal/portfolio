@@ -6,7 +6,7 @@ import { education } from "@/data/portfolio";
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 bg-slate-950/50">
+    <section id="education" className="py-24" style={{ background: "var(--background)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Bildung"

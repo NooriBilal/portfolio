@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export default function Certificates() {
   return (
-    <section id="certificates" className="py-24 bg-slate-900/50">
+    <section id="certificates" className="py-24" style={{ background: "var(--background-soft)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Zertifikate"

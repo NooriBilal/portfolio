@@ -10,7 +10,7 @@ export default function Projects() {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 bg-slate-950/50">
+    <section id="projects" className="py-24" style={{ background: "var(--background-soft)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Projekte"

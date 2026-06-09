@@ -57,7 +57,7 @@ export default function Contact() {
     "w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 transition-all text-sm";
 
   return (
-    <section id="contact" className="py-24 bg-slate-900/50">
+    <section id="contact" className="py-24" style={{ background: "var(--background)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Kontakt"

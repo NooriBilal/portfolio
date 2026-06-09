@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DIRECTION 6 — KINETIC / LIQUID
+   ============================================================ */
+
 :root {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --accent: #6366f1;
-  --accent-secondary: #0ea5e9;
+  --background: #0a0a0f;
+  --background-soft: #13131a;
+  --background-card: #0f0f18;
+  --text-primary: #f5f5f7;
+  --text-light: #8a8a92;
+  --brand-primary: #7c5cff;
+  --brand-deep: #3d1d99;
+  --accent-warm: #ff7ab5;
+  --accent-cool: #3effd0;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(124, 92, 255, 0.3);
 }
 
 html {
@@ -13,26 +24,53 @@ html {
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-display), "Inter", system-ui, sans-serif;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #1e293b;
-}
-::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+/* ---- Kinetic gradient animations ---- */
+
+@keyframes orb-drift-1 {
+  0%   { transform: translate(0px,   0px)  scale(1);    opacity: 0.6; }
+  25%  { transform: translate(80px, -60px) scale(1.08); opacity: 0.8; }
+  50%  { transform: translate(120px, 40px) scale(0.95); opacity: 0.5; }
+  75%  { transform: translate(20px,  80px) scale(1.05); opacity: 0.7; }
+  100% { transform: translate(0px,   0px)  scale(1);    opacity: 0.6; }
 }
 
-/* Code block */
-pre {
-  overflow-x: auto;
+@keyframes orb-drift-2 {
+  0%   { transform: translate(0px,    0px)   scale(1);    opacity: 0.5; }
+  33%  { transform: translate(-90px,  70px)  scale(1.12); opacity: 0.7; }
+  66%  { transform: translate(60px,  -80px)  scale(0.9);  opacity: 0.4; }
+  100% { transform: translate(0px,    0px)   scale(1);    opacity: 0.5; }
+}
+
+@keyframes orb-drift-3 {
+  0%   { transform: translate(0px,   0px)  scale(1);    opacity: 0.35; }
+  40%  { transform: translate(50px,  90px) scale(1.1);  opacity: 0.55; }
+  80%  { transform: translate(-70px, 30px) scale(0.92); opacity: 0.3;  }
+  100% { transform: translate(0px,   0px)  scale(1);    opacity: 0.35; }
+}
+
+.kinetic-orb-1 { animation: orb-drift-1 22s ease-in-out infinite; }
+.kinetic-orb-2 { animation: orb-drift-2 28s ease-in-out infinite; }
+.kinetic-orb-3 { animation: orb-drift-3 35s ease-in-out infinite; }
+
+/* ---- Glow pulse ---- */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(124, 92, 255, 0.4); }
+  50%       { box-shadow: 0 0 50px rgba(124, 92, 255, 0.65); }
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--background-soft); }
+::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #9d84ff; }
+
+/* ---- Code blocks ---- */
+pre { overflow-x: auto; }
+
+code, .font-mono {
+  font-family: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
 }
