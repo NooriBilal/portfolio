@@ -26,17 +26,18 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    const subject = encodeURIComponent(form.subject || `Kontaktanfrage von ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nE-Mail: ${form.email}\n\n${form.message}`);
     try {
-      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
-      setTimeout(() => {
-        setStatus("success");
-        setForm({ name: "", email: "", subject: "", message: "" });
-      }, 500);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setForm({ name: "", email: "", subject: "", message: "" });
     } catch {
       setStatus("error");
     }
@@ -222,7 +223,7 @@ export default function Contact() {
                   }}
                 >
                   <CheckCircle size={14} style={{ color: "var(--red)" }} />
-                  E-Mail-Client geöffnet. Danke für deine Nachricht!
+                  Nachricht gesendet. Ich melde mich bald!
                 </div>
               )}
               {status === "error" && (
