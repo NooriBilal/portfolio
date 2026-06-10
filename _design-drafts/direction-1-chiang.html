@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direction 1 — Chiang-Inspired · Bilal Noori</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0a192f;
+      --navy-light: #112240;
+      --navy-mid:   #1d3461;
+      --slate:      #8892b0;
+      --slate-light:#a8b2d8;
+      --white:      #ccd6f6;
+      --mint:       #64FFDA;
+      --font-sans:  'DM Sans', sans-serif;
+      --font-mono:  'Fira Code', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--slate);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 300px;
+      height: 100vh;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--navy);
+      z-index: 10;
+    }
+
+    .sidebar-top {}
+
+    .sidebar-name {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      color: var(--slate-light);
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .sidebar-tagline {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.6;
+      max-width: 220px;
+    }
+
+    .nav {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 0;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--slate);
+      transition: width 0.3s ease, background 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--white);
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 64px;
+      background: var(--white);
+    }
+
+    .nav-link.active {
+      color: var(--mint);
+    }
+    .nav-link.active::before {
+      background: var(--mint);
+    }
+
+    .sidebar-socials {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .social-link {
+      color: var(--slate);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover { color: var(--mint); }
+
+    /* ─── MAIN CONTENT ─── */
+    .main {
+      margin-left: 300px;
+      flex: 1;
+      max-width: 750px;
+      padding: 0 48px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 0;
+    }
+
+    section:not(#hero) {
+      padding-top: 80px;
+      min-height: auto;
+    }
+
+    /* ─── HERO ─── */
+    #hero {}
+
+    .hero-intro {
+      font-family: var(--font-mono);
+      color: var(--mint);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero-name {
+      font-size: clamp(52px, 7vw, 80px);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 600;
+      color: var(--slate);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+
+    .hero-body {
+      max-width: 520px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 44px;
+    }
+
+    .hero-body .hl {
+      color: var(--mint);
+      font-family: var(--font-mono);
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--mint);
+      border: 1px solid var(--mint);
+      background: transparent;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(100, 255, 218, 0.08);
+      box-shadow: 4px 4px 0 var(--mint);
+      outline: none;
+    }
+
+    /* ─── SECTION HEADING ─── */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 44px;
+      white-space: nowrap;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: var(--mint);
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      height: 1px;
+      background: var(--navy-mid);
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      margin-top: 24px;
+      list-style: none;
+    }
+
+    .skills-list li {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--slate);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skills-list li::before {
+      content: '▹';
+      color: var(--mint);
+      flex-shrink: 0;
+    }
+
+    .about-img-wrapper {
+      position: relative;
+    }
+
+    .about-img-box {
+      width: 240px;
+      height: 260px;
+      background: var(--navy-light);
+      border: 2px solid var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-img-box::after {
+      content: '';
+      position: absolute;
+      top: 14px; left: 14px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--mint);
+      opacity: 0.35;
+      z-index: -1;
+      transition: top 0.2s, left 0.2s;
+    }
+
+    .about-img-wrapper:hover .about-img-box::after {
+      top: 10px; left: 10px;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .exp-item {
+      padding: 24px 28px;
+      border-left: 2px solid var(--navy-mid);
+      margin-bottom: 8px;
+      transition: border-color 0.2s;
+      cursor: default;
+    }
+
+    .exp-item:hover {
+      border-left-color: var(--mint);
+      background: rgba(100,255,218,0.03);
+    }
+
+    .exp-role {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .exp-role a {
+      color: var(--mint);
+      text-decoration: none;
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    .exp-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 4px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .exp-desc::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--mint);
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .exp-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--mint);
+      background: rgba(100,255,218,0.08);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 32px 28px;
+      background: var(--navy-light);
+      border: 1px solid transparent;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      border-color: rgba(100,255,218,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(2, 12, 27, 0.5);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .project-folder {
+      font-size: 38px;
+      line-height: 1;
+      color: var(--mint);
+    }
+
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--mint);
+      border: 1px solid rgba(100,255,218,0.3);
+      padding: 3px 10px;
+    }
+
+    .project-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .project-tech span {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--slate);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      text-align: center;
+      padding: 80px 0 120px;
+    }
+
+    .contact-overline {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--mint);
+      margin-bottom: 20px;
+    }
+
+    .contact-heading {
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .contact-body {
+      max-width: 500px;
+      margin: 0 auto 44px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ─── SCROLLSPY ─── */
+    /* handled by JS */
+
+    /* ─── LABEL BADGE ─── */
+    .draft-badge {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      border: 1px solid rgba(136,146,176,0.25);
+      padding: 5px 12px;
+      background: rgba(10, 25, 47, 0.85);
+      z-index: 999;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-badge">Entwurf · Richtung 1 · Chiang-Style</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="sidebar-name">Bilal Noori</div>
+    <div class="sidebar-title">Fullstack Developer</div>
+    <div class="sidebar-tagline">Ich baue skalierbare Webanwendungen und APIs — von der Idee bis zur Produktion.</div>
+
+    <nav class="nav">
+      <a class="nav-link active" onclick="scrollTo('hero')">About</a>
+      <a class="nav-link" onclick="scrollTo('experience')">Experience</a>
+      <a class="nav-link" onclick="scrollTo('projects')">Projects</a>
+      <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
+    </nav>
+  </div>
+
+  <div class="sidebar-socials">
+    <a class="social-link" href="#">GitHub</a>
+    <a class="social-link" href="#">LinkedIn</a>
+    <a class="social-link" href="#">CV</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-intro">Hallo, mein Name ist</p>
+    <h1 class="hero-name">Bilal Noori.</h1>
+    <h2 class="hero-sub">Ich baue Dinge fürs Web.</h2>
+    <p class="hero-body">
+      Ich bin Fullstack Developer in Ausbildung bei <span class="hl">Behrens&nbsp;&amp;&nbsp;Schuleit</span> und baue skalierbare Webanwendungen und APIs. Aktuell fokussiere ich mich auf Python, FastAPI, React und Next.js.
+    </p>
+    <a class="btn" href="#">
+      CV herunterladen
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-heading">
+      <span class="section-num">01.</span>
+      <h2 class="section-title">Über mich</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Ich bin Fachinformatiker für Anwendungsentwicklung im dritten Ausbildungsjahr bei Behrens &amp; Schuleit GmbH in Düsseldorf. Neben der Ausbildung entwickle ich eigenständig Projekte, die von REST-APIs bis zu vollständigen Webanwendungen reichen.</p>
+        <p>Mein Interesse liegt in der Schnittstelle zwischen solidem Backend-Engineering und moderner Frontend-Entwicklung. Ich schätze sauberen, wartbaren Code und klare Systemarchitektur.</p>
+        <p>Hier sind einige Technologien, mit denen ich regelmäßig arbeite:</p>
+
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>FastAPI</li>
+          <li>PostgreSQL</li>
+          <li>Docker</li>
+          <li>Redis</li>
+        </ul>
+      </div>
+
+      <div class="about-img-wrapper">
+        <div class="about-img-box">
+          <span style="color:var(--mint);font-size:14px;">BN</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-heading">
+      <span class="section-num">02.</span>
+      <h2 class="section-title">Berufserfahrung</h2>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">
+        Auszubildender Fachinformatiker ·
+        <a href="#">Behrens &amp; Schuleit</a>
+      </div>
+      <div class="exp-period">Juli 2023 — September 2026</div>
+
+      <p class="exp-desc">Entwicklung und Anpassung von Geschäftsprozessen auf der Low-Code-Plattform JobRouter.</p>
+      <p class="exp-desc">Implementierung von Prozesslogik und Automatisierungen mit JavaScript und PHP.</p>
+      <p class="exp-desc">Datenbankabfragen mit MSSQL sowie Gestaltung von Benutzeroberflächen mit CSS.</p>
+
+      <div class="exp-tags">
+        <span class="exp-tag">JavaScript</span>
+        <span class="exp-tag">PHP</span>
+        <span class="exp-tag">MSSQL</span>
+        <span class="exp-tag">CSS</span>
+        <span class="exp-tag">JobRouter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-heading">
+      <span class="section-num">03.</span>
+      <h2 class="section-title">Projekte</h2>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-folder">⌗</div>
+          <span class="project-status">in development</span>
+        </div>
+        <div class="project-name">UFC Stats API</div>
+        <p class="project-desc">
+          Eine umfassende REST-API mit Echtzeit-UFC-Kämpferstatistiken, Kampfbilanzen und Veranstaltungsplänen. Aggregiert Daten via automatisierte Scraping-Pipelines mit Redis-Caching für minimale Latenz.
+        </p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>FastAPI</span>
+          <span>PostgreSQL</span>
+          <span>Docker</span>
+          <span>Redis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="contact-overline">04. Was als Nächstes?</p>
+    <h2 class="contact-heading">Lass uns reden.</h2>
+    <p class="contact-body">
+      Ich bin offen für neue Möglichkeiten — ob Vollzeit, Werkstudent oder Freelance. Wenn du ein interessantes Projekt oder eine offene Stelle hast, meld dich gerne.
+    </p>
+    <a class="btn" href="mailto:nooribi.bewerbung@gmail.com">
+      Nachricht schreiben
+    </a>
+  </section>
+
+</main>
+
+<script>
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Scrollspy
+  const sections = ['hero', 'about', 'experience', 'projects', 'contact'];
+  const links = document.querySelectorAll('.nav-link');
+
+  const sectionMap = {
+    'hero': 0, 'about': 0, 'experience': 1, 'projects': 2, 'contact': 3
+  };
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const idx = sectionMap[e.target.id];
+        if (idx !== undefined) links[idx]?.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+</script>
+</body>
+</html>
