@@ -140,18 +140,6 @@ export default function Contact() {
               ))}
             </div>
 
-            <div
-              className="p-4 border text-xs leading-relaxed"
-              style={{
-                fontFamily: "var(--font-mono)",
-                color: "var(--ink-dim)",
-                borderColor: "var(--border-mid)",
-                background: "var(--surface)",
-              }}
-            >
-              <span style={{ color: "var(--red)" }}>// </span>
-              Antwortzeit: in der Regel innerhalb von 24–48 Stunden.
-            </div>
           </motion.div>
 
           {/* Form col */}

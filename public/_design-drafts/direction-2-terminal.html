@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direction 2 — Terminal · Bilal Noori</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0c0f0c;
+      --bg2:       #101410;
+      --bg3:       #141814;
+      --green:     #39d353;
+      --green-dim: #2a9940;
+      --green-dark:#1a5c28;
+      --amber:     #e8c547;
+      --red:       #ff5f57;
+      --gray:      #4a5240;
+      --gray-mid:  #6b7a60;
+      --white:     #d4e8d0;
+      --font:      'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--green-dim);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+      /* subtle scanlines */
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.05) 2px,
+        rgba(0,0,0,0.05) 4px
+      );
+    }
+
+    /* ─── TERMINAL CHROME ─── */
+    .terminal-chrome {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 38px;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--bg3);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+    }
+    .dot-red    { background: var(--red); }
+    .dot-yellow { background: var(--amber); }
+    .dot-green  { background: var(--green); }
+
+    .chrome-title {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-mid);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── NAV ─── */
+    .term-nav {
+      position: fixed;
+      top: 38px;
+      right: 0;
+      padding: 18px 32px;
+      display: flex;
+      gap: 28px;
+      z-index: 99;
+      background: linear-gradient(to left, var(--bg) 70%, transparent);
+    }
+
+    .term-nav a {
+      color: var(--gray-mid);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+
+    .term-nav a:hover,
+    .term-nav a.active {
+      color: var(--green);
+    }
+
+    .term-nav a::before {
+      color: var(--green-dark);
+    }
+
+    /* ─── WRAPPER ─── */
+    .wrap {
+      padding: 38px 0 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ─── SECTION ─── */
+    section {
+      padding: 72px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    section:not(#hero) {
+      min-height: auto;
+      padding: 64px 40px;
+    }
+
+    /* ─── PROMPT LINE ─── */
+    .prompt {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-mid);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .prompt-user { color: var(--green); }
+    .prompt-dir  { color: var(--green-dark); }
+    .prompt-sym  { color: var(--gray-mid); }
+
+    /* ─── HERO ─── */
+    #hero {}
+
+    .hero-comment {
+      color: var(--gray);
+      font-size: 13px;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .hero-greeting {
+      font-size: 13px;
+      color: var(--gray-mid);
+      margin-bottom: 4px;
+    }
+
+    .hero-name {
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      text-shadow: 0 0 30px rgba(57,211,83,0.15);
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 400;
+      color: var(--green-dim);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 40px;
+    }
+
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--gray-mid);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    .hero-tagline .kw { color: var(--green); }
+    .hero-tagline .str { color: var(--amber); }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: var(--green);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1.1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .term-btn {
+      font-family: var(--font);
+      font-size: 13px;
+      color: var(--green);
+      border: 1px solid var(--green-dark);
+      background: transparent;
+      padding: 10px 22px;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .term-btn:hover {
+      background: rgba(57,211,83,0.06);
+      border-color: var(--green);
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-header {
+      margin-bottom: 40px;
+    }
+
+    .sec-comment {
+      font-size: 12px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .sec-cmd {
+      font-size: 16px;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .sec-cmd::before {
+      content: '$ ';
+      color: var(--gray-mid);
+    }
+
+    .sec-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--bg3);
+      margin-top: 16px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-output {
+      background: var(--bg2);
+      border: 1px solid var(--bg3);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-output p {
+      color: var(--gray-mid);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .about-output p:last-child { margin-bottom: 0; }
+
+    .kw  { color: var(--green); }
+    .str { color: var(--amber); }
+    .com { color: var(--gray); }
+    .num { color: #79c0ff; }
+
+    .skills-output {
+      background: var(--bg2);
+      border: 1px solid var(--bg3);
+      border-top: none;
+      padding: 24px 28px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 32px;
+      margin-top: 8px;
+    }
+
+    .skill-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .skill-name { color: var(--white); }
+    .skill-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--bg3);
+      position: relative;
+    }
+    .skill-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--green-dark);
+    }
+    .skill-pct { color: var(--gray-mid); font-size: 11px; }
+
+    /* ─── EXPERIENCE ─── */
+    .exp-entry {
+      background: var(--bg2);
+      border: 1px solid var(--bg3);
+      padding: 28px;
+      margin-bottom: 12px;
+    }
+
+    .exp-entry:hover {
+      border-color: var(--green-dark);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exp-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .exp-company { color: var(--green); }
+
+    .exp-date {
+      font-size: 12px;
+      color: var(--gray-mid);
+      white-space: nowrap;
+    }
+
+    .exp-lines p {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .exp-lines p::before {
+      content: '# ';
+      color: var(--gray);
+      position: absolute;
+      left: 0;
+    }
+
+    .exp-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      color: var(--green-dim);
+      border: 1px solid var(--green-dark);
+      padding: 2px 10px;
+      background: rgba(57,211,83,0.04);
+    }
+
+    /* ─── PROJECTS ─── */
+    .proj-card {
+      background: var(--bg2);
+      border: 1px solid var(--bg3);
+      padding: 28px;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .proj-card:hover { border-color: var(--green-dark); }
+
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--green-dark);
+    }
+
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .proj-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .proj-badge {
+      font-size: 10px;
+      color: var(--amber);
+      border: 1px solid rgba(232,197,71,0.3);
+      padding: 2px 8px;
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .proj-code {
+      background: var(--bg);
+      border: 1px solid var(--bg3);
+      padding: 16px;
+      font-size: 11px;
+      line-height: 1.7;
+      overflow-x: auto;
+      color: var(--gray-mid);
+      margin-bottom: 16px;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      padding-bottom: 100px;
+    }
+
+    .contact-block {
+      background: var(--bg2);
+      border: 1px solid var(--bg3);
+      padding: 40px;
+      max-width: 600px;
+    }
+
+    .contact-block .prompt { margin-bottom: 24px; }
+
+    .contact-form-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      color: var(--gray-mid);
+      font-size: 12px;
+      min-width: 80px;
+    }
+
+    .contact-email {
+      color: var(--green);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ─── DRAFT BADGE ─── */
+    .draft-badge {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      font-family: var(--font);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      border: 1px solid var(--bg3);
+      padding: 5px 12px;
+      background: var(--bg2);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Terminal Chrome -->
+<div class="terminal-chrome">
+  <div class="dot dot-red"></div>
+  <div class="dot dot-yellow"></div>
+  <div class="dot dot-green"></div>
+  <div class="chrome-title">bilal@portfolio:~</div>
+</div>
+
+<!-- Nav -->
+<nav class="term-nav">
+  <a onclick="scrollTo('hero')">~/</a>
+  <a onclick="scrollTo('about')">about</a>
+  <a onclick="scrollTo('experience')">exp</a>
+  <a onclick="scrollTo('projects')">projects</a>
+  <a onclick="scrollTo('contact')">contact</a>
+</nav>
+
+<div class="draft-badge">Entwurf · Richtung 2 · Terminal</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-comment">
+      <span class="com">/**</span><br>
+      <span class="com">&nbsp;* Portfolio v3.0.0</span><br>
+      <span class="com">&nbsp;* @author Bilal Noori &lt;nooribi.bewerbung@gmail.com&gt;</span><br>
+      <span class="com">&nbsp;* @description Fullstack Developer · Deutschland</span><br>
+      <span class="com">&nbsp;*/</span>
+    </div>
+
+    <div class="prompt">
+      <span class="prompt-user">bilal</span>
+      <span style="color:var(--gray-mid);">@</span>
+      <span class="prompt-dir">portfolio</span>
+      <span class="prompt-sym">~</span>
+      <span style="color:var(--gray-mid);">$</span>
+      <span style="color:var(--white);">whoami</span>
+    </div>
+
+    <div class="hero-name">Bilal Noori<span class="cursor"></span></div>
+    <div class="hero-title">Fullstack Developer</div>
+
+    <div class="hero-tagline">
+      <span class="com">// </span>Ich baue <span class="kw">skalierbare</span> Webanwendungen und APIs —
+      von der <span class="str">"Idee"</span> bis zur <span class="str">"Produktion"</span>.
+      <br>Stack: <span class="kw">Python</span> · <span class="kw">FastAPI</span> · <span class="kw">React</span> · <span class="kw">Next.js</span> · <span class="kw">PostgreSQL</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="term-btn" href="#">./cv-bilal-noori.pdf</a>
+      <a class="term-btn" href="#">mail --to bilal</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-header">
+      <div class="sec-comment"><span class="com">// ──────────────────────────────────</span></div>
+      <div class="sec-cmd">cat about.md</div>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="about-output">
+      <p>
+        <span class="com">// Auszubildender Fachinformatiker für Anwendungsentwicklung</span><br>
+        <span class="kw">const</span> developer = <span class="str">"Bilal Noori"</span>;<br>
+        <span class="kw">const</span> location  = <span class="str">"Düsseldorf, Deutschland"</span>;<br>
+        <span class="kw">const</span> company   = <span class="str">"Behrens &amp; Schuleit GmbH"</span>;
+      </p>
+      <p>
+        Ich befinde mich im dritten Ausbildungsjahr und entwickle nebenbei eigenständige
+        Projekte — REST-APIs, Web-Scraper, Webanwendungen. Ich schätze sauberen,
+        wartbaren Code und klare Systemarchitektur.
+      </p>
+    </div>
+
+    <div class="skills-output">
+      <div class="com" style="margin-bottom:12px;">// Skills (level: 0–100)</div>
+      <div class="skills-grid">
+        <div class="skill-line">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          <span class="skill-pct">90</span>
+        </div>
+        <div class="skill-line">
+          <span class="skill-name">TypeScript</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          <span class="skill-pct">85</span>
+        </div>
+        <div class="skill-line">
+          <span class="skill-name">React</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          <span class="skill-pct">85</span>
+        </div>
+        <div class="skill-line">
+          <span class="skill-name">FastAPI</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          <span class="skill-pct">88</span>
+        </div>
+        <div class="skill-line">
+          <span class="skill-name">PostgreSQL</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          <span class="skill-pct">80</span>
+        </div>
+        <div class="skill-line">
+          <span class="skill-name">Docker</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          <span class="skill-pct">78</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-header">
+      <div class="sec-comment"><span class="com">// ──────────────────────────────────</span></div>
+      <div class="sec-cmd">git log --experience --pretty=oneline</div>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">
+            Auszubildender <span class="exp-company">@ Behrens &amp; Schuleit</span>
+          </div>
+          <div style="font-size:12px;color:var(--gray-mid);margin-top:2px;">Fachinformatiker für Anwendungsentwicklung</div>
+        </div>
+        <div class="exp-date"><span class="num">07.2023</span> → <span class="num">09.2026</span></div>
+      </div>
+
+      <div class="exp-lines">
+        <p>Entwicklung und Anpassung von Geschäftsprozessen auf JobRouter (Low-Code)</p>
+        <p>Implementierung von Prozesslogik und Automatisierungen mit JavaScript + PHP</p>
+        <p>Datenbankabfragen mit MSSQL · UI-Gestaltung mit CSS</p>
+      </div>
+
+      <div class="exp-stack">
+        <span class="tag">JavaScript</span>
+        <span class="tag">PHP</span>
+        <span class="tag">MSSQL</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JobRouter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-header">
+      <div class="sec-comment"><span class="com">// ──────────────────────────────────</span></div>
+      <div class="sec-cmd">ls -la ./projects/</div>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta">
+        <div class="proj-name">UFC Stats API</div>
+        <span class="proj-badge">IN DEVELOPMENT</span>
+      </div>
+      <p class="proj-desc">
+        REST-API mit Echtzeit-Kämpferstatistiken, historischen Kampfergebnissen und Event-Plänen.
+        Automatisierte Scraping-Pipelines · PostgreSQL · Redis-Caching.
+      </p>
+      <div class="proj-code"><span class="com">// GET /fighters/:id</span>
+{
+  <span class="kw">"name"</span>: <span class="str">"Jon Jones"</span>,
+  <span class="kw">"record"</span>: <span class="str">"27-1-0"</span>,
+  <span class="kw">"weight_class"</span>: <span class="str">"Heavyweight"</span>,
+  <span class="kw">"rankings"</span>: { <span class="kw">"p4p"</span>: <span class="num">1</span> }
+}</div>
+      <div class="exp-stack">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Scrapy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-header">
+      <div class="sec-comment"><span class="com">// ──────────────────────────────────</span></div>
+      <div class="sec-cmd">contact --init</div>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="contact-block">
+      <div class="prompt">
+        <span style="color:var(--gray-mid);">$</span>
+        <span style="color:var(--white);">send-message --to bilal --subject "Hallo"</span>
+      </div>
+
+      <div class="contact-form-row">
+        <span class="form-label">status:</span>
+        <span style="color:var(--green);font-size:13px;">● offen für neue Möglichkeiten</span>
+      </div>
+      <div class="contact-form-row">
+        <span class="form-label">email:</span>
+        <a class="contact-email" href="mailto:nooribi.bewerbung@gmail.com">nooribi.bewerbung@gmail.com</a>
+      </div>
+      <div class="contact-form-row">
+        <span class="form-label">github:</span>
+        <a class="contact-email" href="#">github.com/NooriBilal</a>
+      </div>
+      <div class="contact-form-row">
+        <span class="form-label">linkedin:</span>
+        <a class="contact-email" href="#">linkedin.com/in/bilal-noori</a>
+      </div>
+
+      <div style="margin-top:28px;">
+        <a class="term-btn" href="mailto:nooribi.bewerbung@gmail.com">exec ./write-email.sh</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Scrollspy
+  const navLinks = document.querySelectorAll('.term-nav a');
+  const sectionIds = ['hero','about','experience','projects','contact'];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const idx = sectionIds.indexOf(e.target.id);
+        if (idx >= 0) navLinks[idx]?.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+</body>
+</html>

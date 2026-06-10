@@ -68,25 +68,6 @@ export default function Skills() {
                     >
                       {skill.name}
                     </span>
-                    <div
-                      className="flex-1 h-px relative overflow-hidden"
-                      style={{ background: "var(--border-mid)" }}
-                    >
-                      <motion.div
-                        className="absolute left-0 top-0 bottom-0"
-                        style={{ background: "var(--red)", height: "100%" }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: catIndex * 0.07 + i * 0.05, ease: "easeOut" }}
-                      />
-                    </div>
-                    <span
-                      className="text-xs w-8 text-right flex-shrink-0"
-                      style={{ fontFamily: "var(--font-mono)", color: "var(--ink-mute)" }}
-                    >
-                      {skill.level}
-                    </span>
                   </motion.div>
                 ))}
               </div>

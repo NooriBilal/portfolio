@@ -10,11 +10,6 @@ const traits = [
   { label: "Lernbereitschaft",desc: "Immer auf der Suche nach neuen Technologien." },
 ];
 
-const techHighlights = [
-  "Python", "TypeScript", "React",
-  "Next.js", "FastAPI", "PostgreSQL",
-  "Docker", "Redis",
-];
 
 export default function About() {
   return (
@@ -119,27 +114,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Tech list */}
             <div>
-              <p
-                className="text-xs tracking-[0.16em] uppercase mb-4"
-                style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
-              >
-                // tech stack
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {techHighlights.map((tech) => (
-                  <div
-                    key={tech}
-                    className="flex items-center gap-2 text-sm"
-                    style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
-                  >
-                    <span style={{ color: "var(--red)" }}>▸</span>
-                    {tech}
-                  </div>
-                ))}
-              </div>
-
               <div
                 className="mt-6 pt-5 border-t flex items-center gap-2 text-xs"
                 style={{
