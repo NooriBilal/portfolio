@@ -6,14 +6,15 @@ import { experiences } from "@/data/portfolio";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24" style={{ background: "var(--background-soft)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Berufserfahrung"
-          subtitle="Mein beruflicher Werdegang — Positionen, Projekte und Errungenschaften"
-        />
+    <section
+      id="experience"
+      className="py-28"
+      style={{ background: "var(--background)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <SectionTitle title="Berufserfahrung" num="// 03" />
 
-        <div className="max-w-3xl mx-auto mt-4">
+        <div className="max-w-3xl">
           {experiences.map((exp, index) => (
             <TimelineItem
               key={`${exp.company}-${index}`}

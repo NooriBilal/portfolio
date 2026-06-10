@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Anton, DM_Sans, JetBrains_Mono } from "next/font/google";
+import LenisProvider from "@/providers/LenisProvider";
 import "./globals.css";
 
-const interTight = Inter_Tight({
+const anton = Anton({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -45,9 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${interTight.variable} ${jetbrainsMono.variable} scroll-smooth`}>
+    <html
+      lang="de"
+      className={`${anton.variable} ${dmSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
       <body className="min-h-screen antialiased">
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

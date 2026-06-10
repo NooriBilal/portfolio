@@ -9,85 +9,61 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-10 border-t"
-      style={{ background: "var(--background)", borderColor: "var(--border)" }}
+      className="border-t py-10"
+      style={{ background: "var(--surface)", borderColor: "var(--red)" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-2.5">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs"
-                style={{
-                  background: "linear-gradient(135deg, #7c5cff, #ff7ab5)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                BN
-              </div>
-              <span
-                className="font-semibold"
-                style={{ color: "var(--text-primary)", fontFamily: "var(--font-display)" }}
-              >
-                Bilal Noori
-              </span>
-            </div>
-            <p style={{ color: "var(--text-light)", fontFamily: "var(--font-mono)", fontSize: 13 }}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <span
+              className="text-2xl"
+              style={{ fontFamily: "var(--font-display)", color: "var(--red)", letterSpacing: "0.04em" }}
+            >
+              BN
+            </span>
+            <span
+              className="text-xs tracking-[0.14em] uppercase"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+            >
               Fullstack Developer · Deutschland
-            </p>
+            </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-              style={{ color: "var(--text-light)", border: "1px solid var(--border)" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(62,255,208,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "var(--text-light)";
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-              }}
+              className="p-2.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
+              style={{ color: "var(--ink-dim)", borderColor: "var(--border-mid)" }}
               aria-label="GitHub"
             >
-              <GithubIcon size={17} />
+              <GithubIcon size={15} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-              style={{ color: "var(--text-light)", border: "1px solid var(--border)" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(124,92,255,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "var(--text-light)";
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-              }}
+              className="p-2.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
+              style={{ color: "var(--ink-dim)", borderColor: "var(--border-mid)" }}
               aria-label="E-Mail"
             >
-              <Mail size={17} />
+              <Mail size={15} />
             </a>
           </div>
         </div>
 
         <div
-          className="mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
+          className="mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-2"
           style={{ borderColor: "var(--border)" }}
         >
           <p
-            className="text-sm"
-            style={{ color: "var(--text-light)", fontFamily: "var(--font-mono)" }}
+            className="text-xs"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
           >
             © {year} Bilal Noori
           </p>
           <p
-            className="text-sm"
-            style={{ color: "var(--text-light)", fontFamily: "var(--font-mono)" }}
+            className="text-xs"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-mute)" }}
           >
             built with Next.js · deployed on Vercel
           </p>

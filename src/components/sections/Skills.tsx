@@ -4,13 +4,6 @@ import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { skills } from "@/data/portfolio";
 
-const categoryAccent: Record<string, string> = {
-  Sprachen: "#7c5cff",
-  "Frameworks & Libraries": "#ff7ab5",
-  "Datenbanken & Tools": "#3effd0",
-  "DevOps & Cloud": "#a78bfa",
-};
-
 const extraTools = [
   "Swagger / OpenAPI", "SQLAlchemy", "Pydantic", "pytest",
   "GitHub Actions", "Nginx", "Celery", "WebSockets",
@@ -19,117 +12,116 @@ const extraTools = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24" style={{ background: "var(--background-soft)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Skills"
-          subtitle="Technologien und Tools mit denen ich täglich arbeite"
-        />
+    <section
+      id="skills"
+      className="py-28"
+      style={{ background: "var(--surface)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <SectionTitle title="Skills" num="// 02" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skills.map((category, catIndex) => {
-            const accent = categoryAccent[category.category] ?? "#7c5cff";
-            return (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: catIndex * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="p-6 rounded-2xl border transition-colors duration-300"
-                style={{
-                  background: "var(--background-card)",
-                  borderColor: "var(--border)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = `${accent}33`;
-                  e.currentTarget.style.boxShadow = `0 0 30px ${accent}0d`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--border)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
+          {skills.map((category, catIndex) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: catIndex * 0.07 }}
+              className="border"
+              style={{
+                background: "var(--background)",
+                borderColor: "var(--border-mid)",
+              }}
+            >
+              {/* Category header */}
+              <div
+                className="px-5 py-3 border-b flex items-center gap-3"
+                style={{ background: "var(--surface-2)", borderColor: "var(--border)" }}
               >
-                {/* Category header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div
-                    className="w-1.5 h-6 rounded-full"
-                    style={{ background: `linear-gradient(to bottom, ${accent}, ${accent}80)` }}
-                  />
-                  <h3
-                    className="font-semibold text-base"
-                    style={{ color: "var(--text-primary)" }}
-                  >
-                    {category.category}
-                  </h3>
-                </div>
+                <span style={{ color: "var(--red)", fontFamily: "var(--font-mono)", fontSize: 11 }}>
+                  //
+                </span>
+                <span
+                  className="text-xs tracking-[0.14em] uppercase"
+                  style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+                >
+                  {category.category}
+                </span>
+              </div>
 
-                {/* Tech pills */}
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <motion.span
-                      key={skill.name}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: catIndex * 0.08 + i * 0.04 }}
-                      className="px-3 py-1.5 rounded-lg text-sm font-medium border cursor-default transition-all duration-200"
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        background: `${accent}12`,
-                        borderColor: `${accent}25`,
-                        color: `${accent}dd`,
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLElement).style.background = `${accent}22`;
-                        (e.currentTarget as HTMLElement).style.borderColor = `${accent}55`;
-                        (e.currentTarget as HTMLElement).style.color = accent;
-                        (e.currentTarget as HTMLElement).style.boxShadow = `0 0 12px ${accent}30`;
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLElement).style.background = `${accent}12`;
-                        (e.currentTarget as HTMLElement).style.borderColor = `${accent}25`;
-                        (e.currentTarget as HTMLElement).style.color = `${accent}dd`;
-                        (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                      }}
+              {/* Skill rows */}
+              <div className="divide-y" style={{ borderColor: "var(--border)" }}>
+                {category.skills.map((skill, i) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: catIndex * 0.07 + i * 0.04 }}
+                    className="flex items-center gap-4 px-5 py-3 group"
+                    style={{ borderColor: "var(--border)" }}
+                  >
+                    <span
+                      className="text-sm w-32 flex-shrink-0"
+                      style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
                     >
                       {skill.name}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+                    </span>
+                    <div
+                      className="flex-1 h-px relative overflow-hidden"
+                      style={{ background: "var(--border-mid)" }}
+                    >
+                      <motion.div
+                        className="absolute left-0 top-0 bottom-0"
+                        style={{ background: "var(--red)", height: "100%" }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: catIndex * 0.07 + i * 0.05, ease: "easeOut" }}
+                      />
+                    </div>
+                    <span
+                      className="text-xs w-8 text-right flex-shrink-0"
+                      style={{ fontFamily: "var(--font-mono)", color: "var(--ink-mute)" }}
+                    >
+                      {skill.level}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Extra tools strip */}
+        {/* Extra tools */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 p-6 rounded-2xl border"
+          transition={{ duration: 0.45, delay: 0.25 }}
+          className="mt-6 border p-6"
           style={{
-            background: "var(--background-card)",
-            borderColor: "var(--border)",
+            background: "var(--background)",
+            borderColor: "var(--border-mid)",
           }}
         >
           <p
-            className="text-xs uppercase tracking-[0.2em] text-center mb-4"
-            style={{ fontFamily: "var(--font-mono)", color: "var(--text-light)" }}
+            className="text-xs tracking-[0.2em] uppercase mb-5 text-center"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
-            weitere tools & ökosystem
+            // weitere tools &amp; ökosystem
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
             {extraTools.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1.5 rounded-lg text-sm border cursor-default transition-all duration-200 hover:border-[rgba(124,92,255,0.35)] hover:text-white"
+                className="text-xs px-3 py-1.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
                 style={{
                   fontFamily: "var(--font-mono)",
-                  background: "rgba(255,255,255,0.03)",
+                  background: "var(--surface)",
                   borderColor: "var(--border)",
-                  color: "var(--text-light)",
+                  color: "var(--ink-dim)",
                 }}
               >
                 {tag}

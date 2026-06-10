@@ -10,25 +10,26 @@ export default function Projects() {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24" style={{ background: "var(--background-soft)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Projekte"
-          subtitle="Ausgewählte Projekte — von der Idee bis zur Umsetzung"
-        />
+    <section
+      id="projects"
+      className="py-28"
+      style={{ background: "var(--surface)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <SectionTitle title="Projekte" num="// 05" />
 
-        {/* Featured projects */}
         {featuredProjects.length > 0 && (
           <div className="mb-10">
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-slate-500 text-sm uppercase tracking-widest mb-5"
+              className="text-xs tracking-[0.18em] uppercase mb-5"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
             >
-              — Highlight-Projekt
+              // highlight-projekt
             </motion.p>
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-5">
               {featuredProjects.map((project) => (
                 <ProjectCard key={project.name} project={project} featured />
               ))}
@@ -36,18 +37,18 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Other projects */}
         {otherProjects.length > 0 && (
           <div>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-slate-500 text-sm uppercase tracking-widest mb-5"
+              className="text-xs tracking-[0.18em] uppercase mb-5"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
             >
-              — Weitere Projekte
+              // weitere projekte
             </motion.p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {otherProjects.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}

@@ -5,43 +5,39 @@ import { motion } from "framer-motion";
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
+  num?: string;
   centered?: boolean;
 }
 
-export default function SectionTitle({ title, subtitle, centered = true }: SectionTitleProps) {
+export default function SectionTitle({ title, num, centered = false }: SectionTitleProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className={`mb-12 ${centered ? "text-center" : ""}`}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className={`section-header-chrome mb-12 ${centered ? "justify-center" : ""}`}
     >
+      {num && (
+        <span
+          className="text-xs tracking-[0.18em] uppercase select-none"
+          style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
+        >
+          {num}
+        </span>
+      )}
       <h2
-        className="font-black tracking-tight mb-3"
+        className="tracking-tight"
         style={{
-          fontSize: "clamp(32px, 4vw, 48px)",
-          color: "var(--text-primary)",
+          fontSize: "clamp(26px, 3.2vw, 38px)",
           fontFamily: "var(--font-display)",
+          color: "var(--ink)",
+          letterSpacing: "0.03em",
+          textTransform: "uppercase",
         }}
       >
         {title}
-        <span style={{ color: "var(--brand-primary)" }}>.</span>
       </h2>
-      {subtitle && (
-        <p
-          className="text-lg max-w-2xl mx-auto"
-          style={{ color: "var(--text-light)" }}
-        >
-          {subtitle}
-        </p>
-      )}
-      <div
-        className={`mt-4 h-px w-20 rounded-full ${centered ? "mx-auto" : ""}`}
-        style={{
-          background: "linear-gradient(to right, #7c5cff, #ff7ab5, transparent)",
-        }}
-      />
     </motion.div>
   );
 }
