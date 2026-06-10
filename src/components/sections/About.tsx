@@ -92,7 +92,7 @@ export default function About() {
           >
             {/* Avatar placeholder */}
             <div
-              className="border mb-8 flex items-center justify-center aspect-square max-w-xs"
+              className="border mb-8 flex items-center justify-center aspect-square max-w-xs mx-auto lg:mx-0"
               style={{
                 background: "var(--surface)",
                 borderColor: "var(--border-mid)",

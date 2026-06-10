@@ -78,7 +78,7 @@ export default function Hero() {
             // bilal@portfolio:~
           </span>
           <span
-            className="text-xs tracking-[0.2em] uppercase"
+            className="hidden sm:inline text-xs tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
           >
             $ whoami
