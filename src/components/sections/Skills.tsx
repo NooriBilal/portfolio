@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { skills } from "@/data/portfolio";
 
@@ -11,6 +11,8 @@ const extraTools = [
 ];
 
 export default function Skills() {
+  const prefersReduced = useReducedMotion();
+
   return (
     <section
       id="skills"
@@ -24,7 +26,7 @@ export default function Skills() {
           {skills.map((category, catIndex) => (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: catIndex * 0.07 }}
@@ -55,7 +57,7 @@ export default function Skills() {
                 {category.skills.map((skill, i) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0 }}
+                    initial={prefersReduced ? { opacity: 1 } : { opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: catIndex * 0.07 + i * 0.04 }}
@@ -77,7 +79,7 @@ export default function Skills() {
 
         {/* Extra tools */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, delay: 0.25 }}

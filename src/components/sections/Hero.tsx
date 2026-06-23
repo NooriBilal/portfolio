@@ -86,6 +86,7 @@ export default function Hero() {
           <span
             className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
             style={{ background: "var(--red)" }}
+            aria-hidden="true"
           />
         </div>
 
@@ -116,7 +117,7 @@ export default function Hero() {
             }}
           >
             Noori
-            <span className="cursor-blink" style={{ color: "var(--ink-mute)" }}>
+            <span className="cursor-blink" style={{ color: "var(--ink-mute)" }} aria-hidden="true">
               _
             </span>
           </span>
@@ -147,7 +148,7 @@ export default function Hero() {
           <a
             href={personalInfo.cvUrl}
             download
-            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition-all duration-150 hover:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition duration-150 hover:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               fontFamily: "var(--font-mono)",
               background: "var(--red)",
@@ -156,7 +157,7 @@ export default function Hero() {
               opacity: prefersReduced ? 1 : 0,
             }}
           >
-            <Download size={15} />
+            <Download size={15} aria-hidden="true" />
             CV herunterladen
           </a>
 
@@ -166,7 +167,7 @@ export default function Hero() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               fontFamily: "var(--font-mono)",
               color: "var(--ink-dim)",
@@ -175,7 +176,7 @@ export default function Hero() {
               opacity: prefersReduced ? 1 : 0,
             }}
           >
-            <Mail size={15} />
+            <Mail size={15} aria-hidden="true" />
             Kontakt
           </a>
 
@@ -183,7 +184,7 @@ export default function Hero() {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               color: "var(--ink-dim)",
               borderColor: "var(--border-mid)",
@@ -200,10 +201,10 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1.4, delay: 1.2, ease: "easeInOut" }}
-            className="h-px"
+            initial={prefersReduced ? { scaleX: 1 } : { scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={prefersReduced ? { duration: 0 } : { duration: 1.4, delay: 1.2, ease: "easeInOut" }}
+            className="h-px w-full origin-left"
             style={{ background: "var(--border-mid)" }}
           />
         </div>

@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-23 | Automatisch
+**Commit:** `ee14ed3` — "chore: claude code skills aus git ausschließen"
+**Was:** fix(a11y): Deko-Icons aria-hidden, Hero-Divider auf scaleX-Transform + reduced-motion, Skills.tsx whileInView respektiert prefers-reduced-motion, transition-all -> transition auf CTAs — restliche Befunde der web-design-guidelines Skill
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-23 | Automatisch
 **Commit:** `80d5016` — "chore: merge conflict in Skills.tsx gelöst, remote Design beibehalten"
 **Was:** fix(hero): Reduced-Motion-Sichtbarkeit (Buttons/Eyebrow/Sub bei prefers-reduced-motion sichtbar) + focus-visible Ringe auf CTAs — gefunden via vercel web-design-guidelines Skill
 **TODOs noch offen:**
