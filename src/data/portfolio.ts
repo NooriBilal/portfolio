@@ -5,7 +5,7 @@
 export const personalInfo = {
   name: "Bilal Noori",
   title: "Fullstack Developer",
-  tagline: "Ich baue skalierbare Webanwendungen und APIs — von der Idee bis zur Produktion.",
+  tagline: "Ich baue skalierbare Webanwendungen und APIs, von der Idee bis zur Produktion.",
   email: "nooribi.bewerbung@gmail.com",
   github: "https://github.com/NooriBilal",
   linkedin: "www.linkedin.com/in/bilal-noori-742510382",
@@ -32,6 +32,7 @@ export const skills: SkillCategory[] = [
     category: "Sprachen",
     skills: [
       { name: "Python", level: 90 },
+      { name: "PHP", level: 72 },
       { name: "TypeScript", level: 85 },
       { name: "JavaScript", level: 85 },
       { name: "SQL", level: 75 },
@@ -52,7 +53,6 @@ export const skills: SkillCategory[] = [
     category: "Datenbanken & Tools",
     skills: [
       { name: "PostgreSQL", level: 80 },
-      { name: "Redis", level: 70 },
       { name: "Git / GitHub", level: 88 },
       { name: "REST APIs", level: 90 },
     ],
@@ -61,9 +61,7 @@ export const skills: SkillCategory[] = [
     category: "DevOps & Cloud",
     skills: [
       { name: "Docker", level: 78 },
-      { name: "Linux", level: 75 },
       { name: "Vercel", level: 80 },
-      { name: "CI/CD", level: 68 },
     ],
   },
 ];
@@ -139,12 +137,6 @@ export const certificates: Certificate[] = [
     issuer: "Dublin",
     date: "2024",
     credentialUrl: "/Certificate ST - Bilal NOORI (1).pdf",
-  },
-  {
-    title: "Weiteres Zertifikat",
-    issuer: "Kommt bald",
-    date: "",
-    comingSoon: true,
   },
 ];
 
