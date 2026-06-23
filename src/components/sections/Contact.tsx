@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -21,6 +21,7 @@ export default function Contact() {
     name: "", email: "", subject: "", message: "",
   });
   const [status, setStatus] = useState<Status>("idle");
+  const prefersReduced = useReducedMotion();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -78,7 +79,7 @@ export default function Contact() {
 
           {/* Info col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
@@ -145,7 +146,7 @@ export default function Contact() {
 
           {/* Form col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -154,10 +155,12 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label style={labelStyle}>Name *</label>
+                  <label htmlFor="name" style={labelStyle}>Name *</label>
                   <input
                     type="text"
+                    id="name"
                     name="name"
+                    autoComplete="name"
                     required
                     value={form.name}
                     onChange={handleChange}
@@ -168,10 +171,13 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label style={labelStyle}>E-Mail *</label>
+                  <label htmlFor="email" style={labelStyle}>E-Mail *</label>
                   <input
                     type="email"
+                    id="email"
                     name="email"
+                    autoComplete="email"
+                    spellCheck={false}
                     required
                     value={form.email}
                     onChange={handleChange}
@@ -184,10 +190,12 @@ export default function Contact() {
               </div>
 
               <div>
-                <label style={labelStyle}>Betreff</label>
+                <label htmlFor="subject" style={labelStyle}>Betreff</label>
                 <input
                   type="text"
+                  id="subject"
                   name="subject"
+                  autoComplete="off"
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Worum geht es?"
@@ -198,9 +206,11 @@ export default function Contact() {
               </div>
 
               <div>
-                <label style={labelStyle}>Nachricht *</label>
+                <label htmlFor="message" style={labelStyle}>Nachricht *</label>
                 <textarea
+                  id="message"
                   name="message"
+                  autoComplete="off"
                   required
                   rows={6}
                   value={form.message}
@@ -214,6 +224,8 @@ export default function Contact() {
 
               {status === "success" && (
                 <div
+                  role="status"
+                  aria-live="polite"
                   className="flex items-center gap-2 text-xs p-3 border"
                   style={{
                     fontFamily: "var(--font-mono)",
@@ -222,12 +234,14 @@ export default function Contact() {
                     background: "var(--surface)",
                   }}
                 >
-                  <CheckCircle size={14} style={{ color: "var(--red)" }} />
+                  <CheckCircle size={14} style={{ color: "var(--red)" }} aria-hidden="true" />
                   Nachricht gesendet. Ich melde mich bald!
                 </div>
               )}
               {status === "error" && (
                 <div
+                  role="alert"
+                  aria-live="assertive"
                   className="flex items-center gap-2 text-xs p-3 border"
                   style={{
                     fontFamily: "var(--font-mono)",
@@ -235,7 +249,7 @@ export default function Contact() {
                     borderColor: "var(--red-border)",
                   }}
                 >
-                  <AlertCircle size={14} style={{ color: "var(--red)" }} />
+                  <AlertCircle size={14} style={{ color: "var(--red)" }} aria-hidden="true" />
                   Fehler. Schreib direkt an {personalInfo.email}
                 </div>
               )}
@@ -243,7 +257,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-medium w-full transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90"
+                className="flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-medium w-full transition duration-150 disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90"
                 style={{
                   fontFamily: "var(--font-mono)",
                   background: "var(--red)",
@@ -251,7 +265,7 @@ export default function Contact() {
                   letterSpacing: "0.08em",
                 }}
               >
-                <Send size={14} />
+                <Send size={14} aria-hidden="true" />
                 {status === "sending" ? "wird geöffnet..." : "Nachricht senden"}
               </button>
             </form>

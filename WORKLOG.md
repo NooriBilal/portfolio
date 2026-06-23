@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-23 | Automatisch
+**Commit:** `c04dad5` — "fix(a11y): aria-hidden auf deko-icons, divider auf transform, reduced-motion in skills"
+**Was:** fix(a11y): Contact-Formular — label/input via htmlFor/id verknüpft, Statusmeldungen mit role/aria-live, autocomplete + spellCheck auf Feldern, Deko-Icons aria-hidden, whileInView reduced-motion, transition-all -> transition (Funde A+B der web-design-guidelines Skill, C übersprungen)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-23 | Automatisch
 **Commit:** `ee14ed3` — "chore: claude code skills aus git ausschließen"
 **Was:** fix(a11y): Deko-Icons aria-hidden, Hero-Divider auf scaleX-Transform + reduced-motion, Skills.tsx whileInView respektiert prefers-reduced-motion, transition-all -> transition auf CTAs — restliche Befunde der web-design-guidelines Skill
 **TODOs noch offen:**
