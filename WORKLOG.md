@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-06-23 | Automatisch
+**Commit:** `80d5016` — "chore: merge conflict in Skills.tsx gelöst, remote Design beibehalten"
+**Was:** fix(hero): Reduced-Motion-Sichtbarkeit (Buttons/Eyebrow/Sub bei prefers-reduced-motion sichtbar) + focus-visible Ringe auf CTAs — gefunden via vercel web-design-guidelines Skill
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-06-03 | Automatisch
 **Commit:** `9152608` — "feat: fill in real content — experience, education, certificates, clean up TODO projects"
 **Was:** Echte Inhalte eingetragen: Ausbildung Behrens & Schuleit, Berufsschule Heinrich-Hertz-Berufskolleg, Dublin-Zertifikat; TODO-Projekte und Placeholder-Erfahrungen entfernt

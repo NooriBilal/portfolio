@@ -69,7 +69,7 @@ export default function Hero() {
         {/* Eyebrow */}
         <div
           className="hero-eyebrow flex items-center gap-3 mb-10"
-          style={{ opacity: 0 }}
+          style={{ opacity: prefersReduced ? 1 : 0 }}
         >
           <span
             className="text-xs tracking-[0.2em] uppercase"
@@ -123,7 +123,7 @@ export default function Hero() {
         </h1>
 
         {/* Sub */}
-        <div className="hero-sub mb-12" style={{ opacity: 0 }}>
+        <div className="hero-sub mb-12" style={{ opacity: prefersReduced ? 1 : 0 }}>
           <p
             className="text-sm tracking-[0.12em] uppercase mb-2"
             style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
@@ -147,13 +147,13 @@ export default function Hero() {
           <a
             href={personalInfo.cvUrl}
             download
-            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition-all duration-150 hover:brightness-90"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition-all duration-150 hover:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               fontFamily: "var(--font-mono)",
               background: "var(--red)",
               color: "#fff",
               letterSpacing: "0.08em",
-              opacity: 0,
+              opacity: prefersReduced ? 1 : 0,
             }}
           >
             <Download size={15} />
@@ -166,13 +166,13 @@ export default function Hero() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)]"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               fontFamily: "var(--font-mono)",
               color: "var(--ink-dim)",
               borderColor: "var(--border-mid)",
               letterSpacing: "0.08em",
-              opacity: 0,
+              opacity: prefersReduced ? 1 : 0,
             }}
           >
             <Mail size={15} />
@@ -183,11 +183,11 @@ export default function Hero() {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)]"
+            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               color: "var(--ink-dim)",
               borderColor: "var(--border-mid)",
-              opacity: 0,
+              opacity: prefersReduced ? 1 : 0,
             }}
             aria-label="GitHub"
           >
