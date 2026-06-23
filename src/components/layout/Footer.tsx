@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Heart } from "lucide-react";
+import { Mail } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import { personalInfo } from "@/data/portfolio";
 
@@ -8,45 +8,64 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800/50 py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo + tagline */}
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center font-bold text-white text-xs">
-                BN
-              </div>
-              <span className="font-semibold text-white">Bilal Noori</span>
-            </div>
-            <p className="text-slate-500 text-sm">Fullstack Developer · Deutschland</p>
+    <footer
+      className="border-t py-10"
+      style={{ background: "var(--surface)", borderColor: "var(--red)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <span
+              className="text-2xl"
+              style={{ fontFamily: "var(--font-display)", color: "var(--red)", letterSpacing: "0.04em" }}
+            >
+              BN
+            </span>
+            <span
+              className="text-xs tracking-[0.14em] uppercase"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+            >
+              Fullstack Developer · Deutschland
+            </span>
           </div>
 
-          {/* Social links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800 transition-all"
+              className="p-2.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
+              style={{ color: "var(--ink-dim)", borderColor: "var(--border-mid)" }}
               aria-label="GitHub"
             >
-              <GithubIcon size={18} />
+              <GithubIcon size={15} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-slate-800 transition-all"
+              className="p-2.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
+              style={{ color: "var(--ink-dim)", borderColor: "var(--border-mid)" }}
               aria-label="E-Mail"
             >
-              <Mail size={18} />
+              <Mail size={15} />
             </a>
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
-          <p>© {year} Bilal Noori. Alle Rechte vorbehalten.</p>
-          <p className="flex items-center gap-1.5">
-            Gebaut mit <Heart size={13} className="text-indigo-500 fill-indigo-500" /> und Next.js
+        <div
+          className="mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-2"
+          style={{ borderColor: "var(--border)" }}
+        >
+          <p
+            className="text-xs"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+          >
+            © {year} Bilal Noori
+          </p>
+          <p
+            className="text-xs"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-mute)" }}
+          >
+            built with Next.js · deployed on Vercel
           </p>
         </div>
       </div>

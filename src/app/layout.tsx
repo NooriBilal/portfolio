@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Anton, DM_Sans, JetBrains_Mono } from "next/font/google";
+import LenisProvider from "@/providers/LenisProvider";
 import "./globals.css";
 
-const inter = Inter({
+const anton = Anton({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-display",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -38,9 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${inter.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-slate-900 text-slate-100 antialiased">
-        {children}
+    <html
+      lang="de"
+      className={`${anton.variable} ${dmSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
+      <body className="min-h-screen antialiased">
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

@@ -1,143 +1,212 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Mail, Download, ArrowDown } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import { personalInfo } from "@/data/portfolio";
+import gsap from "gsap";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export default function Hero() {
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const heroRef = useRef<HTMLElement>(null);
+  const prefersReduced = useReducedMotion();
+
+  useEffect(() => {
+    if (prefersReduced || !heroRef.current) return;
+
+    const tl = gsap.timeline({ delay: 0.1 });
+    tl.from(".hero-eyebrow", {
+      y: 14,
+      opacity: 0,
+      duration: 0.55,
+      ease: "power3.out",
+    })
+      .from(
+        ".hero-name-line",
+        {
+          clipPath: "inset(0 100% 0 0)",
+          duration: 0.75,
+          stagger: 0.12,
+          ease: "power4.inOut",
+        },
+        "-=0.2"
+      )
+      .from(
+        ".hero-sub",
+        { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" },
+        "-=0.3"
+      )
+      .from(
+        ".hero-cta",
+        { y: 14, opacity: 0, duration: 0.45, stagger: 0.1, ease: "power3.out" },
+        "-=0.25"
+      );
+
+    return () => { tl.kill(); };
+  }, [prefersReduced]);
 
   return (
     <section
+      ref={heroRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pt-14 overflow-hidden"
+      style={{ background: "var(--background)" }}
     >
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(99,102,241,0.15),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom-right,_rgba(14,165,233,0.1),transparent_60%)]" />
-        {/* Grid */}
+      {/* Subtle red atmosphere */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "-10%",
+          right: "-5%",
+          width: "45vw",
+          height: "45vw",
+          background: "radial-gradient(ellipse, rgba(212,43,43,0.07) 0%, transparent 65%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
+        {/* Eyebrow */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-      {/* Floating blobs */}
-      <motion.div
-        animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div
-        animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-8"
+          className="hero-eyebrow flex items-center gap-3 mb-10"
+          style={{ opacity: 0 }}
         >
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Offen für neue Möglichkeiten
-        </motion.div>
+          <span
+            className="text-xs tracking-[0.2em] uppercase"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
+          >
+            // bilal@portfolio:~
+          </span>
+          <span
+            className="hidden sm:inline text-xs tracking-[0.2em] uppercase"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+          >
+            $ whoami
+          </span>
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
+            style={{ background: "var(--red)" }}
+          />
+        </div>
 
-        {/* Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight"
-        >
-          {personalInfo.name}
-        </motion.h1>
+        {/* Name — the 120% detail */}
+        <h1 className="mb-8 leading-[0.88]">
+          <span
+            className="hero-name-line block"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(80px, 13vw, 180px)",
+              color: "var(--ink)",
+              letterSpacing: "0.02em",
+              textTransform: "uppercase",
+              clipPath: "inset(0 0% 0 0)",
+            }}
+          >
+            Bilal
+          </span>
+          <span
+            className="hero-name-line block"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(80px, 13vw, 180px)",
+              color: "var(--red)",
+              letterSpacing: "0.02em",
+              textTransform: "uppercase",
+              clipPath: "inset(0 0% 0 0)",
+            }}
+          >
+            Noori
+            <span className="cursor-blink" style={{ color: "var(--ink-mute)" }}>
+              _
+            </span>
+          </span>
+        </h1>
 
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent mb-6"
-        >
-          {personalInfo.title}
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {personalInfo.tagline}
-        </motion.p>
+        {/* Sub */}
+        <div className="hero-sub mb-12" style={{ opacity: 0 }}>
+          <p
+            className="text-sm tracking-[0.12em] uppercase mb-2"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+          >
+            Fullstack Developer · {personalInfo.location}
+          </p>
+          <p
+            className="max-w-lg leading-relaxed"
+            style={{
+              fontSize: "clamp(16px, 1.4vw, 19px)",
+              color: "var(--ink-dim)",
+              fontFamily: "var(--font-sans)",
+            }}
+          >
+            {personalInfo.tagline}
+          </p>
+        </div>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-16"
-        >
+        <div className="flex flex-wrap items-center gap-4">
           <a
             href={personalInfo.cvUrl}
             download
-            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition-all duration-150 hover:brightness-90"
+            style={{
+              fontFamily: "var(--font-mono)",
+              background: "var(--red)",
+              color: "#fff",
+              letterSpacing: "0.08em",
+              opacity: 0,
+            }}
           >
-            <Download size={18} />
+            <Download size={15} />
             CV herunterladen
           </a>
+
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-200 hover:bg-slate-800/60 hover:-translate-y-0.5"
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)]"
+            style={{
+              fontFamily: "var(--font-mono)",
+              color: "var(--ink-dim)",
+              borderColor: "var(--border-mid)",
+              letterSpacing: "0.08em",
+              opacity: 0,
+            }}
           >
-            <Mail size={18} />
-            Kontakt aufnehmen
+            <Mail size={15} />
+            Kontakt
           </a>
+
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-3 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white rounded-xl transition-all duration-200 hover:bg-slate-800/60 hover:-translate-y-0.5"
+            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition-all duration-150 hover:border-[var(--red)] hover:text-[var(--ink)]"
+            style={{
+              color: "var(--ink-dim)",
+              borderColor: "var(--border-mid)",
+              opacity: 0,
+            }}
             aria-label="GitHub"
           >
-            <GithubIcon size={18} />
+            <GithubIcon size={16} />
           </a>
-        </motion.div>
+        </div>
+      </div>
 
-        {/* Scroll indicator */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          onClick={scrollToAbout}
-          className="flex flex-col items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors mx-auto"
-          aria-label="Nach unten scrollen"
-        >
-          <span className="text-xs uppercase tracking-widest">Mehr erfahren</span>
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ArrowDown size={18} />
-          </motion.div>
-        </motion.button>
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 1.4, delay: 1.2, ease: "easeInOut" }}
+            className="h-px"
+            style={{ background: "var(--border-mid)" }}
+          />
+        </div>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ export const personalInfo = {
   tagline: "Ich baue skalierbare Webanwendungen und APIs, von der Idee bis zur Produktion.",
   email: "nooribi.bewerbung@gmail.com",
   github: "https://github.com/NooriBilal",
-  linkedin: "www.linkedin.com/in/bilal-noori-742510382",
+  linkedin: "https://www.linkedin.com/in/bilal-noori-742510382",
   location: "Deutschland",
   cvUrl: "/cv-bilal-noori.pdf",
 };

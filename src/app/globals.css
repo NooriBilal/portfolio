@@ -1,10 +1,23 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DARK BRUTALIST TERMINAL
+   Terminal-Struktur × Brutalist-Modern × Rot als einziger Akzent
+   ============================================================ */
+
 :root {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --accent: #6366f1;
-  --accent-secondary: #0ea5e9;
+  --background:    #0b0b0b;
+  --surface:       #111111;
+  --surface-2:     #181818;
+  --surface-3:     #1e1e1e;
+  --ink:           #e4dcd4;
+  --ink-dim:       #5a5550;
+  --ink-mute:      #302e2c;
+  --red:           #d42b2b;
+  --red-glow:      rgba(212, 43, 43, 0.12);
+  --red-border:    rgba(212, 43, 43, 0.28);
+  --border:        #1e1e1e;
+  --border-mid:    #2a2929;
 }
 
 html {
@@ -13,26 +26,78 @@ html {
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink-dim);
+  font-family: var(--font-sans), "DM Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #1e293b;
-}
-::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--red); }
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--red);
+  color: #fff;
 }
 
-/* Code block */
-pre {
-  overflow-x: auto;
+/* ─── Blinking cursor ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1.1s step-end infinite; }
+
+/* ─── Marquee ─── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee-left 28s linear infinite; }
+
+/* ─── CSS-native scroll reveals (Compositor-Thread) ─── */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-on-scroll {
+  animation: reveal-up linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 70%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cursor-blink { animation: none; }
+}
+
+/* ─── Code / Mono ─── */
+code, pre, .font-mono {
+  font-family: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ─── Terminal-style hr ─── */
+.red-rule {
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  border: none;
+  margin: 0;
+}
+
+/* ─── Section header chrome ─── */
+.section-header-chrome {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--red);
+  margin-bottom: 52px;
 }

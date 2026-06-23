@@ -2,74 +2,108 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
-import SkillBadge from "@/components/ui/SkillBadge";
 import { skills } from "@/data/portfolio";
+
+const extraTools = [
+  "Swagger / OpenAPI", "SQLAlchemy", "Pydantic", "pytest",
+  "GitHub Actions", "Nginx", "Celery", "WebSockets",
+  "JWT / OAuth", "Prisma", "Figma", "VS Code",
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-slate-950/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Skills"
-          subtitle="Technologien und Tools mit denen ich täglich arbeite"
-        />
+    <section
+      id="skills"
+      className="py-28"
+      style={{ background: "var(--surface)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <SectionTitle title="Skills" num="// 02" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((category, catIndex) => (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/40 hover:border-indigo-500/30 transition-colors"
+              transition={{ duration: 0.45, delay: catIndex * 0.07 }}
+              className="border"
+              style={{
+                background: "var(--background)",
+                borderColor: "var(--border-mid)",
+              }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-6 rounded-full bg-gradient-to-b from-indigo-500 to-sky-500" />
-                <h3 className="text-white font-semibold text-lg">{category.category}</h3>
+              {/* Category header */}
+              <div
+                className="px-5 py-3 border-b flex items-center gap-3"
+                style={{ background: "var(--surface-2)", borderColor: "var(--border)" }}
+              >
+                <span style={{ color: "var(--red)", fontFamily: "var(--font-mono)", fontSize: 11 }}>
+                  //
+                </span>
+                <span
+                  className="text-xs tracking-[0.14em] uppercase"
+                  style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+                >
+                  {category.category}
+                </span>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <SkillBadge
+              {/* Skill rows */}
+              <div className="divide-y" style={{ borderColor: "var(--border)" }}>
+                {category.skills.map((skill, i) => (
+                  <motion.div
                     key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    index={catIndex * 5 + skillIndex}
-                  />
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: catIndex * 0.07 + i * 0.04 }}
+                    className="flex items-center gap-4 px-5 py-3 group"
+                    style={{ borderColor: "var(--border)" }}
+                  >
+                    <span
+                      className="text-sm w-32 flex-shrink-0"
+                      style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+                    >
+                      {skill.name}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Tech tag cloud */}
+        {/* Extra tools */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 p-6 rounded-2xl bg-slate-800/30 border border-slate-700/30"
+          transition={{ duration: 0.45, delay: 0.25 }}
+          className="mt-6 border p-6"
+          style={{
+            background: "var(--background)",
+            borderColor: "var(--border-mid)",
+          }}
         >
-          <p className="text-slate-500 text-sm text-center mb-4">Weitere Tools & Technologien</p>
+          <p
+            className="text-xs tracking-[0.2em] uppercase mb-5 text-center"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
+          >
+            // weitere tools &amp; ökosystem
+          </p>
           <div className="flex flex-wrap gap-2 justify-center">
-            {[
-              "Swagger / OpenAPI",
-              "SQLAlchemy",
-              "Pydantic",
-              "pytest",
-              "GitHub Actions",
-              "Nginx",
-              "Celery",
-              "WebSockets",
-              "JWT / OAuth",
-              "Prisma",
-              "Figma",
-              "VS Code",
-            ].map((tag) => (
+            {extraTools.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-400 text-sm border border-slate-700/40 hover:border-indigo-500/30 hover:text-slate-200 transition-colors cursor-default"
+                className="text-xs px-3 py-1.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  background: "var(--surface)",
+                  borderColor: "var(--border)",
+                  color: "var(--ink-dim)",
+                }}
               >
                 {tag}
               </span>

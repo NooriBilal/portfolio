@@ -5,6 +5,15 @@
 
 ---
 
+
+---
+
+## 2026-06-03 | Automatisch
+**Commit:** `9152608` — "feat: fill in real content — experience, education, certificates, clean up TODO projects"
+**Was:** Echte Inhalte eingetragen: Ausbildung Behrens & Schuleit, Berufsschule Heinrich-Hertz-Berufskolleg, Dublin-Zertifikat; TODO-Projekte und Placeholder-Erfahrungen entfernt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
 ## 2026-06-02 | Session 3
 
 **Commit:** `ad5567c` — "Add files via upload"  
