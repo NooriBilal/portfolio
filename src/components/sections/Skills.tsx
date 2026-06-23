@@ -29,7 +29,7 @@ export default function Skills() {
                 <h3 className="text-white font-semibold text-lg">{category.category}</h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
                   <SkillBadge
                     key={skill.name}
