@@ -14,7 +14,8 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <SectionTitle title="Berufserfahrung" num="// 03" />
 
-        <div>
+        <div className="timeline-track">
+          <span className="timeline-flow" aria-hidden="true" />
           {experiences.map((exp, index) => (
             <TimelineItem
               key={`${exp.company}-${index}`}

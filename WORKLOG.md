@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `835163b` — "feat(timeline): ghost-jahr rechts + skills-block entfernt"
+**Was:** Timeline: fließende rote Linie (Puls läuft ease-in-out runter/hoch) statt hartem Hover-Umschalter
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `c3d2618` — "chore: WORKLOG — timeline-layout vereinheitlicht"
 **Was:** skills: block 'weitere tools & ökosystem' entfernt; timeline: ghost-jahr rechts (outline-numeral, füllt freiraum bis rote linie), datum-ausrichtung gelöst
 **TODOs noch offen:**

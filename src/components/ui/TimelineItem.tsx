@@ -44,12 +44,6 @@ export default function TimelineItem({
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="group border-l-2 pl-8 pb-10 relative"
       style={{ borderColor: "var(--border-mid)" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--red)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--border-mid)";
-      }}
     >
       {/* Dot */}
       <div
