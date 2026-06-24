@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `4666f90` — "feat(ui): mono-label lesbarkeit + content-politur"
+**Was:** Mono-Label-Lesbarkeit (.mono-label: Gewicht 500 + Tracking 0.1em), Banner heller; Werkstudent raus, em-dashes entfernt, Dublin-Zertifikat 2025
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `532313b` — "fix(a11y): ink-dim body-kontrast in dark auf AA (2.67:1 -> 7.11:1)"
 **Was:** ink-dim Body-Kontrast in Dark von 2.67:1 auf 7.11:1 (AA) angehoben
 **TODOs noch offen:**
