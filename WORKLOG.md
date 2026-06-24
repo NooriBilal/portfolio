@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `926c759` — "fix(content): bildung/berufserfahrung — abschluss-hinweis & datumskorrektur"
+**Was:** Bildung: Abschluss-Hinweis raus + Datum 07.2023-07.2026; Berufserfahrung: aktuell-Badge -> Abschluss voraussichtlich 09.07.2026, Datum 07.2026, Punkt bleibt rot
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `4666f90` — "feat(ui): mono-label lesbarkeit + content-politur"
 **Was:** Mono-Label-Lesbarkeit (.mono-label: Gewicht 500 + Tracking 0.1em), Banner heller; Werkstudent raus, em-dashes entfernt, Dublin-Zertifikat 2025
 **TODOs noch offen:**
