@@ -102,7 +102,7 @@ export default function Contact() {
                 <span style={{ color: "var(--red)" }}>reden.</span>
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "var(--ink-dim)" }}>
-                Offen für neue Möglichkeiten — Vollzeit, Werkstudent oder Freelance. Wenn du ein
+                Offen für neue Möglichkeiten: Vollzeit oder Freelance. Wenn du ein
                 interessantes Projekt oder eine offene Stelle hast, meld dich.
               </p>
             </div>
@@ -127,7 +127,7 @@ export default function Contact() {
                   }}
                 >
                   <span
-                    className="text-xs tracking-[0.12em] uppercase"
+                    className="mono-label text-xs tracking-[0.12em] uppercase"
                     style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
                   >
                     {item.label}

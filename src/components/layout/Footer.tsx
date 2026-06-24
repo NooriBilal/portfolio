@@ -22,7 +22,7 @@ export default function Footer() {
               BN
             </span>
             <span
-              className="text-xs tracking-[0.14em] uppercase"
+              className="mono-label text-xs tracking-[0.14em] uppercase"
               style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
             >
               Fullstack Developer · Deutschland

@@ -72,13 +72,13 @@ export default function Hero() {
           style={{ opacity: prefersReduced ? 1 : 0 }}
         >
           <span
-            className="text-xs tracking-[0.2em] uppercase"
+            className="mono-label text-xs tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
             // bilal@portfolio:~
           </span>
           <span
-            className="hidden sm:inline text-xs tracking-[0.2em] uppercase"
+            className="mono-label hidden sm:inline text-xs tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
           >
             $ whoami
@@ -126,7 +126,7 @@ export default function Hero() {
         {/* Sub */}
         <div className="hero-sub mb-12" style={{ opacity: prefersReduced ? 1 : 0 }}>
           <p
-            className="text-sm tracking-[0.12em] uppercase mb-2"
+            className="mono-label text-sm tracking-[0.12em] uppercase mb-2"
             style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
           >
             Fullstack Developer · {personalInfo.location}

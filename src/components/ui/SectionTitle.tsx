@@ -20,7 +20,7 @@ export default function SectionTitle({ title, num, centered = false }: SectionTi
     >
       {num && (
         <span
-          className="text-xs tracking-[0.18em] uppercase select-none"
+          className="mono-label text-xs tracking-[0.18em] uppercase select-none"
           style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
         >
           {num}

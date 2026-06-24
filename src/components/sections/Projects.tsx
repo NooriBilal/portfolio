@@ -24,7 +24,7 @@ export default function Projects() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-xs tracking-[0.18em] uppercase mb-5"
+              className="mono-label text-xs tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
             >
               // highlight-projekt
@@ -43,7 +43,7 @@ export default function Projects() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-xs tracking-[0.18em] uppercase mb-5"
+              className="mono-label text-xs tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
             >
               // weitere projekte

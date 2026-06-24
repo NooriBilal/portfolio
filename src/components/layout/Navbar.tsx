@@ -67,7 +67,7 @@ export default function Navbar() {
               BN
             </span>
             <span
-              className="hidden sm:block text-xs tracking-[0.14em] uppercase"
+              className="mono-label hidden sm:block text-xs tracking-[0.14em] uppercase"
               style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
             >
               Bilal Noori
@@ -85,7 +85,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="px-4 py-3.5 text-xs tracking-[0.12em] uppercase transition-all duration-150 relative"
+                  className="mono-label px-4 py-3.5 text-xs tracking-[0.12em] uppercase transition-all duration-150 relative"
                   style={{
                     fontFamily: "var(--font-mono)",
                     color: isActive ? "var(--red)" : "var(--ink-dim)",
@@ -144,7 +144,7 @@ export default function Navbar() {
                   <button
                     key={link.href}
                     onClick={() => handleNavClick(link.href)}
-                    className="py-2.5 text-left text-xs tracking-[0.14em] uppercase transition-colors duration-150"
+                    className="mono-label py-2.5 text-left text-xs tracking-[0.14em] uppercase transition-colors duration-150"
                     style={{
                       fontFamily: "var(--font-mono)",
                       color: isActive ? "var(--red)" : "var(--ink-dim)",

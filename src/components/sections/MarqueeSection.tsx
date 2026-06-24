@@ -18,8 +18,8 @@ export default function MarqueeSection() {
         {techStack.map((item, i) => (
           <span key={i} className="flex items-center">
             <span
-              className="px-6 text-xs tracking-[0.18em] uppercase"
-              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+              className="mono-label px-6 text-xs tracking-[0.18em] uppercase"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}
             >
               {item}
             </span>

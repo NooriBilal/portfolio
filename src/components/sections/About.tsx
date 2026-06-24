@@ -5,7 +5,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { personalInfo } from "@/data/portfolio";
 
 const traits = [
-  { label: "Clean Code",      desc: "Lesbarer, wartbarer Code — kein Wegwerfcode." },
+  { label: "Clean Code",      desc: "Lesbarer, wartbarer Code statt Wegwerfcode." },
   { label: "Performance",     desc: "Schnelle APIs, optimierte Abfragen, minimale Latenz." },
   { label: "Lernbereitschaft",desc: "Immer auf der Suche nach neuen Technologien." },
 ];
@@ -33,14 +33,14 @@ export default function About() {
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Ich bin Fachinformatiker für Anwendungsentwicklung im dritten Ausbildungsjahr bei{" "}
               <span style={{ color: "var(--ink)" }}>Behrens &amp; Schuleit GmbH</span> in
-              Düsseldorf. Neben der Ausbildung entwickle ich eigenständige Projekte — von
+              Düsseldorf. Neben der Ausbildung entwickle ich eigenständige Projekte, von
               REST-APIs bis zu vollständigen Webanwendungen.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Mein Fokus liegt auf der Schnittstelle zwischen solidem{" "}
               <span style={{ color: "var(--ink)" }}>Backend-Engineering</span> und moderner
               Frontend-Entwicklung. Aktuelles Herzensprojekt:{" "}
-              <span style={{ color: "var(--red)" }}>UFC Stats API</span> — eine umfassende
+              <span style={{ color: "var(--red)" }}>UFC Stats API</span>, eine umfassende
               REST-API für MMA-Daten.
             </p>
 
@@ -106,7 +106,7 @@ export default function About() {
                   BN
                 </div>
                 <span
-                  className="text-xs tracking-[0.12em] uppercase"
+                  className="mono-label text-xs tracking-[0.12em] uppercase"
                   style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
                 >
                   foto kommt bald

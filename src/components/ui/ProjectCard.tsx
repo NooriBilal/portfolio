@@ -71,7 +71,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       <div className="p-6">
         {featured && (
           <p
-            className="text-xs mb-3 tracking-[0.14em] uppercase"
+            className="mono-label text-xs mb-3 tracking-[0.14em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
             // highlight

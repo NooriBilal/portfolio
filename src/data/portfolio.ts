@@ -135,7 +135,7 @@ export const certificates: Certificate[] = [
   {
     title: "Praktikumszertifikat – Dublin",
     issuer: "Dublin",
-    date: "2024",
+    date: "2025",
     credentialUrl: "/Certificate ST - Bilal NOORI (1).pdf",
   },
 ];

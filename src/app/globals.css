@@ -102,6 +102,14 @@ code, pre, .font-mono {
   font-family: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
 }
 
+/* ─── Mono-Labels: lesbarer machen ───
+   Höheres Gewicht + ruhigeres Tracking für kleine, graue Uppercase-Labels.
+   Unlayered → überschreibt bewusst die per-Element tracking-[…]-Utilities. */
+.mono-label {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
 /* ─── Terminal-style hr ─── */
 .red-rule {
   width: 100%;

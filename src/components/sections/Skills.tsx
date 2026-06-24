@@ -45,7 +45,7 @@ export default function Skills() {
                   //
                 </span>
                 <span
-                  className="text-xs tracking-[0.14em] uppercase"
+                  className="mono-label text-xs tracking-[0.14em] uppercase"
                   style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
                 >
                   {category.category}
@@ -90,7 +90,7 @@ export default function Skills() {
           }}
         >
           <p
-            className="text-xs tracking-[0.2em] uppercase mb-5 text-center"
+            className="mono-label text-xs tracking-[0.2em] uppercase mb-5 text-center"
             style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
             // weitere tools &amp; ökosystem
