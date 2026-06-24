@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `baabfdb` — "feat(timeline): fließende linie — roter puls läuft sanft runter und hoch"
+**Was:** Timeline: Hover-Fill — Linie füllt sich bei Hover von oben nach unten rot, läuft beim Verlassen zurück
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `835163b` — "feat(timeline): ghost-jahr rechts + skills-block entfernt"
 **Was:** Timeline: fließende rote Linie (Puls läuft ease-in-out runter/hoch) statt hartem Hover-Umschalter
 **TODOs noch offen:**

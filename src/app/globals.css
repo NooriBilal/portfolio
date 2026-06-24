@@ -129,37 +129,26 @@ code, pre, .font-mono {
   margin-bottom: 52px;
 }
 
-/* ─── Timeline: fließende Linie ───
-   Die graue Item-Border bildet die statische Schiene; darüber läuft ein
-   roter Leucht-Puls flüssig runter und wieder hoch (ease-in-out = sanftes
-   Abbremsen oben/unten — kein hartes Ein/Aus). */
-.timeline-track { position: relative; }
-
-.timeline-flow {
+/* ─── Timeline: Hover-Fill ───
+   Die graue Item-Border ist die Schiene. Bei Hover füllt sich eine rote
+   Linie von oben nach unten (transform-origin: top); beim Verlassen läuft
+   sie wieder nach oben zurück. */
+.timeline-fill {
   position: absolute;
-  left: -1px;
-  width: 4px;
-  height: 22%;
-  border-radius: 4px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--red) 50%,
-    transparent
-  );
-  filter: drop-shadow(0 0 6px var(--red-border));
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
-  animation: timeline-flow 5s ease-in-out infinite;
 }
-
-@keyframes timeline-flow {
-  0%   { top: 0%; }
-  50%  { top: 78%; }   /* 100% - height, damit der Puls die Schiene voll ausläuft */
-  100% { top: 0%; }
-}
+.group:hover .timeline-fill { transform: scaleY(1); }
 
 @media (prefers-reduced-motion: reduce) {
-  .timeline-flow { display: none; }
+  .timeline-fill { transition: none; }
 }
 
 /* Ghost-Jahr — großes Outline-Jahr rechts in der Timeline */

@@ -45,6 +45,9 @@ export default function TimelineItem({
       className="group border-l-2 pl-8 pb-10 relative"
       style={{ borderColor: "var(--border-mid)" }}
     >
+      {/* Hover-Fill: füllt die Linie von oben nach unten, beim Verlassen zurück */}
+      <span className="timeline-fill" aria-hidden="true" />
+
       {/* Dot */}
       <div
         className="absolute -left-[7px] top-[5px] w-3 h-3 border-2 transition-all duration-200"

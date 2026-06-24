@@ -9,8 +9,7 @@ export default function Education() {
     <section id="education" className="py-28" style={{ background: "var(--surface)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <SectionTitle title="Bildung" num="// 04" />
-        <div className="timeline-track">
-          <span className="timeline-flow" aria-hidden="true" />
+        <div>
           {education.map((edu, index) => (
             <TimelineItem
               key={`${edu.institution}-${index}`}
