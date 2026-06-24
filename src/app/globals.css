@@ -147,8 +147,21 @@ code, pre, .font-mono {
 }
 .group:hover .timeline-fill { transform: scaleY(1); }
 
+/* Dot oben am Eintrag: bei Hover (oder aktuellem Eintrag) rot befüllt */
+.timeline-dot {
+  background: var(--background);
+  border-color: var(--border-mid);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.timeline-dot--current,
+.group:hover .timeline-dot {
+  background: var(--red);
+  border-color: var(--red);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .timeline-fill { transition: none; }
+  .timeline-fill,
+  .timeline-dot { transition: none; }
 }
 
 /* Ghost-Jahr — großes Outline-Jahr rechts in der Timeline */

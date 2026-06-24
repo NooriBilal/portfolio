@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `29a3c8d` — "fix(timeline): hover-fill statt dauerpuls — linie füllt sich von oben nach unten"
+**Was:** Timeline: Dot (Quadrat) füllt sich bei Hover rot — Bildung & Berufserfahrung
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `baabfdb` — "feat(timeline): fließende linie — roter puls läuft sanft runter und hoch"
 **Was:** Timeline: Hover-Fill — Linie füllt sich bei Hover von oben nach unten rot, läuft beim Verlassen zurück
 **TODOs noch offen:**
