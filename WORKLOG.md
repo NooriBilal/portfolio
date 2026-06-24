@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-06-24 | Automatisch
+**Commit:** `42a2c3a` — "feat(theme): dark/light-umschaltung mit warm-paper light-theme"
+**Was:** Dark/Light-Theme: Warm-Paper-Palette (AA), ThemeToggle in Navbar, FOUC-Schutz, ink-mute-Kontrast in beiden Themes auf ~5:1 angehoben
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-06-23 | Automatisch
 **Commit:** `c04dad5` — "fix(a11y): aria-hidden auf deko-icons, divider auf transform, reduced-motion in skills"
 **Was:** fix(a11y): Contact-Formular — label/input via htmlFor/id verknüpft, Statusmeldungen mit role/aria-live, autocomplete + spellCheck auf Feldern, Deko-Icons aria-hidden, whileInView reduced-motion, transition-all -> transition (Funde A+B der web-design-guidelines Skill, C übersprungen)
