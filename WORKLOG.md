@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `532313b` — "fix(a11y): ink-dim body-kontrast in dark auf AA (2.67:1 -> 7.11:1)"
+**Was:** ink-dim Body-Kontrast in Dark von 2.67:1 auf 7.11:1 (AA) angehoben
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `42a2c3a` — "feat(theme): dark/light-umschaltung mit warm-paper light-theme"
 **Was:** Dark/Light-Theme: Warm-Paper-Palette (AA), ThemeToggle in Navbar, FOUC-Schutz, ink-mute-Kontrast in beiden Themes auf ~5:1 angehoben
 **TODOs noch offen:**
