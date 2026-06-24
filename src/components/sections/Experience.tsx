@@ -24,6 +24,8 @@ export default function Experience() {
               description={exp.description}
               technologies={exp.technologies}
               current={exp.current}
+              pending={exp.pending}
+              pendingNote={exp.pendingNote}
               index={index}
             />
           ))}

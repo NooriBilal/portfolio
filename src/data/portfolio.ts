@@ -77,14 +77,18 @@ export interface Experience {
   description: string[];
   technologies: string[];
   current?: boolean;
+  pending?: boolean;
+  pendingNote?: string;
 }
 
 export const experiences: Experience[] = [
   {
     company: "Behrens & Schuleit GmbH",
     role: "Auszubildender Fachinformatiker für Anwendungsentwicklung",
-    period: "07.2023 – 09.2026",
+    period: "07.2023 – 07.2026",
     current: true,
+    pending: true,
+    pendingNote: "Abschluss voraussichtlich 09.07.2026",
     description: [
       "Entwicklung und Anpassung von Geschäftsprozessen auf der Low-Code-Plattform JobRouter.",
       "Implementierung von Prozesslogik und Automatisierungen mit JavaScript und PHP.",
@@ -111,11 +115,9 @@ export const education: Education[] = [
   {
     institution: "Heinrich-Hertz-Berufskolleg Düsseldorf",
     degree: "Fachinformatiker für Anwendungsentwicklung",
-    period: "2023 – 2026",
+    period: "07.2023 – 07.2026",
     description:
       "Berufsschule im Rahmen der dualen Ausbildung. Schwerpunkte: Softwareentwicklung, Datenbanken, Netzwerktechnik und IT-Systeme.",
-    pending: true,
-    pendingNote: "Abschluss voraussichtlich 09.2026",
   },
 ];
 
