@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `7afbaf2` — "style(timeline): datum einheitlich oben rechts, status-badge in eigene zeile"
+**Was:** Timeline-Kopfzeile vereinheitlicht: Datum immer oben rechts (nowrap), Status-Badge in eigener Zeile darunter
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `926c759` — "fix(content): bildung/berufserfahrung — abschluss-hinweis & datumskorrektur"
 **Was:** Bildung: Abschluss-Hinweis raus + Datum 07.2023-07.2026; Berufserfahrung: aktuell-Badge -> Abschluss voraussichtlich 09.07.2026, Datum 07.2026, Punkt bleibt rot
 **TODOs noch offen:**
