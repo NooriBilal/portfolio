@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "about",      href: "#about" },
@@ -73,6 +74,9 @@ export default function Navbar() {
             </span>
           </button>
 
+          {/* Rechter Cluster: Nav + Theme-Toggle + Mobile-Hamburger */}
+          <div className="flex items-center gap-1">
+
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-0">
             {navLinks.map((link) => {
@@ -103,6 +107,9 @@ export default function Navbar() {
             })}
           </nav>
 
+          {/* Theme-Toggle (Dark/Light) */}
+          <ThemeToggle />
+
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -112,6 +119,7 @@ export default function Navbar() {
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
+          </div>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, DM_Sans, JetBrains_Mono } from "next/font/google";
 import LenisProvider from "@/providers/LenisProvider";
 import "./globals.css";
@@ -46,6 +46,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0b0b0b",
+};
+
+// Setzt das Theme vor dem ersten Paint (verhindert FOUC/Flackern beim Reload).
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='light'?'#f4f0ea':'#0b0b0b');}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,9 +61,11 @@ export default function RootLayout({
   return (
     <html
       lang="de"
+      suppressHydrationWarning
       className={`${anton.variable} ${dmSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="min-h-screen antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
