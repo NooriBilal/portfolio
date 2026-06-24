@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `c3d2618` — "chore: WORKLOG — timeline-layout vereinheitlicht"
+**Was:** skills: block 'weitere tools & ökosystem' entfernt; timeline: ghost-jahr rechts (outline-numeral, füllt freiraum bis rote linie), datum-ausrichtung gelöst
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `7afbaf2` — "style(timeline): datum einheitlich oben rechts, status-badge in eigene zeile"
 **Was:** Timeline-Kopfzeile vereinheitlicht: Datum immer oben rechts (nowrap), Status-Badge in eigener Zeile darunter
 **TODOs noch offen:**

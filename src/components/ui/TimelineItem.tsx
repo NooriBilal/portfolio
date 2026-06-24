@@ -31,6 +31,11 @@ export default function TimelineItem({
     ? [description]
     : [];
 
+  // Datum aufteilen: großes Ghost-Jahr (Start) + kleiner Bereich darunter
+  const [startRaw, endRaw] = period.split(/\s*[–—-]\s*/).map((s) => s.trim());
+  const startYear = startRaw?.match(/\d{4}/)?.[0] ?? startRaw ?? period;
+  const endLabel = current ? "→ heute" : endRaw ? `→ ${endRaw}` : "";
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -24 }}
@@ -55,94 +60,116 @@ export default function TimelineItem({
         }}
       />
 
-      <div className="flex items-start justify-between gap-3 mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,44rem)_1fr] md:gap-x-10">
+        {/* Inhalts-Spalte */}
         <div>
-          <h3
-            className="text-base font-semibold mb-0.5 transition-colors duration-200 group-hover:text-[var(--ink)]"
-            style={{ color: "var(--ink)", fontFamily: "var(--font-sans)" }}
+          <div className="mb-2">
+            <h3
+              className="text-base font-semibold mb-0.5 transition-colors duration-200 group-hover:text-[var(--ink)]"
+              style={{ color: "var(--ink)", fontFamily: "var(--font-sans)" }}
+            >
+              {title}
+            </h3>
+            <p
+              className="text-sm font-medium"
+              style={{ color: "var(--red)", fontFamily: "var(--font-mono)" }}
+            >
+              {subtitle}
+            </p>
+          </div>
+
+          {/* Datum — nur mobil (Desktop übernimmt das Ghost-Jahr) */}
+          <span
+            className="md:hidden inline-block text-xs mb-3"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
           >
-            {title}
-          </h3>
-          <p
-            className="text-sm font-medium"
-            style={{ color: "var(--red)", fontFamily: "var(--font-mono)" }}
-          >
-            {subtitle}
-          </p>
+            {period}
+          </span>
+
+          {(current || pending) && (
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              {current && !pending && (
+                <span
+                  className="text-xs px-2 py-0.5 border"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    color: "var(--red)",
+                    borderColor: "var(--red-border)",
+                    background: "var(--red-glow)",
+                  }}
+                >
+                  aktuell
+                </span>
+              )}
+              {pending && (
+                <span
+                  className="text-xs px-2 py-0.5 border"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    color: "var(--ink-dim)",
+                    borderColor: "var(--border-mid)",
+                  }}
+                >
+                  {pendingNote ?? "ausstehend"}
+                </span>
+              )}
+            </div>
+          )}
+
+          {descriptionArray.length > 0 && (
+            <ul className="space-y-2 mb-4 mt-3">
+              {descriptionArray.map((line, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-sm"
+                  style={{ color: "var(--ink-dim)" }}
+                >
+                  <span className="mt-1 flex-shrink-0 text-xs" style={{ color: "var(--red)" }}>
+                    —
+                  </span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {technologies && technologies.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-xs px-2 py-0.5 border"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    background: "var(--surface)",
+                    borderColor: "var(--border-mid)",
+                    color: "var(--ink-dim)",
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-        <span
-          className="text-xs flex-shrink-0 whitespace-nowrap text-right mt-1"
-          style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
-        >
-          {period}
-        </span>
+
+        {/* Ghost-Jahr — Desktop, füllt den rechten Freiraum bis zur roten Linie */}
+        <div className="hidden md:flex flex-col items-end justify-start pt-0.5 select-none">
+          <span className="ghost-year" aria-hidden="true">
+            {startYear}
+          </span>
+          {endLabel && (
+            <span
+              className="text-xs mt-1.5 tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+            >
+              {endLabel}
+            </span>
+          )}
+          {/* vollständiges Datum für Screenreader */}
+          <span className="sr-only">{period}</span>
+        </div>
       </div>
-
-      {(current || pending) && (
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          {current && !pending && (
-            <span
-              className="text-xs px-2 py-0.5 border"
-              style={{
-                fontFamily: "var(--font-mono)",
-                color: "var(--red)",
-                borderColor: "var(--red-border)",
-                background: "var(--red-glow)",
-              }}
-            >
-              aktuell
-            </span>
-          )}
-          {pending && (
-            <span
-              className="text-xs px-2 py-0.5 border"
-              style={{
-                fontFamily: "var(--font-mono)",
-                color: "var(--ink-dim)",
-                borderColor: "var(--border-mid)",
-              }}
-            >
-              {pendingNote ?? "ausstehend"}
-            </span>
-          )}
-        </div>
-      )}
-
-      {descriptionArray.length > 0 && (
-        <ul className="space-y-2 mb-4 mt-3">
-          {descriptionArray.map((line, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-3 text-sm"
-              style={{ color: "var(--ink-dim)" }}
-            >
-              <span className="mt-1 flex-shrink-0 text-xs" style={{ color: "var(--red)" }}>
-                —
-              </span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {technologies && technologies.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-3">
-          {technologies.map((tech) => (
-            <span
-              key={tech}
-              className="text-xs px-2 py-0.5 border"
-              style={{
-                fontFamily: "var(--font-mono)",
-                background: "var(--surface)",
-                borderColor: "var(--border-mid)",
-                color: "var(--ink-dim)",
-              }}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      )}
     </motion.div>
   );
 }

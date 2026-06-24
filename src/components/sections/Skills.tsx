@@ -4,12 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { skills } from "@/data/portfolio";
 
-const extraTools = [
-  "Swagger / OpenAPI", "SQLAlchemy", "Pydantic", "pytest",
-  "GitHub Actions", "Nginx", "Celery", "WebSockets",
-  "JWT / OAuth", "Prisma", "Figma", "VS Code",
-];
-
 export default function Skills() {
   const prefersReduced = useReducedMotion();
 
@@ -76,42 +70,6 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
-
-        {/* Extra tools */}
-        <motion.div
-          initial={prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.25 }}
-          className="mt-6 border p-6"
-          style={{
-            background: "var(--background)",
-            borderColor: "var(--border-mid)",
-          }}
-        >
-          <p
-            className="mono-label text-xs tracking-[0.2em] uppercase mb-5 text-center"
-            style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
-          >
-            // weitere tools &amp; ökosystem
-          </p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {extraTools.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-3 py-1.5 border transition-colors duration-150 hover:border-[var(--red-border)] hover:text-[var(--ink)]"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  background: "var(--surface)",
-                  borderColor: "var(--border)",
-                  color: "var(--ink-dim)",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

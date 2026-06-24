@@ -128,3 +128,21 @@ code, pre, .font-mono {
   border-bottom: 2px solid var(--red);
   margin-bottom: 52px;
 }
+
+/* Ghost-Jahr — großes Outline-Jahr rechts in der Timeline */
+.ghost-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.85;
+  font-size: clamp(46px, 5.5vw, 82px);
+  letter-spacing: 0.01em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--border-mid);
+  transition: -webkit-text-stroke-color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.group:hover .ghost-year {
+  -webkit-text-stroke-color: var(--red);
+  opacity: 1;
+}
