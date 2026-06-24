@@ -55,7 +55,7 @@ export default function TimelineItem({
         }}
       />
 
-      <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+      <div className="flex items-start justify-between gap-3 mb-2">
         <div>
           <h3
             className="text-base font-semibold mb-0.5 transition-colors duration-200 group-hover:text-[var(--ink)]"
@@ -70,7 +70,16 @@ export default function TimelineItem({
             {subtitle}
           </p>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <span
+          className="text-xs flex-shrink-0 whitespace-nowrap text-right mt-1"
+          style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
+        >
+          {period}
+        </span>
+      </div>
+
+      {(current || pending) && (
+        <div className="flex flex-wrap items-center gap-2 mb-3">
           {current && !pending && (
             <span
               className="text-xs px-2 py-0.5 border"
@@ -96,14 +105,8 @@ export default function TimelineItem({
               {pendingNote ?? "ausstehend"}
             </span>
           )}
-          <span
-            className="text-xs"
-            style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
-          >
-            {period}
-          </span>
         </div>
-      </div>
+      )}
 
       {descriptionArray.length > 0 && (
         <ul className="space-y-2 mb-4 mt-3">
