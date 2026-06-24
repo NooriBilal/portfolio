@@ -48,12 +48,8 @@ export default function TimelineItem({
       {/* Hover-Fill: füllt die Linie von oben nach unten, beim Verlassen zurück */}
       <span className="timeline-fill" aria-hidden="true" />
 
-      {/* Dot — wird bei Hover (und im aktuellen Eintrag) rot befüllt */}
-      <div
-        className={`timeline-dot absolute -left-[7px] top-[5px] w-3 h-3 border-2${
-          current ? " timeline-dot--current" : ""
-        }`}
-      />
+      {/* Dot — nur bei Hover rot befüllt */}
+      <div className="timeline-dot absolute -left-[7px] top-[5px] w-3 h-3 border-2" />
 
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,44rem)_1fr] md:gap-x-10">
         {/* Inhalts-Spalte */}

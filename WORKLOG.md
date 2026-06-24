@@ -9,6 +9,15 @@
 ---
 
 ## 2026-06-24 | Automatisch
+**Commit:** `2e21126` — "feat(timeline): dot füllt sich bei hover rot"
+**Was:** Timeline: Dot nicht mehr dauerhaft rot bei current — nur noch Hover (wie Bildung)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-06-24 | Automatisch
 **Commit:** `29a3c8d` — "fix(timeline): hover-fill statt dauerpuls — linie füllt sich von oben nach unten"
 **Was:** Timeline: Dot (Quadrat) füllt sich bei Hover rot — Bildung & Berufserfahrung
 **TODOs noch offen:**

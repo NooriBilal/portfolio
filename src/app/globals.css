@@ -153,7 +153,6 @@ code, pre, .font-mono {
   border-color: var(--border-mid);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
-.timeline-dot--current,
 .group:hover .timeline-dot {
   background: var(--red);
   border-color: var(--red);
