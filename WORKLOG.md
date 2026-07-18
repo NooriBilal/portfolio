@@ -8,6 +8,24 @@
 
 ---
 
+## 2026-07-18 | Automatisch
+**Commit:** `5b99b89` — "fix(content): ausbildung als abgeschlossen — pending- und current-flag entfernt"
+**Was:** pending/current-Flags bei Behrens & Schuleit entfernt — Ausbildung abgeschlossen
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-18 | Automatisch
+**Commit:** `747d709` — "feat(zertifikate): abschlusszeugnis, ihk-bescheinigung und arbeitszeugnis ergänzt"
+**Was:** Zertifikate: Abschlusszeugnis, IHK-Bescheinigung, Arbeitszeugnis ergänzt + PDF-Dateinamen URL-sicher gemacht
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-06-24 | Automatisch
 **Commit:** `2e21126` — "feat(timeline): dot füllt sich bei hover rot"
 **Was:** Timeline: Dot nicht mehr dauerhaft rot bei current — nur noch Hover (wie Bildung)
