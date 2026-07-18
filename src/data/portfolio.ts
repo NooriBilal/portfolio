@@ -135,10 +135,28 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
   {
+    title: "Abschlusszeugnis – Fachinformatiker für Anwendungsentwicklung",
+    issuer: "Heinrich-Hertz-Berufskolleg Düsseldorf",
+    date: "07.2026",
+    credentialUrl: "/abschlusszeugnis.pdf",
+  },
+  {
+    title: "Vorläufige Bescheinigung über die bestandene Abschlussprüfung",
+    issuer: "IHK Düsseldorf",
+    date: "07.2026",
+    credentialUrl: "/vorlaeufige-bescheinigung.pdf",
+  },
+  {
+    title: "Arbeitszeugnis – Ausbildung Anwendungsentwicklung",
+    issuer: "Behrens & Schuleit GmbH",
+    date: "07.2026",
+    credentialUrl: "/arbeitszeugnis-behrens-schuleit.pdf",
+  },
+  {
     title: "Praktikumszertifikat – Dublin",
     issuer: "Dublin",
     date: "2025",
-    credentialUrl: "/Certificate ST - Bilal NOORI (1).pdf",
+    credentialUrl: "/praktikumszertifikat-dublin.pdf",
   },
 ];
 
