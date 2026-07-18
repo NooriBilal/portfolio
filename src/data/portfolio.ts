@@ -86,9 +86,6 @@ export const experiences: Experience[] = [
     company: "Behrens & Schuleit GmbH",
     role: "Auszubildender Fachinformatiker für Anwendungsentwicklung",
     period: "07.2023 – 07.2026",
-    current: true,
-    pending: true,
-    pendingNote: "Abschluss voraussichtlich 09.07.2026",
     description: [
       "Entwicklung und Anpassung von Geschäftsprozessen auf der Low-Code-Plattform JobRouter.",
       "Implementierung von Prozesslogik und Automatisierungen mit JavaScript und PHP.",
