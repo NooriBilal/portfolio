@@ -173,7 +173,13 @@ export interface Project {
   codeExample?: string;
 }
 
-export const projects: Project[] = [
+// Aktuell bewusst leer — die Projekte-Section rendert dann einen
+// "in Arbeit"-Zustand. Sobald ein Projekt vorzeigbar ist, hier eintragen.
+export const projects: Project[] = [];
+
+// Noch nicht vorzeigbar, aber die Daten bleiben erhalten: zum Aktivieren
+// einfach in das projects-Array oben verschieben.
+export const upcomingProjects: Project[] = [
   {
     name: "UFC Stats API",
     shortDescription:

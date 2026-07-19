@@ -31,17 +31,16 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Ich bin Fachinformatiker für Anwendungsentwicklung im dritten Ausbildungsjahr bei{" "}
-              <span style={{ color: "var(--ink)" }}>Behrens &amp; Schuleit GmbH</span> in
-              Düsseldorf. Neben der Ausbildung entwickle ich eigenständige Projekte, von
-              REST-APIs bis zu vollständigen Webanwendungen.
+              Ich bin ausgebildeter{" "}
+              <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
+              und habe meine Ausbildung im Juli 2026 bei der Behrens &amp; Schuleit GmbH in
+              Düsseldorf abgeschlossen.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Mein Fokus liegt auf der Schnittstelle zwischen solidem{" "}
               <span style={{ color: "var(--ink)" }}>Backend-Engineering</span> und moderner
-              Frontend-Entwicklung. Aktuelles Herzensprojekt:{" "}
-              <span style={{ color: "var(--red)" }}>UFC Stats API</span>, eine umfassende
-              REST-API für MMA-Daten.
+              Frontend-Entwicklung. Aktuell vertiefe ich das in eigenen Projekten — und suche
+              die Stelle, an der ich es täglich anwenden kann.
             </p>
 
             {/* Traits */}
