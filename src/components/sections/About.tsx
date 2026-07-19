@@ -5,9 +5,18 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { personalInfo } from "@/data/portfolio";
 
 const traits = [
-  { label: "Clean Code",      desc: "Lesbarer, wartbarer Code statt Wegwerfcode." },
-  { label: "Performance",     desc: "Schnelle APIs, optimierte Abfragen, minimale Latenz." },
-  { label: "Lernbereitschaft",desc: "Immer auf der Suche nach neuen Technologien." },
+  {
+    label: "3 Jahre Praxis",
+    desc: "Entwicklung im laufenden Unternehmensbetrieb — Anforderungen kamen von echten Fachabteilungen, nicht aus Übungsaufgaben.",
+  },
+  {
+    label: "Prozess-Automatisierung",
+    desc: "Geschäftsprozesse auf JobRouter digitalisiert: Logik in JavaScript und PHP, Daten in MSSQL.",
+  },
+  {
+    label: "Beide Seiten",
+    desc: "Backend mit Python und FastAPI, Frontend mit React und Next.js — inklusive dieser Seite.",
+  },
 ];
 
 
@@ -34,13 +43,26 @@ export default function About() {
               Ich bin ausgebildeter{" "}
               <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
               und habe meine Ausbildung im Juli 2026 bei der Behrens &amp; Schuleit GmbH in
-              Düsseldorf abgeschlossen.
+              Düsseldorf abgeschlossen — mit IHK-Abschluss und Arbeitszeugnis.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Mein Fokus liegt auf der Schnittstelle zwischen solidem{" "}
-              <span style={{ color: "var(--ink)" }}>Backend-Engineering</span> und moderner
-              Frontend-Entwicklung. Aktuell vertiefe ich das in eigenen Projekten — und suche
-              die Stelle, an der ich es täglich anwenden kann.
+              Drei Jahre davon habe ich{" "}
+              <span style={{ color: "var(--ink)" }}>Geschäftsprozesse digitalisiert</span> — auf der
+              Low-Code-Plattform JobRouter, mit Prozesslogik in JavaScript und PHP und Datenhaltung
+              in MSSQL. Das heißt: Anforderungen von Fachabteilungen aufnehmen, in funktionierende
+              Software übersetzen und im laufenden Betrieb ausrollen, wo Fehler echte Arbeitsabläufe
+              blockieren.
+            </p>
+            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Parallel arbeite ich mich in den{" "}
+              <span style={{ color: "var(--ink)" }}>modernen Web-Stack</span> ein: REST-APIs mit
+              Python und FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite hier
+              ist davon der sichtbare Teil — gebaut, deployed und versioniert von mir selbst.
+            </p>
+            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Jetzt suche ich eine Stelle als{" "}
+              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, in der ich beide
+              Seiten täglich anwende und an erfahrenen Entwicklern wachsen kann.
             </p>
 
             {/* Traits */}
@@ -115,15 +137,22 @@ export default function About() {
 
             <div>
               <div
-                className="mt-6 pt-5 border-t flex items-center gap-2 text-xs"
+                className="mt-6 pt-5 border-t flex items-start gap-2 text-xs leading-relaxed"
                 style={{
                   borderColor: "var(--border)",
                   fontFamily: "var(--font-mono)",
                   color: "var(--ink-dim)",
                 }}
               >
-                <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: "var(--red)" }} />
-                {personalInfo.location} · offen für neue Möglichkeiten
+                <span
+                  className="w-2 h-2 rounded-full animate-pulse flex-shrink-0 mt-1"
+                  style={{ background: "var(--red)" }}
+                />
+                <span>
+                  <span style={{ color: "var(--ink)" }}>Sofort verfügbar</span> · {personalInfo.location}
+                  <br />
+                  Suche in {personalInfo.availability}
+                </span>
               </div>
             </div>
           </motion.div>

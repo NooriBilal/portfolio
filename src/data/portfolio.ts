@@ -9,7 +9,9 @@ export const personalInfo = {
   email: "nooribi.bewerbung@gmail.com",
   github: "https://github.com/NooriBilal",
   linkedin: "https://www.linkedin.com/in/bilal-noori-742510382",
-  location: "Deutschland",
+  location: "Hilden, NRW",
+  // Ausgeschriebener Suchradius für den Status-Balken in der About-Section
+  availability: "NRW im Umkreis von 50 km · Hamburg",
   cvUrl: "/cv-bilal-noori.pdf",
 };
 
