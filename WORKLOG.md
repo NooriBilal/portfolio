@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-07-19 | Automatisch
+**Commit:** `190fc75` — "feat(about): profil mit belegbarer substanz statt floskeln"
+**Was:** About-Section: belegbare Substanz statt Floskeln, Standort konkretisiert
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-18 | Automatisch
 **Commit:** `5b99b89` — "fix(content): ausbildung als abgeschlossen — pending- und current-flag entfernt"
 **Was:** pending/current-Flags bei Behrens & Schuleit entfernt — Ausbildung abgeschlossen
