@@ -40,13 +40,12 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Ich bin ausgebildeter{" "}
+              Seit Juli 2026 bin ich{" "}
               <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
-              und habe meine Ausbildung im Juli 2026 bei der Behrens &amp; Schuleit GmbH in
-              Düsseldorf abgeschlossen — mit IHK-Abschluss und Arbeitszeugnis.
+              — IHK-Abschluss, ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Drei Jahre davon habe ich{" "}
+              Drei Jahre lang habe ich dort{" "}
               <span style={{ color: "var(--ink)" }}>Geschäftsprozesse digitalisiert</span> — auf der
               Low-Code-Plattform JobRouter, mit Prozesslogik in JavaScript und PHP und Datenhaltung
               in MSSQL. Das heißt: Anforderungen von Fachabteilungen aufnehmen, in funktionierende
@@ -54,15 +53,17 @@ export default function About() {
               blockieren.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Parallel arbeite ich mich in den{" "}
-              <span style={{ color: "var(--ink)" }}>modernen Web-Stack</span> ein: REST-APIs mit
-              Python und FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite hier
-              ist davon der sichtbare Teil — gebaut, deployed und versioniert von mir selbst.
+              Daneben habe ich mir den{" "}
+              <span style={{ color: "var(--ink)" }}>modernen Web-Stack</span> aufgebaut: REST-APIs
+              mit Python und FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite hier
+              ist davon der sichtbare Teil — konzipiert, gebaut, deployed und versioniert von mir
+              selbst.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Jetzt suche ich eine Stelle als{" "}
-              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, in der ich beide
-              Seiten täglich anwende und an erfahrenen Entwicklern wachsen kann.
+              Jetzt suche ich den nächsten Schritt als{" "}
+              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span> — ein Team, in dem
+              ich meine Prozess-Erfahrung einbringe, beide Seiten täglich anwende und durch Code
+              Reviews und größere Codebasen schneller besser werde.
             </p>
 
             {/* Traits */}
