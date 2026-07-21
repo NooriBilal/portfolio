@@ -1,29 +1,31 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { personalInfo } from "@/data/portfolio";
 
 const traits = [
   {
-    label: "IHK-Abschluss 2026",
-    desc: "Fachinformatiker für Anwendungsentwicklung, ausgebildet bei einem Dienstleister für Prozess- und Dokumentendigitalisierung.",
+    label: "Ganzer Stack",
+    desc: "Datenmodell, API-Anbindung, Logik und Oberfläche im selben Projekt verantwortet.",
   },
   {
     label: "45 → 10–15 Minuten",
     desc: "Abschlussprojekt: Berichtserstellung über vier Systeme automatisiert. Abgenommen und im Einsatz.",
   },
   {
-    label: "Prozess und Web",
-    desc: "JobRouter, DocuWare, PHP und MSSQL im Beruf. React, Next.js und FastAPI daneben aufgebaut.",
+    label: "3 Jahre Betrieb",
+    desc: "Ausgebildet im laufenden Geschäft, nicht im Bootcamp. Anforderungen, Deadlines und Fehler waren echt.",
   },
 ];
 
 const facts = [
+  { k: "Gesucht", v: "Fullstack-Entwicklung — NRW oder Hamburg" },
+  { k: "Backend", v: "Python · FastAPI · PHP · MSSQL · REST" },
+  { k: "Frontend", v: "TypeScript · React · Next.js · Tailwind" },
   { k: "Abschluss", v: "Fachinformatiker Anwendungsentwicklung (IHK), 07/2026" },
-  { k: "Schwerpunkt", v: "Prozessautomatisierung & ECM — JobRouter, DocuWare" },
-  { k: "Sprachen", v: "JavaScript · TypeScript · PHP · Python · SQL" },
-  { k: "Web", v: "React · Next.js · FastAPI · Tailwind" },
+  { k: "Erfahrung", v: "3 Jahre Prozessautomatisierung (JobRouter, DocuWare)" },
 ];
 
 
@@ -47,36 +49,36 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Ich bin{" "}
-              <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
-              mit IHK-Abschluss, ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf. Das
-              Unternehmen digitalisiert Dokumenten- und Arbeitsprozesse für andere Firmen,
-              überwiegend mit JobRouter und DocuWare.
+              Ich baue Webanwendungen über den{" "}
+              <span style={{ color: "var(--ink)" }}>ganzen Stack</span>: Datenmodell, API,
+              Oberfläche. Fachinformatiker für Anwendungsentwicklung mit IHK-Abschluss, seit Juli
+              2026 fertig.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Dort habe ich drei Jahre lang{" "}
-              <span style={{ color: "var(--ink)" }}>Workflows, Web-Formulare und Schnittstellen</span>{" "}
-              entwickelt: rund ein Dutzend Prozesse in JavaScript und PHP, angebunden an MSSQL und
-              REST-Schnittstellen. Dazu kam laufende Fehleranalyse in bestehenden
-              Kundeninstallationen.
-            </p>
-            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Mein Abschlussprojekt zeigt am besten, wie ich arbeite: die{" "}
-              <span style={{ color: "var(--ink)" }}>Digitalisierung der Ausbildungsberichte</span>{" "}
-              im eigenen Betrieb. Vorher buchte jeder Azubi seine Zeiten in Jira und schrieb den
-              Bericht danach aus dem Gedächtnis noch einmal, in einer eigenen Vorlage, auf Papier,
-              ohne geregelte Freigabe. Ich habe den Ablauf auf JobRouter gebaut, die Daten direkt aus
-              Jira und Tempo gezogen, MSSQL als Basis genutzt und Archivierung samt Signatur über
-              DocuWare gelöst. Aus 45 Minuten pro Bericht wurden 10 bis 15. Die Lösung wurde
+              Wie das konkret aussieht, zeigt mein{" "}
+              <span style={{ color: "var(--ink)" }}>Abschlussprojekt</span>: die Digitalisierung der
+              Ausbildungsberichte im eigenen Betrieb. Vorher buchte jeder Azubi seine Zeiten in Jira
+              und schrieb den Bericht danach aus dem Gedächtnis noch einmal, in einer eigenen
+              Vorlage, auf Papier, ohne geregelte Freigabe. Ich habe das Datenmodell in MSSQL
+              entworfen, die Zeitbuchungen über die REST-APIs von Jira und Tempo angebunden, die
+              Freigabelogik implementiert und die Eingabemasken gebaut. Archivierung und Signatur
+              laufen über DocuWare. Aus 45 Minuten pro Bericht wurden 10 bis 15. Die Lösung wurde
               abgenommen und ist im Einsatz.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Parallel arbeite ich mich in den aktuellen Web-Stack ein: REST-APIs mit Python und
-              FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite habe ich selbst
-              gebaut und deployed. Ich suche eine Stelle als{" "}
-              <span style={{ color: "var(--ink)" }}>Entwickler in NRW oder Hamburg</span> — gern
-              dort, wo Prozessautomatisierung und Web-Entwicklung zusammenkommen. Zeugnisse und
-              Nachweise finden Sie weiter unten.
+              Gelernt habe ich das in drei Jahren bei der Behrens &amp; Schuleit GmbH in Düsseldorf,
+              einem Dienstleister für Prozess- und Dokumentendigitalisierung: rund ein Dutzend
+              Workflows in JavaScript und PHP, Datenbankanbindungen über MSSQL und REST, dazu
+              Fehleranalyse in laufenden Kundeninstallationen. Low-Code-Plattform statt Framework,
+              aber dieselben Fragen — sauberes Datenmodell, klare Schnittstellen, nachvollziehbare
+              Logik.
+            </p>
+            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Heute arbeite ich mit Python und FastAPI im Backend, mit React, Next.js und TypeScript
+              im Frontend. Diese Seite habe ich selbst gebaut und deployed. Ich suche eine Stelle als{" "}
+              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span> in NRW oder Hamburg,
+              in einem Team, in dem ich an größeren Codebasen mitarbeite. Zeugnisse und Nachweise
+              finden Sie weiter unten.
             </p>
 
             {/* Traits */}
@@ -125,28 +127,22 @@ export default function About() {
             transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2"
           >
-            {/* Avatar placeholder */}
+            {/* Portraitfoto — Datei unter public/bilal-noori.jpg ablegen */}
             <div
-              className="border mb-8 flex items-center justify-center aspect-square max-w-xs mx-auto lg:mx-0"
+              className="border mb-8 relative aspect-square max-w-xs mx-auto lg:mx-0 overflow-hidden"
               style={{
                 background: "var(--surface)",
                 borderColor: "var(--border-mid)",
               }}
             >
-              <div className="text-center py-12">
-                <div
-                  className="text-4xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--red)" }}
-                >
-                  BN
-                </div>
-                <span
-                  className="mono-label text-xs tracking-[0.12em] uppercase"
-                  style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
-                >
-                  foto kommt bald
-                </span>
-              </div>
+              <Image
+                src="/bilal-noori.jpg"
+                alt="Bilal Noori"
+                fill
+                sizes="(max-width: 1024px) 20rem, 20rem"
+                className="object-cover"
+                priority
+              />
             </div>
 
             {/* Fakten-Block — für den schnellen Scan */}
