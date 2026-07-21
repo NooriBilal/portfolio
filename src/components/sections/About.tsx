@@ -6,16 +6,16 @@ import { personalInfo } from "@/data/portfolio";
 
 const traits = [
   {
-    label: "3 Jahre Praxis",
-    desc: "Entwicklung im laufenden Unternehmensbetrieb — Anforderungen kamen von echten Fachabteilungen, nicht aus Übungsaufgaben.",
+    label: "Produktiv ab Tag 1",
+    desc: "Drei Jahre Entwicklung im laufenden Unternehmensbetrieb — Anforderungen von echten Fachabteilungen, nicht aus Übungsaufgaben.",
   },
   {
-    label: "Prozess-Automatisierung",
-    desc: "Geschäftsprozesse auf JobRouter digitalisiert: Logik in JavaScript und PHP, Daten in MSSQL.",
+    label: "Prozess trifft Code",
+    desc: "Geschäftsprozesse auf JobRouter digitalisiert: Logik in JavaScript und PHP, Daten in MSSQL, ausgerollt in Produktion.",
   },
   {
     label: "Beide Seiten",
-    desc: "Backend mit Python und FastAPI, Frontend mit React und Next.js — inklusive dieser Seite.",
+    desc: "Backend mit Python und FastAPI, Frontend mit React, Next.js und TypeScript — inklusive dieser Seite.",
   },
 ];
 
@@ -40,30 +40,33 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Seit Juli 2026 bin ich{" "}
               <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
-              — IHK-Abschluss, ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf.
+              mit IHK-Abschluss — und drei Jahren Code, der in einem echten Unternehmen läuft, nicht
+              nur in einem Übungsprojekt.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Drei Jahre lang habe ich dort{" "}
-              <span style={{ color: "var(--ink)" }}>Geschäftsprozesse digitalisiert</span> — auf der
-              Low-Code-Plattform JobRouter, mit Prozesslogik in JavaScript und PHP und Datenhaltung
-              in MSSQL. Das heißt: Anforderungen von Fachabteilungen aufnehmen, in funktionierende
-              Software übersetzen und im laufenden Betrieb ausrollen, wo Fehler echte Arbeitsabläufe
-              blockieren.
+              Ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf, wo ich{" "}
+              <span style={{ color: "var(--ink)" }}>Geschäftsprozesse digitalisiert</span> habe:
+              Anforderungen direkt bei den Fachabteilungen aufgenommen, in Prozesslogik mit
+              JavaScript und PHP übersetzt, Daten in MSSQL modelliert und im laufenden Betrieb
+              ausgerollt — dort, wo ein Fehler keinen Test rot färbt, sondern die Arbeit von Kollegen
+              blockiert. Das prägt, wie ich baue: erst verstehen, was der Prozess wirklich braucht,
+              dann Code schreiben.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Daneben habe ich mir den{" "}
+              Parallel habe ich mir den{" "}
               <span style={{ color: "var(--ink)" }}>modernen Web-Stack</span> aufgebaut: REST-APIs
-              mit Python und FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite hier
-              ist davon der sichtbare Teil — konzipiert, gebaut, deployed und versioniert von mir
-              selbst.
+              mit Python und FastAPI, Oberflächen mit React, Next.js und TypeScript, Deployment über
+              Docker und Vercel. Diese Seite ist der Beleg dafür — konzipiert, gebaut, deployed und
+              versioniert von mir selbst. Ein Praktikum in Dublin hat gezeigt, dass das auch auf
+              Englisch und in einem neuen Team funktioniert.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Jetzt suche ich den nächsten Schritt als{" "}
-              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span> — ein Team, in dem
-              ich meine Prozess-Erfahrung einbringe, beide Seiten täglich anwende und durch Code
-              Reviews und größere Codebasen schneller besser werde.
+              Jetzt suche ich ein Team als{" "}
+              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, das beides braucht:
+              jemanden, der Prozesse versteht, bevor er sie in Code gießt — und der sich schnell in
+              neue Technologien einarbeitet, weil er genau das die letzten drei Jahre nebenher getan
+              hat.
             </p>
 
             {/* Traits */}
