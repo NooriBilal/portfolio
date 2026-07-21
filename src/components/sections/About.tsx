@@ -127,7 +127,7 @@ export default function About() {
             transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2"
           >
-            {/* Portraitfoto — Datei unter public/bilal-noori.jpg ablegen */}
+            {/* Portraitfoto — public/noori-bilal.jpg */}
             <div
               className="border mb-8 relative aspect-square max-w-xs mx-auto lg:mx-0 overflow-hidden"
               style={{
@@ -136,7 +136,7 @@ export default function About() {
               }}
             >
               <Image
-                src="/bilal-noori.jpg"
+                src="/noori-bilal.jpg"
                 alt="Bilal Noori"
                 fill
                 sizes="(max-width: 1024px) 20rem, 20rem"
