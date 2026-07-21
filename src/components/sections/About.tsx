@@ -6,17 +6,24 @@ import { personalInfo } from "@/data/portfolio";
 
 const traits = [
   {
-    label: "Produktiv ab Tag 1",
-    desc: "Drei Jahre Entwicklung im laufenden Unternehmensbetrieb — Anforderungen von echten Fachabteilungen, nicht aus Übungsaufgaben.",
+    label: "IHK-Abschluss 2026",
+    desc: "Fachinformatiker für Anwendungsentwicklung, ausgebildet bei einem Dienstleister für Prozess- und Dokumentendigitalisierung.",
   },
   {
-    label: "Prozess trifft Code",
-    desc: "Geschäftsprozesse auf JobRouter digitalisiert: Logik in JavaScript und PHP, Daten in MSSQL, ausgerollt in Produktion.",
+    label: "45 → 10–15 Minuten",
+    desc: "Abschlussprojekt: Berichtserstellung über vier Systeme automatisiert. Abgenommen und im Einsatz.",
   },
   {
-    label: "Beide Seiten",
-    desc: "Backend mit Python und FastAPI, Frontend mit React, Next.js und TypeScript — inklusive dieser Seite.",
+    label: "Prozess und Web",
+    desc: "JobRouter, DocuWare, PHP und MSSQL im Beruf. React, Next.js und FastAPI daneben aufgebaut.",
   },
+];
+
+const facts = [
+  { k: "Abschluss", v: "Fachinformatiker Anwendungsentwicklung (IHK), 07/2026" },
+  { k: "Schwerpunkt", v: "Prozessautomatisierung & ECM — JobRouter, DocuWare" },
+  { k: "Sprachen", v: "JavaScript · TypeScript · PHP · Python · SQL" },
+  { k: "Web", v: "React · Next.js · FastAPI · Tailwind" },
 ];
 
 
@@ -40,33 +47,36 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Ich bin{" "}
               <span style={{ color: "var(--ink)" }}>Fachinformatiker für Anwendungsentwicklung</span>{" "}
-              mit IHK-Abschluss — und drei Jahren Code, der in einem echten Unternehmen läuft, nicht
-              nur in einem Übungsprojekt.
+              mit IHK-Abschluss, ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf. Das
+              Unternehmen digitalisiert Dokumenten- und Arbeitsprozesse für andere Firmen,
+              überwiegend mit JobRouter und DocuWare.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Ausgebildet bei der Behrens &amp; Schuleit GmbH in Düsseldorf, wo ich{" "}
-              <span style={{ color: "var(--ink)" }}>Geschäftsprozesse digitalisiert</span> habe:
-              Anforderungen direkt bei den Fachabteilungen aufgenommen, in Prozesslogik mit
-              JavaScript und PHP übersetzt, Daten in MSSQL modelliert und im laufenden Betrieb
-              ausgerollt — dort, wo ein Fehler keinen Test rot färbt, sondern die Arbeit von Kollegen
-              blockiert. Das prägt, wie ich baue: erst verstehen, was der Prozess wirklich braucht,
-              dann Code schreiben.
+              Dort habe ich drei Jahre lang{" "}
+              <span style={{ color: "var(--ink)" }}>Workflows, Web-Formulare und Schnittstellen</span>{" "}
+              entwickelt: rund ein Dutzend Prozesse in JavaScript und PHP, angebunden an MSSQL und
+              REST-Schnittstellen. Dazu kam laufende Fehleranalyse in bestehenden
+              Kundeninstallationen.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Parallel habe ich mir den{" "}
-              <span style={{ color: "var(--ink)" }}>modernen Web-Stack</span> aufgebaut: REST-APIs
-              mit Python und FastAPI, Oberflächen mit React, Next.js und TypeScript, Deployment über
-              Docker und Vercel. Diese Seite ist der Beleg dafür — konzipiert, gebaut, deployed und
-              versioniert von mir selbst. Ein Praktikum in Dublin hat gezeigt, dass das auch auf
-              Englisch und in einem neuen Team funktioniert.
+              Mein Abschlussprojekt zeigt am besten, wie ich arbeite: die{" "}
+              <span style={{ color: "var(--ink)" }}>Digitalisierung der Ausbildungsberichte</span>{" "}
+              im eigenen Betrieb. Vorher buchte jeder Azubi seine Zeiten in Jira und schrieb den
+              Bericht danach aus dem Gedächtnis noch einmal, in einer eigenen Vorlage, auf Papier,
+              ohne geregelte Freigabe. Ich habe den Ablauf auf JobRouter gebaut, die Daten direkt aus
+              Jira und Tempo gezogen, MSSQL als Basis genutzt und Archivierung samt Signatur über
+              DocuWare gelöst. Aus 45 Minuten pro Bericht wurden 10 bis 15. Die Lösung wurde
+              abgenommen und ist im Einsatz.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Jetzt suche ich ein Team als{" "}
-              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, das beides braucht:
-              jemanden, der Prozesse versteht, bevor er sie in Code gießt — und der sich schnell in
-              neue Technologien einarbeitet, weil er genau das die letzten drei Jahre nebenher getan
-              hat.
+              Parallel arbeite ich mich in den aktuellen Web-Stack ein: REST-APIs mit Python und
+              FastAPI, Oberflächen mit React, Next.js und TypeScript. Diese Seite habe ich selbst
+              gebaut und deployed. Ich suche eine Stelle als{" "}
+              <span style={{ color: "var(--ink)" }}>Entwickler in NRW oder Hamburg</span> — gern
+              dort, wo Prozessautomatisierung und Web-Entwicklung zusammenkommen. Zeugnisse und
+              Nachweise finden Sie weiter unten.
             </p>
 
             {/* Traits */}
@@ -138,6 +148,30 @@ export default function About() {
                 </span>
               </div>
             </div>
+
+            {/* Fakten-Block — für den schnellen Scan */}
+            <dl
+              className="border divide-y"
+              style={{
+                background: "var(--surface)",
+                borderColor: "var(--border)",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              {facts.map((f) => (
+                <div key={f.k} className="px-4 py-3" style={{ borderColor: "var(--border)" }}>
+                  <dt
+                    className="text-[10px] tracking-[0.14em] uppercase mb-1"
+                    style={{ color: "var(--ink-mute)" }}
+                  >
+                    {f.k}
+                  </dt>
+                  <dd className="text-xs leading-relaxed" style={{ color: "var(--ink)" }}>
+                    {f.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
             <div>
               <div
