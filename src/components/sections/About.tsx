@@ -79,7 +79,7 @@ export default function About() {
               im Frontend — diese Seite habe ich selbst gebaut und deployed. Jetzt suche ich ein Team
               als{" "}
               <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, in dem ich an
-              größeren Codebasen mitarbeite, dazulerne und meine Prozess-Erfahrung einbringe.
+              größeren Codebasen mitarbeite und meine Prozess-Erfahrung einbringe.
               Verfügbar bin ich sofort, im Raum NRW und Hamburg; Zeugnisse und Nachweise finden Sie
               weiter unten.
             </p>
