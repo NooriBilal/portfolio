@@ -49,35 +49,39 @@ export default function About() {
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Ich baue Webanwendungen über den{" "}
-              <span style={{ color: "var(--ink)" }}>ganzen Stack</span>: Datenmodell, API,
-              Oberfläche. Fachinformatiker für Anwendungsentwicklung mit IHK-Abschluss, seit Juli
-              2026 fertig.
+              <span style={{ color: "var(--ink)" }}>ganzen Stack</span> — Datenmodell, API,
+              Oberfläche. Meine Ausbildung zum Fachinformatiker für Anwendungsentwicklung habe ich im
+              Juli 2026 mit IHK-Abschluss beendet und suche jetzt{" "}
+              <span style={{ color: "var(--ink)" }}>aktiv die Stelle</span>, in der ich genau das
+              täglich mache.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Wie das konkret aussieht, zeigt mein{" "}
+              Was ich damit meine, zeigt mein{" "}
               <span style={{ color: "var(--ink)" }}>Abschlussprojekt</span>: die Digitalisierung der
               Ausbildungsberichte im eigenen Betrieb. Vorher buchte jeder Azubi seine Zeiten in Jira
               und schrieb den Bericht danach aus dem Gedächtnis noch einmal, in einer eigenen
               Vorlage, auf Papier, ohne geregelte Freigabe. Ich habe das Datenmodell in MSSQL
               entworfen, die Zeitbuchungen über die REST-APIs von Jira und Tempo angebunden, die
-              Freigabelogik implementiert und die Eingabemasken gebaut. Archivierung und Signatur
-              laufen über DocuWare. Aus 45 Minuten pro Bericht wurden 10 bis 15. Die Lösung wurde
-              abgenommen und ist im Einsatz.
+              Freigabelogik implementiert und die Eingabemasken gebaut; Archivierung und Signatur
+              laufen über DocuWare. Aus 45 Minuten pro Bericht wurden 10 bis 15 — abgenommen und im
+              Einsatz.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Gelernt habe ich das in drei Jahren bei der Behrens &amp; Schuleit GmbH in Düsseldorf,
-              einem Dienstleister für Prozess- und Dokumentendigitalisierung: rund ein Dutzend
-              Workflows in JavaScript und PHP, Datenbankanbindungen über MSSQL und REST, dazu
-              Fehleranalyse in laufenden Kundeninstallationen. Low-Code-Plattform statt Framework,
-              aber dieselben Fragen — sauberes Datenmodell, klare Schnittstellen, nachvollziehbare
-              Logik.
+              Das Handwerk dazu kommt aus drei Jahren bei der Behrens &amp; Schuleit GmbH in
+              Düsseldorf, einem Dienstleister für Prozess- und Dokumentendigitalisierung: rund ein
+              Dutzend Workflows in JavaScript und PHP, Datenbankanbindungen über MSSQL und REST, dazu
+              Fehleranalyse in laufenden Kundeninstallationen. Ich habe dort gelernt,{" "}
+              <span style={{ color: "var(--ink)" }}>Software zu liefern, die im Betrieb wirklich
+              läuft</span> — Anforderungen klären, sauber anbinden, testen, Fehler finden.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Heute arbeite ich mit Python und FastAPI im Backend, mit React, Next.js und TypeScript
-              im Frontend. Diese Seite habe ich selbst gebaut und deployed. Ich suche eine Stelle als{" "}
-              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span> in NRW oder Hamburg,
-              in einem Team, in dem ich an größeren Codebasen mitarbeite. Zeugnisse und Nachweise
-              finden Sie weiter unten.
+              im Frontend — diese Seite habe ich selbst gebaut und deployed. Jetzt suche ich ein Team
+              als{" "}
+              <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, in dem ich an
+              größeren Codebasen mitarbeite, dazulerne und meine Prozess-Erfahrung einbringe.
+              Verfügbar bin ich sofort, im Raum NRW und Hamburg; Zeugnisse und Nachweise finden Sie
+              weiter unten.
             </p>
 
             {/* Traits */}
