@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { personalInfo } from "@/data/portfolio";
@@ -125,26 +124,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 lg:sticky lg:top-28 self-start"
           >
-            {/* Portraitfoto — public/noori-bilal.jpg */}
-            <div
-              className="border mb-8 relative aspect-square max-w-xs mx-auto lg:mx-0 overflow-hidden"
-              style={{
-                background: "var(--surface)",
-                borderColor: "var(--border-mid)",
-              }}
-            >
-              <Image
-                src="/noori-bilal.jpg"
-                alt="Bilal Noori"
-                fill
-                sizes="(max-width: 1024px) 20rem, 20rem"
-                className="object-cover"
-                priority
-              />
-            </div>
-
             {/* Fakten-Block — für den schnellen Scan */}
             <dl
               className="border divide-y"
