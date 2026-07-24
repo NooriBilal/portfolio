@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useLenis } from "lenis/react";
 import { Download, Mail } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import { personalInfo } from "@/data/portfolio";
@@ -11,6 +12,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const prefersReduced = useReducedMotion();
+  const lenis = useLenis();
 
   useEffect(() => {
     if (prefersReduced || !heroRef.current) return;
@@ -75,7 +77,7 @@ export default function Hero() {
             className="mono-label text-xs tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
-            // bilal@portfolio:~
+            {"// bilal@portfolio:~"}
           </span>
           <span
             className="mono-label hidden sm:inline text-xs tracking-[0.2em] uppercase"
@@ -165,7 +167,7 @@ export default function Hero() {
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              lenis?.scrollTo("#contact", { offset: -80 });
             }}
             className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{

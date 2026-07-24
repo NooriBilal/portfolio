@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLenis } from "lenis/react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+
+// Höhe der fixen Navbar (h-14 = 56px + 2px Border) plus etwas Luft
+const SCROLL_OFFSET = -80;
 
 const navLinks = [
   { label: "about",      href: "#about" },
@@ -16,6 +20,7 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const lenis = useLenis();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +39,9 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+    // Lenis (root, syncTouch:false) steuert die Scrollposition selbst —
+    // natives scrollIntoView wird auf Touch-Geräten zurückgesetzt.
+    lenis?.scrollTo(href, { offset: SCROLL_OFFSET });
   };
 
   return (
@@ -53,7 +60,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => lenis?.scrollTo(0)}
             className="flex items-center gap-3 group"
           >
             <span
