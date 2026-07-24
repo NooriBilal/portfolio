@@ -173,11 +173,46 @@ export interface Project {
   status: "live" | "in-development" | "archived" | "planned";
   featured?: boolean;
   codeExample?: string;
+  // Überschreibt den Dateinamen in der Terminal-Leiste (Default: <name>.py)
+  fileName?: string;
 }
 
-// Aktuell bewusst leer — die Projekte-Section rendert dann einen
-// "in Arbeit"-Zustand. Sobald ein Projekt vorzeigbar ist, hier eintragen.
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    name: "Digitale Ausbildungsnachweise",
+    fileName: "ausbildungsnachweise.php",
+    shortDescription:
+      "IHK-Abschlussprojekt: Erstellung der Ausbildungsnachweise über vier Systeme automatisiert — von rund 45 auf 10–15 Minuten pro Bericht. Abgenommen und im Einsatz.",
+    longDescription:
+      "Bis dahin lief der Ausbildungsnachweis doppelt: Zeiten wurden in Jira gebucht und der Bericht danach aus dem Gedächtnis noch einmal geschrieben — jeder in seiner eigenen Vorlage, auf Papier, ohne geregelte Freigabe zwischen Azubi und Ausbilder. Ich habe den Prozess auf JobRouter neu gebaut: das Datenmodell in MSSQL entworfen, die Zeitbuchungen über die REST-APIs von Jira und Tempo automatisch eingezogen (die unterschiedlichen Authentifizierungsverfahren waren dabei der kniffligste Teil und wollten isoliert geprüft werden), die Eingabemasken sowie die Freigabelogik zwischen Azubi und Ausbilder implementiert und Archivierung samt digitaler Signatur über DocuWare gelöst. Ergebnis: ein einheitlicher, nachvollziehbarer Ablauf statt Insellösungen — und statt 45 Minuten braucht ein Bericht nur noch 10 bis 15. Die Lösung wurde als IHK-Abschlussprojekt abgenommen und wird im Betrieb genutzt.",
+    technologies: ["JobRouter", "PHP", "JavaScript", "MSSQL", "REST", "Jira", "Tempo", "DocuWare"],
+    status: "live",
+    featured: true,
+    codeExample: `<?php
+// Vereinfachter Ausschnitt: Zeitbuchungen aus Tempo holen
+// und als Nachweis-Zeilen aufbereiten.
+function ladeWochenbuchungen(string $token, string $von, string $bis): array
+{
+    $ch = curl_init(TEMPO_API . "/worklogs?from={$von}&to={$bis}");
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER     => ["Authorization: Bearer {$token}"],
+    ]);
+    $antwort = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    $zeilen = [];
+    foreach ($antwort["results"] as $eintrag) {
+        $zeilen[] = [
+            "datum"      => $eintrag["startDate"],
+            "stunden"    => $eintrag["timeSpentSeconds"] / 3600,
+            "taetigkeit" => $eintrag["description"],
+        ];
+    }
+    return $zeilen;
+}`,
+  },
+];
 
 // Noch nicht vorzeigbar, aber die Daten bleiben erhalten: zum Aktivieren
 // einfach in das projects-Array oben verschieben.

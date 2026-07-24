@@ -21,6 +21,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
   const status = statusConfig[project.status];
+  const fileName = project.fileName ?? `${project.name.toLowerCase().replace(/\s+/g, "-")}.py`;
 
   return (
     <motion.div
@@ -53,7 +54,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           className="ml-2 text-xs flex-1"
           style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
         >
-          {project.name.toLowerCase().replace(/\s+/g, "-")}.py
+          {fileName}
         </span>
         <span
           className="text-xs px-2 py-0.5 border"
@@ -74,7 +75,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
             className="mono-label text-xs mb-3 tracking-[0.14em] uppercase"
             style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
           >
-            // highlight
+            {"// highlight"}
           </p>
         )}
 
@@ -145,7 +146,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                       className="text-xs"
                       style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
                     >
-                      main.py
+                      {fileName}
                     </span>
                   </div>
                   <pre
