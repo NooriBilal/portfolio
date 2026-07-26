@@ -5,7 +5,7 @@
 export const personalInfo = {
   name: "Bilal Noori",
   title: "Fullstack Developer",
-  tagline: "Ich baue skalierbare Webanwendungen und APIs, von der Idee bis zur Produktion.",
+  tagline: "Ich baue Webanwendungen und APIs — vom Datenmodell bis zur Oberfläche.",
   email: "nooribi.bewerbung@gmail.com",
   github: "https://github.com/NooriBilal",
   linkedin: "https://www.linkedin.com/in/bilal-noori-742510382",
@@ -220,9 +220,9 @@ export const upcomingProjects: Project[] = [
   {
     name: "UFC Stats API",
     shortDescription:
-      "Eine umfassende REST-API mit Echtzeit-UFC-Kämpferstatistiken, Kampfbilanzen und Veranstaltungsplänen.",
+      "REST-API für UFC-Daten: Kämpferstatistiken, Kampfbilanzen und Eventpläne, automatisch aktuell gehalten.",
     longDescription:
-      "Die UFC Stats API liefert strukturierte MMA-Daten für Entwickler, Fan-Apps und Analyse-Plattformen. Die API aggregiert Kämpfer­statistiken, historische Kampf­ergebnisse, Event-Pläne und aktuelle Rankings über automatisierte Web-Scraping-Pipelines und speichert die Daten in einer optimierten PostgreSQL-Datenbank mit Redis-Caching für minimale Latenz.",
+      "Die UFC Stats API bündelt MMA-Daten an einer Stelle: Kämpferstatistiken, vergangene Kampfergebnisse, Eventpläne und Rankings. Ein Scraper zieht die Daten automatisch ein und legt sie in einer PostgreSQL-Datenbank ab; häufige Abfragen gehen über einen Redis-Cache. Gedacht für eigene Fan-Apps und Auswertungen, für die es sonst keine saubere Datenquelle gibt.",
     technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis", "BeautifulSoup", "Scrapy"],
     githubUrl: "#", // TODO: Add GitHub URL
     status: "in-development",
