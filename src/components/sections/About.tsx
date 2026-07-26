@@ -15,7 +15,7 @@ const traits = [
   },
   {
     label: "3 Jahre Betrieb",
-    desc: "Ausgebildet im laufenden Geschäft, nicht im Bootcamp. Anforderungen, Deadlines und Fehler waren echt.",
+    desc: "Ausgebildet im laufenden Geschäft, nicht an Übungsaufgaben. Anforderungen, Deadlines und Fehler waren echt.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function About() {
               fasziniert, dass hinter jedem Spiel Menschen sitzen, die das mit Code bauen.
               Eigentlich wollte ich Elektro- und Informationstechnik studieren, aber ohne
               echte Praxis fehlte mir der Ansporn. Also habe ich mich bewusst für die Ausbildung
-              entschieden, um von Tag eins an an realen Projekten zu bauen. Die ersten Zeilen waren
+              entschieden, um direkt an realen Projekten zu bauen. Die ersten Zeilen waren
               zäh. Doch jede Fehlermeldung war für mich keine Wand, sondern{" "}
               <span style={{ color: "var(--ink)" }}>die Suche nach dem besten Fix</span>. Aufgehört
               habe ich nie.
