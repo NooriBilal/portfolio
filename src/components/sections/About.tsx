@@ -38,7 +38,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <SectionTitle title="Über mich" num="// 01" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-start">
           {/* Text — 3 cols */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
