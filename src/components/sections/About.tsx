@@ -48,17 +48,17 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Meine Eltern sind Ende der 1980er aus Afghanistan nach Deutschland geflohen; ich bin
+              Meine Eltern sind Ende der 1980er aus Afghanistan nach Deutschland geflohen. Ich bin
               hier geboren und aufgewachsen. Bis zur vierten Klasse war Sprache meine größte Hürde.
               Das hat mir früh das Wichtigste beigebracht:{" "}
               <span style={{ color: "var(--ink)" }}>dranbleiben, bis ich eine Sache wirklich kann</span>.
-              Dieselbe Haltung steckt heute in jeder Zeile Code.
+              Daran hat sich bis heute nichts geändert.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Zum Programmieren kam ich als{" "}
               <span style={{ color: "var(--ink)" }}>leidenschaftlicher Gamer</span>. Mich hat immer
-              fasziniert, dass hinter jedem Spiel Menschen sitzen, die es mit Code zum Leben
-              erwecken. Eigentlich wollte ich Elektro- und Informationstechnik studieren, aber ohne
+              fasziniert, dass hinter jedem Spiel Menschen sitzen, die das mit Code bauen.
+              Eigentlich wollte ich Elektro- und Informationstechnik studieren, aber ohne
               echte Praxis fehlte mir der Ansporn. Also habe ich mich bewusst für die Ausbildung
               entschieden, um von Tag eins an an realen Projekten zu bauen. Die ersten Zeilen waren
               zäh. Doch jede Fehlermeldung war für mich keine Wand, sondern{" "}
@@ -80,7 +80,7 @@ export default function About() {
               und schrieb den Bericht danach aus dem Gedächtnis noch einmal, in einer eigenen
               Vorlage, auf Papier, ohne geregelte Freigabe. Ich habe das Datenmodell in MSSQL
               entworfen, die Zeitbuchungen über die REST-APIs von Jira und Tempo angebunden, die
-              Freigabelogik implementiert und die Eingabemasken gebaut; Archivierung und Signatur
+              Freigabelogik implementiert und die Eingabemasken gebaut. Archivierung und Signatur
               laufen über DocuWare. Aus 45 Minuten pro Bericht wurden 10 bis 15 — abgenommen und im
               Einsatz.
             </p>

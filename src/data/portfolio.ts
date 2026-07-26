@@ -222,7 +222,7 @@ export const upcomingProjects: Project[] = [
     shortDescription:
       "REST-API für UFC-Daten: Kämpferstatistiken, Kampfbilanzen und Eventpläne, automatisch aktuell gehalten.",
     longDescription:
-      "Die UFC Stats API bündelt MMA-Daten an einer Stelle: Kämpferstatistiken, vergangene Kampfergebnisse, Eventpläne und Rankings. Ein Scraper zieht die Daten automatisch ein und legt sie in einer PostgreSQL-Datenbank ab; häufige Abfragen gehen über einen Redis-Cache. Gedacht für eigene Fan-Apps und Auswertungen, für die es sonst keine saubere Datenquelle gibt.",
+      "Die UFC Stats API bündelt MMA-Daten an einer Stelle: Kämpferstatistiken, vergangene Kampfergebnisse, Eventpläne und Rankings. Ein Scraper zieht die Daten automatisch ein und legt sie in einer PostgreSQL-Datenbank ab. Häufige Abfragen gehen über einen Redis-Cache. Gedacht für eigene Fan-Apps und Auswertungen, für die es sonst keine saubere Datenquelle gibt.",
     technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis", "BeautifulSoup", "Scrapy"],
     githubUrl: "#", // TODO: Add GitHub URL
     status: "in-development",
