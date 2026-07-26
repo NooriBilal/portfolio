@@ -48,12 +48,30 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Ich baue Webanwendungen über den{" "}
-              <span style={{ color: "var(--ink)" }}>ganzen Stack</span> — Datenmodell, API,
-              Oberfläche. Meine Ausbildung zum Fachinformatiker für Anwendungsentwicklung habe ich im
-              Juli 2026 mit IHK-Abschluss beendet und suche jetzt{" "}
-              <span style={{ color: "var(--ink)" }}>aktiv die Stelle</span>, in der ich genau das
-              täglich mache.
+              Meine Eltern sind Ende der 1980er aus Afghanistan nach Deutschland geflohen; ich bin
+              hier geboren und aufgewachsen. Bis zur vierten Klasse war Sprache meine größte Hürde —
+              das hat mir früh das Wichtigste beigebracht:{" "}
+              <span style={{ color: "var(--ink)" }}>dranbleiben, bis ich eine Sache wirklich kann</span>.
+              Dieselbe Haltung steckt heute in jeder Zeile Code.
+            </p>
+            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Zum Programmieren kam ich als{" "}
+              <span style={{ color: "var(--ink)" }}>leidenschaftlicher Gamer</span> — mich hat immer
+              fasziniert, dass hinter jedem Spiel Menschen sitzen, die es mit Code zum Leben
+              erwecken. Eigentlich wollte ich Elektro- und Informationstechnik studieren, aber ohne
+              echte Praxis fehlte mir der Ansporn. Also habe ich mich bewusst für die Ausbildung
+              entschieden, um von Tag eins an an realen Projekten zu bauen. Die ersten Zeilen waren
+              zäh — doch jede Fehlermeldung war für mich keine Wand, sondern{" "}
+              <span style={{ color: "var(--ink)" }}>die Suche nach dem besten Fix</span>. Aufgehört
+              habe ich nie.
+            </p>
+            <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
+              Heute baue ich Webanwendungen über den{" "}
+              <span style={{ color: "var(--ink)" }}>ganzen Stack</span>: Datenmodell, API,
+              Oberfläche. Im Backend mit Python und FastAPI, im Frontend mit React, Next.js und
+              TypeScript — diese Seite habe ich selbst gebaut und deployed. Meine Ausbildung zum
+              Fachinformatiker für Anwendungsentwicklung habe ich im Juli 2026 mit{" "}
+              <span style={{ color: "var(--ink)" }}>IHK-Abschluss</span> beendet.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Was ich damit meine, zeigt mein{" "}
@@ -70,18 +88,23 @@ export default function About() {
               Das Handwerk dazu kommt aus drei Jahren bei der Behrens &amp; Schuleit GmbH in
               Düsseldorf, einem Dienstleister für Prozess- und Dokumentendigitalisierung: rund ein
               Dutzend Workflows in JavaScript und PHP, Datenbankanbindungen über MSSQL und REST, dazu
-              Fehleranalyse in laufenden Kundeninstallationen. Ich habe dort gelernt,{" "}
-              <span style={{ color: "var(--ink)" }}>Software zu liefern, die im Betrieb wirklich
-              läuft</span> — Anforderungen klären, sauber anbinden, testen, Fehler finden.
+              Fehleranalyse in laufenden Kundeninstallationen. Dort habe ich meine Arbeitsweise
+              geschärft:{" "}
+              <span style={{ color: "var(--ink)" }}>lieber einmal mehr nachfragen</span>, bis alle
+              Anforderungen klar sind, früh Feedback holen, Lösungswege abwägen — und ein Auge fürs
+              Detail. Ich habe dort gelernt, Software zu liefern, die im Betrieb wirklich läuft.
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
-              Heute arbeite ich mit Python und FastAPI im Backend, mit React, Next.js und TypeScript
-              im Frontend — diese Seite habe ich selbst gebaut und deployed. Jetzt suche ich ein Team
-              als{" "}
+              Was mich antreibt, sieht man auch abseits des Bildschirms:{" "}
+              <span style={{ color: "var(--ink)" }}>dreizehn Jahre Muay Thai</span> haben mir
+              Disziplin und Durchhaltevermögen gegeben, Klavier habe ich mit 19 aus eigenem Antrieb
+              gelernt. Neue Herausforderungen machen mir keine Angst — sie reizen mich, noch mehr zu
+              geben; wenn mich jemand aus der Komfortzone holt, ist das kein Stress, sondern der
+              Grund, warum ich Lust auf mehr habe. Den Ausgleich finde ich in der Natur. Jetzt suche
+              ich ein Team als{" "}
               <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>, in dem ich an
-              größeren Codebasen mitarbeite und meine Prozess-Erfahrung einbringe.
-              Verfügbar bin ich sofort, im Raum NRW und Hamburg; Zeugnisse und Nachweise finden Sie
-              weiter unten.
+              größeren Codebasen mitarbeite und meine Prozess-Erfahrung einbringe — verfügbar sofort,
+              im Raum NRW und Hamburg. Zeugnisse und Nachweise finden Sie weiter unten.
             </p>
 
             {/* Traits */}
