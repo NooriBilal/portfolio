@@ -180,7 +180,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "Digitale Ausbildungsnachweise",
-    fileName: "ausbildungsnachweise.php",
     shortDescription:
       "IHK-Abschlussprojekt: Erstellung der Ausbildungsnachweise über vier Systeme automatisiert — von rund 45 auf 10–15 Minuten pro Bericht. Abgenommen und im Einsatz.",
     longDescription:
@@ -188,29 +187,6 @@ export const projects: Project[] = [
     technologies: ["JobRouter", "PHP", "JavaScript", "MSSQL", "REST", "Jira", "Tempo", "DocuWare"],
     status: "live",
     featured: true,
-    codeExample: `<?php
-// Vereinfachter Ausschnitt: Zeitbuchungen aus Tempo holen
-// und als Nachweis-Zeilen aufbereiten.
-function ladeWochenbuchungen(string $token, string $von, string $bis): array
-{
-    $ch = curl_init(TEMPO_API . "/worklogs?from={$von}&to={$bis}");
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER     => ["Authorization: Bearer {$token}"],
-    ]);
-    $antwort = json_decode(curl_exec($ch), true);
-    curl_close($ch);
-
-    $zeilen = [];
-    foreach ($antwort["results"] as $eintrag) {
-        $zeilen[] = [
-            "datum"      => $eintrag["startDate"],
-            "stunden"    => $eintrag["timeSpentSeconds"] / 3600,
-            "taetigkeit" => $eintrag["description"],
-        ];
-    }
-    return $zeilen;
-}`,
   },
 ];
 

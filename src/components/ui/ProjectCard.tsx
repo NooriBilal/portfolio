@@ -21,7 +21,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
   const status = statusConfig[project.status];
-  const fileName = project.fileName ?? `${project.name.toLowerCase().replace(/\s+/g, "-")}.py`;
+  const fileName = project.fileName;
 
   return (
     <motion.div

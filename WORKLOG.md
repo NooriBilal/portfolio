@@ -8,6 +8,132 @@
 
 ---
 
+## 2026-07-26 | Automatisch
+**Commit:** `df1d93d` — "fix(about): doppeltes 'an' entfernt, 'bootcamp' -> 'übungsaufgaben'"
+**Was:** About: doppeltes 'an' im Ausbildungs-Satz behoben, 'nicht im Bootcamp' -> 'nicht an Übungsaufgaben'
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-26 | Automatisch
+**Commit:** `f549642` — "style(copy): pangram-methoden-pass — zwei tells entschärft, alle prosa-semikolons raus"
+**Was:** Pangram-Methoden-Pass: zwei zu glatte Tells entschärft + alle Semikolons aus dem sichtbaren Text entfernt (About x2, UFC-Text)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-26 | Automatisch
+**Commit:** `49d23a4` — "refactor(copy): ai-slop-pass — hero-tagline entfloskelt, about entstrichelt, ufc-text entschwurbelt"
+**Was:** AI-Slop-Pass über die ganze Seite: Hero-Tagline entfloskelt, About entstrichelt (~8→2 Gedankenstriche, doppeltes nicht-sondern aufgelöst), UFC-Projekttext (noch unsichtbar) entschwurbelt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-26 | Automatisch
+**Commit:** `5aacf9e` — "feat(about): persönliche ebene ergänzt — herkunft, gamer-ursprung, muay thai, arbeitsweise"
+**Was:** About-Section: persönlicher Faden ergänzt (Herkunft/Antrieb, Gamer→Code, Ausbildung statt Studium, Muay Thai/Klavier, Arbeitsweise) — von 4 auf 6 Absätze, Fakten unverändert
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-26 | Automatisch
+**Commit:** `427ff8f` — "style(about): kleinerer grid-abstand auf mobile"
+**Was:** About-Section: Grid-Abstand auf Mobile reduziert (gap-8 unter lg)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-24 | Automatisch
+**Commit:** `d7f3d4a` — "feat(about): 'dazulerne' im schluss gestrichen"
+**Was:** About-Section: 'dazulerne' aus Schlussabsatz entfernt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-24 | Automatisch
+**Commit:** `36f0bc2` — "feat(about): selbstbewusstere copy, aktueller status nach vorn"
+**Was:** About-Section: Copy selbstbewusster, abgeschlossene Ausbildung + aktive Suche nach vorn
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-24 | Automatisch
+**Commit:** `7cd8e7d` — "fix(nav): mobile-navigation via lenis.scrollTo statt scrollIntoView"
+**Was:** Fix: Mobile-Navigation scrollte nicht (Lenis vs. scrollIntoView) — auf lenis.scrollTo umgestellt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-24 | Automatisch
+**Commit:** `4aba199` — "feat(projekte): abschlussprojekt als case study"
+**Was:** Projekte-Section: Abschlussprojekt 'Digitale Ausbildungsnachweise' als Case Study ergaenzt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-24 | Automatisch
+**Commit:** `e2d1299` — "feat(about): foto entfernt, fakten-block sticky"
+**Was:** About-Section: Foto entfernt, Fakten-Block sticky
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-21 | Automatisch
+**Commit:** `f4e1f79` — "feat(about): fullstack-positionierung, prozess-erfahrung als beleg"
+**Was:** About-Section: auf Fullstack-Positionierung umgestellt, Foto via next/image verdrahtet
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-21 | Automatisch
+**Commit:** `f24992e` — "feat(about): belegbare copy + fakten-block für den schnellen scan"
+**Was:** About-Section: belegbare Copy auf Basis von Arbeitszeugnis + Abschlussprojekt, Fakten-Block ergänzt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-21 | Automatisch
+**Commit:** `54c4df0` — "feat(about): verkaufsstärkere copy — nutzen statt lebenslauf"
+**Was:** About-Section: Copy auf Verkaufsargumente umgestellt (Hook, Business-Wert, Dublin, Close)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-20 | Automatisch
+**Commit:** `d12779e` — "feat(content): abschluss statt ausbildung — about + rollenbezeichnung"
+**Was:** About-Block auf abgeschlossene Ausbildung umgeschrieben; Experience-Rolle zu 'Fachinformatiker für Anwendungsentwicklung (Ausbildung)'
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-19 | Automatisch
 **Commit:** `190fc75` — "feat(about): profil mit belegbarer substanz statt floskeln"
 **Was:** About-Section: belegbare Substanz statt Floskeln, Standort konkretisiert

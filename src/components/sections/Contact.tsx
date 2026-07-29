@@ -102,17 +102,16 @@ export default function Contact() {
                 <span style={{ color: "var(--red)" }}>reden.</span>
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "var(--ink-dim)" }}>
-                Offen für neue Möglichkeiten: Vollzeit oder Freelance. Wenn du ein
-                interessantes Projekt oder eine offene Stelle hast, meld dich.
+                Offen für neue Möglichkeiten: in Vollzeit oder als Freelancer. Wenn du ein spannendes Projekt oder eine passende Stelle hast, melde dich gern.
               </p>
             </div>
 
             {/* Contact links */}
             <div className="space-y-0 border-t" style={{ borderColor: "var(--border)" }}>
               {[
-                { label: "email",    val: personalInfo.email, href: `mailto:${personalInfo.email}` },
-                { label: "github",   val: "NooriBilal",       href: personalInfo.github },
-                { label: "linkedin", val: "bilal-noori",      href: personalInfo.linkedin },
+                { label: "email", val: personalInfo.email, href: `mailto:${personalInfo.email}` },
+                { label: "github", val: "NooriBilal", href: personalInfo.github },
+                { label: "linkedin", val: "bilal-noori", href: personalInfo.linkedin },
               ].map((item) => (
                 <a
                   key={item.label}
