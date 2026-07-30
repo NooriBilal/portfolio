@@ -9,6 +9,15 @@
 ---
 
 ## 2026-07-30 | Automatisch
+**Commit:** `aebcef7` — "content(certificates): dublin auslandspraktikum ergänzt"
+**Was:** Zertifikat Auslandspraktikum (Erasmus, Dublin) in portfolio.ts verlinkt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-30 | Automatisch
 **Commit:** `81ba9d1` — "chore: vscode workspace-dateien ignorieren"
 **Was:** About-Block: ersten Satz des letzten Absatzes umformuliert (neue herausfordernde Projekte, Erfahrung erweitern)
 **TODOs noch offen:**
