@@ -9,6 +9,15 @@
 ---
 
 ## 2026-07-30 | Automatisch
+**Commit:** `81ba9d1` — "chore: vscode workspace-dateien ignorieren"
+**Was:** About-Block: ersten Satz des letzten Absatzes umformuliert (neue herausfordernde Projekte, Erfahrung erweitern)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-30 | Automatisch
 **Commit:** `f065626` — "feat(contact): kontaktformular gegen bots absichern"
 **Was:** Kontaktformular abgesichert: Honeypot + IP-Rate-Limiting in route.ts
 **TODOs noch offen:**

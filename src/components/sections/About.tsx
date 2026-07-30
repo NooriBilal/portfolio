@@ -71,8 +71,8 @@ export default function About() {
             </p>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.75 }}>
               Jetzt suche ich ein Team als <span style={{ color: "var(--ink)" }}>Fullstack-Entwickler</span>,
-              in dem ich an größeren Codebasen mitarbeite und meine Erfahrung in der Prozessdigitalisierung
-              einbringe. Verfügbar bin ich sofort im Raum NRW und Hamburg. Zeugnisse und Nachweise finden Sie
+              in dem ich an neuen herausfordernden Projekten mitarbeiten kann und meine Erfahrung erweitere.
+              Verfügbar bin ich sofort im Raum NRW und Hamburg. Zeugnisse und Nachweise finden Sie
               weiter unten.
             </p>
           </motion.div>
