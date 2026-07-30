@@ -9,6 +9,15 @@
 ---
 
 ## 2026-07-30 | Automatisch
+**Commit:** `826dac2` — "content(projects): fileName ausbildungsnachweise.php entfernt"
+**Was:** fileName ausbildungsnachweise.php aus Projekt entfernt
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-30 | Automatisch
 **Commit:** `2cc08e6` — "content(certificates): datumsformat auslandspraktikum an mm.yyyy angeglichen"
 **Was:** Datumsformat Auslandspraktikum auf MM.YYYY (04.2025) angeglichen
 **TODOs noch offen:**
