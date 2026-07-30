@@ -11,13 +11,14 @@ interface FormState {
   email: string;
   subject: string;
   message: string;
+  company: string; // Honeypot -- bleibt bei echten Nutzern immer leer
 }
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>({
-    name: "", email: "", subject: "", message: "",
+    name: "", email: "", subject: "", message: "", company: "",
   });
   const [status, setStatus] = useState<Status>("idle");
   const prefersReduced = useReducedMotion();
@@ -37,7 +38,7 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error();
       setStatus("success");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({ name: "", email: "", subject: "", message: "", company: "" });
     } catch {
       setStatus("error");
     }
@@ -151,6 +152,30 @@ export default function Contact() {
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot: für Menschen unsichtbar, aus Tab-Reihenfolge und
+                  Screenreadern ausgeschlossen. Nur Bots füllen es aus. */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: 1,
+                  height: 1,
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="company">Firma (bitte leer lassen)</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.company}
+                  onChange={handleChange}
+                />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" style={labelStyle}>Name *</label>
