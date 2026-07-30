@@ -9,6 +9,15 @@
 ---
 
 ## 2026-07-30 | Automatisch
+**Commit:** `2cc08e6` — "content(certificates): datumsformat auslandspraktikum an mm.yyyy angeglichen"
+**Was:** Datumsformat Auslandspraktikum auf MM.YYYY (04.2025) angeglichen
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-30 | Automatisch
 **Commit:** `aebcef7` — "content(certificates): dublin auslandspraktikum ergänzt"
 **Was:** Zertifikat Auslandspraktikum (Erasmus, Dublin) in portfolio.ts verlinkt
 **TODOs noch offen:**
