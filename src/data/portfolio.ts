@@ -152,6 +152,12 @@ export const certificates: Certificate[] = [
     date: "07.2026",
     credentialUrl: "/arbeitszeugnis-behrens-schuleit.pdf",
   },
+  {
+    title: "Auslandspraktikum",
+    issuer: "Erasmus",
+    date: "20.04.2025 – 28.04.2025",
+    credentialUrl: "/praktikumszertifikat-dublin.pdf",
+  },
 ];
 
 // ============================================================
