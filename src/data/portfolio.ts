@@ -12,6 +12,7 @@ export const personalInfo = {
   location: "Hilden, NRW",
   // Ausgeschriebener Suchradius für den Status-Balken in der About-Section
   availability: "NRW im Umkreis von 50 km · Hamburg",
+  // CV-Datei fehlt noch — der Download-Button im Hero ist bis dahin entfernt.
   cvUrl: "/cv-bilal-noori.pdf",
 };
 
@@ -151,12 +152,6 @@ export const certificates: Certificate[] = [
     date: "07.2026",
     credentialUrl: "/arbeitszeugnis-behrens-schuleit.pdf",
   },
-  {
-    title: "Praktikumszertifikat – Dublin",
-    issuer: "Dublin",
-    date: "2025",
-    credentialUrl: "/praktikumszertifikat-dublin.pdf",
-  },
 ];
 
 // ============================================================
@@ -173,7 +168,7 @@ export interface Project {
   status: "live" | "in-development" | "archived" | "planned";
   featured?: boolean;
   codeExample?: string;
-  // Überschreibt den Dateinamen in der Terminal-Leiste (Default: <name>.py)
+  // Dateiname in der Terminal-Leiste der Projektkarte (leer = wird nicht angezeigt)
   fileName?: string;
 }
 
@@ -187,6 +182,7 @@ export const projects: Project[] = [
     technologies: ["JobRouter", "PHP", "JavaScript", "MSSQL", "REST", "Jira", "Tempo", "DocuWare"],
     status: "live",
     featured: true,
+    fileName: "ausbildungsnachweise.php",
   },
 ];
 

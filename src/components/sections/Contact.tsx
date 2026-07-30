@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import GithubIcon from "@/components/ui/GithubIcon";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { personalInfo } from "@/data/portfolio";
 
@@ -265,7 +264,7 @@ export default function Contact() {
                 }}
               >
                 <Send size={14} aria-hidden="true" />
-                {status === "sending" ? "wird geöffnet..." : "Nachricht senden"}
+                {status === "sending" ? "wird gesendet..." : "Nachricht senden"}
               </button>
             </form>
           </motion.div>

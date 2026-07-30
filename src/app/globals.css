@@ -38,10 +38,6 @@
   --border-mid:    #d3cabd;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--background);
   color: var(--ink-dim);

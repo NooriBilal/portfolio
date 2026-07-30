@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
-import { Download, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import { personalInfo } from "@/data/portfolio";
 import gsap from "gsap";
@@ -147,22 +147,6 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-wrap items-center gap-4">
-          <a
-            href={personalInfo.cvUrl}
-            download
-            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium transition duration-150 hover:brightness-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
-            style={{
-              fontFamily: "var(--font-mono)",
-              background: "var(--red)",
-              color: "#fff",
-              letterSpacing: "0.08em",
-              opacity: prefersReduced ? 1 : 0,
-            }}
-          >
-            <Download size={15} aria-hidden="true" />
-            CV herunterladen
-          </a>
-
           <a
             href="#contact"
             onClick={(e) => {

@@ -36,7 +36,7 @@ export default function Skills() {
                 style={{ background: "var(--surface-2)", borderColor: "var(--border)" }}
               >
                 <span style={{ color: "var(--red)", fontFamily: "var(--font-mono)", fontSize: 11 }}>
-                  //
+                  {"//"}
                 </span>
                 <span
                   className="mono-label text-xs tracking-[0.14em] uppercase"
@@ -55,11 +55,11 @@ export default function Skills() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: catIndex * 0.07 + i * 0.04 }}
-                    className="flex items-center gap-4 px-5 py-3 group"
+                    className="flex items-center px-5 py-3"
                     style={{ borderColor: "var(--border)" }}
                   >
                     <span
-                      className="text-sm w-32 flex-shrink-0"
+                      className="text-sm"
                       style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
                     >
                       {skill.name}

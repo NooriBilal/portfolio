@@ -21,7 +21,7 @@ export default function Certificates() {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="group p-5 border transition-all duration-150"
               style={{
-                background: cert.comingSoon ? "var(--surface)" : "var(--surface)",
+                background: "var(--surface)",
                 borderColor: "var(--border-mid)",
                 opacity: cert.comingSoon ? 0.5 : 1,
               }}

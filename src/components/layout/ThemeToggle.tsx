@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 
 function applyTheme(theme: "light" | "dark") {
@@ -14,22 +14,29 @@ function applyTheme(theme: "light" | "dark") {
   if (meta) meta.setAttribute("content", theme === "light" ? "#f4f0ea" : "#0b0b0b");
 }
 
+// Das Theme lebt als data-theme am <html> (vom Inline-Script vor dem ersten
+// Paint gesetzt). Wir lesen es via useSyncExternalStore statt Effect+setState:
+// getServerSnapshot -> null rendert serverseitig und bei der Hydration einen
+// neutralen Platzhalter (kein Mismatch); danach liefert getTheme das echte
+// Theme. Der MutationObserver treibt das Re-Render beim Umschalten.
+function subscribe(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+}
+
+function getTheme(): "light" | "dark" {
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+}
+
 export default function ThemeToggle() {
-  // null bis mounted -> verhindert Hydration-Mismatch (Server kennt das Theme nicht)
-  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
-
-  useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    setTheme(current === "light" ? "light" : "dark");
-  }, []);
-
-  const toggle = () => {
-    const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
-    applyTheme(next);
-  };
-
+  const theme = useSyncExternalStore(subscribe, getTheme, () => null);
   const isLight = theme === "light";
+
+  const toggle = () => applyTheme(theme === "light" ? "dark" : "light");
 
   return (
     <button

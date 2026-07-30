@@ -80,7 +80,7 @@ export default function Projects() {
               className="mono-label text-xs tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-mono)", color: "var(--red)" }}
             >
-              // highlight-projekt
+              {"// highlight-projekt"}
             </motion.p>
             <div className="grid grid-cols-1 gap-5">
               {featuredProjects.map((project) => (
@@ -99,7 +99,7 @@ export default function Projects() {
               className="mono-label text-xs tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-mono)", color: "var(--ink-dim)" }}
             >
-              // weitere projekte
+              {"// weitere projekte"}
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {otherProjects.map((project) => (

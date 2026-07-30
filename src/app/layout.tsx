@@ -62,7 +62,7 @@ export default function RootLayout({
     <html
       lang="de"
       suppressHydrationWarning
-      className={`${anton.variable} ${dmSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${anton.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

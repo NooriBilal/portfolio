@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Obsidian-Vault (Notizen + eingecheckte Plugins) — kein App-Code.
+    "docs/**",
   ]),
 ]);
 
