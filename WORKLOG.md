@@ -9,6 +9,15 @@
 ---
 
 ## 2026-07-30 | Automatisch
+**Commit:** `f065626` — "feat(contact): kontaktformular gegen bots absichern"
+**Was:** Kontaktformular abgesichert: Honeypot + IP-Rate-Limiting in route.ts
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-07-30 | Automatisch
 **Commit:** `c879e90` — "refactor: hooks auf useSyncExternalStore, cv-button raus, jsx-kommentar-fixes"
 **Was:** Hooks auf useSyncExternalStore, CV-Button entfernt, JSX-Kommentar-Fixes, Config-Cleanup
 **TODOs noch offen:**
