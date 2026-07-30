@@ -188,7 +188,6 @@ export const projects: Project[] = [
     technologies: ["JobRouter", "PHP", "JavaScript", "MSSQL", "REST", "Jira", "Tempo", "DocuWare"],
     status: "live",
     featured: true,
-    fileName: "ausbildungsnachweise.php",
   },
 ];
 
