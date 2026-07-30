@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-07-30 | Automatisch
+**Commit:** `c879e90` — "refactor: hooks auf useSyncExternalStore, cv-button raus, jsx-kommentar-fixes"
+**Was:** Hooks auf useSyncExternalStore, CV-Button entfernt, JSX-Kommentar-Fixes, Config-Cleanup
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-26 | Automatisch
 **Commit:** `df1d93d` — "fix(about): doppeltes 'an' entfernt, 'bootcamp' -> 'übungsaufgaben'"
 **Was:** About: doppeltes 'an' im Ausbildungs-Satz behoben, 'nicht im Bootcamp' -> 'nicht an Übungsaufgaben'
