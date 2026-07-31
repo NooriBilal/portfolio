@@ -12,8 +12,8 @@ export const personalInfo = {
   location: "Hilden, NRW",
   // Ausgeschriebener Suchradius für den Status-Balken in der About-Section
   availability: "NRW im Umkreis von 50 km · Hamburg",
-  // CV-Datei fehlt noch — der Download-Button im Hero ist bis dahin entfernt.
-  cvUrl: "/cv-bilal-noori.pdf",
+  // Lebenslauf als PDF in /public — Download-Button im Hero.
+  cvUrl: "/Lebenslauf_Bilal_Noori.pdf",
 };
 
 // ============================================================

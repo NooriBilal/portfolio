@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
-import { Mail } from "lucide-react";
+import { Mail, Download } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
 import { personalInfo } from "@/data/portfolio";
 import gsap from "gsap";
@@ -164,6 +164,22 @@ export default function Hero() {
           >
             <Mail size={15} aria-hidden="true" />
             Kontakt
+          </a>
+
+          <a
+            href={personalInfo.cvUrl}
+            download
+            className="hero-cta flex items-center gap-2.5 px-6 py-3 text-sm font-medium border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            style={{
+              fontFamily: "var(--font-mono)",
+              color: "var(--ink-dim)",
+              borderColor: "var(--border-mid)",
+              letterSpacing: "0.08em",
+              opacity: prefersReduced ? 1 : 0,
+            }}
+          >
+            <Download size={15} aria-hidden="true" />
+            Lebenslauf
           </a>
 
           <a
