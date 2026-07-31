@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-07-31 | Automatisch
+**Commit:** `1730ba0` — "feat(hero): Lebenslauf-Download-Button eingebunden"
+**Was:** Lebenslauf-PDF eingebunden: cvUrl korrigiert, Download-Button im Hero reaktiviert
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-30 | Automatisch
 **Commit:** `826dac2` — "content(projects): fileName ausbildungsnachweise.php entfernt"
 **Was:** fileName ausbildungsnachweise.php aus Projekt entfernt
