@@ -49,13 +49,13 @@
   display: block;
 }
 
-/* Aktive Bildfläche: 400 × 225 bei 150/28 im 700 × 300-Raster */
+/* LCD 480:272 — 446 × 252,7 bei 177/259,6 im Ausschnitt 784 × 336 (ab 8/232) */
 .screen {
   position: absolute;
-  left: 21.4286%;
-  top: 9.3333%;
-  width: 57.1429%;
-  height: 75%;
+  left: 21.5561%;
+  top: 8.2232%;
+  width: 56.8878%;
+  height: 75.2173%;
   overflow: hidden;
   border-radius: 2px;
   background: #000;
