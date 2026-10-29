@@ -1,19 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { M_PLUS_1 } from "next/font/google";
 import Xmb from "@/components/xmb/Xmb";
-
-// Nahe an der PSP-Systemschrift (Rodin): breite, ruhige Grotesk.
-const xmbFont = M_PLUS_1({
-  subsets: ["latin", "latin-ext"],
-  weight: "variable",
-  variable: "--font-xmb",
-});
+import { xmbFont } from "@/components/xmb/font";
 
 export const metadata: Metadata = {
-  title: "Bilal Noori — XMB",
+  title: "Bilal Noori — PSP-Modus",
   description: "Portfolio von Bilal Noori im Stil des PSP-Home-Menüs.",
-  // Design-Entwurf: noch nicht indexieren
-  robots: { index: false, follow: false },
+  // Gleiche Inhalte wie die Startseite — nicht doppelt indexieren
+  robots: { index: false, follow: true },
 };
 
 export const viewport: Viewport = {

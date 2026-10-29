@@ -13,6 +13,7 @@ import {
   type TouchEvent,
   type WheelEvent,
 } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./xmb.module.css";
 import XmbWave from "./XmbWave";
 import { Icon, XmbDefs } from "./icons";
@@ -52,7 +53,7 @@ const shown = (visible: boolean): CSSProperties => ({
 });
 const hasDetail = (e: XmbEntry) => e.subtitle !== undefined || e.level !== undefined;
 // Breite von x bis kurz vor den rechten Bildschirmrand
-const toRight = (x: number) => `calc(100vw - var(--u) * (${x} + var(--stage-dx) + 22))`;
+const toRight = (x: number) => `calc(var(--vw) - var(--u) * (${x} + var(--stage-dx) + 22))`;
 
 function catOffset(d: number) {
   return d === 0 ? 0 : Math.sign(d) * (86 + (Math.abs(d) - 1) * 81);
@@ -183,7 +184,9 @@ function LabelBlock({ entry, x, focused }: { entry: XmbEntry; x: number; focused
   );
 }
 
-export default function Xmb() {
+/** embedded: stumme Live-Vorschau (z. B. im PSP-Bildschirm auf der Startseite) — ohne Eingabe und Fokus */
+export default function Xmb({ embedded = false }: { embedded?: boolean }) {
+  const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const infoBodyRef = useRef<HTMLDivElement>(null);
   const wheelRef = useRef({ acc: 0, last: 0 });
@@ -210,6 +213,8 @@ export default function Xmb() {
   const [info, setInfo] = useState<InfoData | null>(null);
   const [infoOpen, setInfoOpen] = useState(false);
   const [picKey, setPicKey] = useState<string | null>(null);
+  const [exitOpen, setExitOpen] = useState(false);
+  const [exitYes, setExitYes] = useState(true);
 
   const category = categories[cat];
   const sel = itemIdx[cat] ?? 0;
@@ -233,8 +238,8 @@ export default function Xmb() {
   const picEntry = layout === "games" ? subList[subSel] : undefined;
 
   useEffect(() => {
-    rootRef.current?.focus();
-  }, []);
+    if (!embedded) rootRef.current?.focus();
+  }, [embedded]);
 
   const sfx = (kind: Sfx) => {
     if (sound === "on") playSfx(kind);
@@ -248,7 +253,9 @@ export default function Xmb() {
       a.href = e.href;
       a.download = "";
       a.click();
-    } else if (e.href.startsWith("mailto:") || (e.href.startsWith("/") && !e.href.includes("."))) {
+    } else if (e.href.startsWith("/") && !e.href.includes(".")) {
+      router.push(e.href);
+    } else if (e.href.startsWith("mailto:")) {
       window.location.assign(e.href);
     } else {
       window.open(e.href, "_blank", "noopener,noreferrer");
@@ -343,6 +350,16 @@ export default function Xmb() {
   };
 
   const confirm = () => {
+    if (exitOpen) {
+      setExitOpen(false);
+      if (exitYes) {
+        sfx("confirm");
+        router.push("/");
+      } else {
+        sfx("back");
+      }
+      return;
+    }
     if (optionsOpen) {
       options[optionIdx]?.run();
       setOptionsOpen(false);
@@ -358,7 +375,10 @@ export default function Xmb() {
   };
 
   const back = () => {
-    if (optionsOpen) {
+    if (exitOpen) {
+      setExitOpen(false);
+      sfx("back");
+    } else if (optionsOpen) {
       setOptionsOpen(false);
       sfx("back");
     } else if (infoOpen) {
@@ -368,11 +388,16 @@ export default function Xmb() {
       setLevel(0);
       setPreview(null);
       sfx("back");
+    } else {
+      // ○ auf oberster Ebene: wie HOME auf der PSP — nachfragen, ob verlassen werden soll
+      setExitYes(true);
+      setExitOpen(true);
+      sfx("confirm");
     }
   };
 
   const toggleOptions = () => {
-    if (infoOpen) return;
+    if (infoOpen || exitOpen) return;
     if (optionsOpen) {
       setOptionsOpen(false);
       sfx("back");
@@ -386,6 +411,7 @@ export default function Xmb() {
   };
 
   const vertical = (d: number) => {
+    if (exitOpen) return;
     if (optionsOpen) {
       const next = Math.min(options.length - 1, Math.max(0, optionIdx + d));
       if (next !== optionIdx) {
@@ -402,6 +428,11 @@ export default function Xmb() {
   };
 
   const horizontal = (d: number) => {
+    if (exitOpen) {
+      setExitYes(d < 0);
+      sfx("move");
+      return;
+    }
     if (optionsOpen || infoOpen) return;
     if (level === 1) {
       if (d < 0) back();
@@ -532,20 +563,24 @@ export default function Xmb() {
   return (
     <div
       ref={rootRef}
-      className={styles.root}
+      className={cx(styles.root, embedded && styles.embedded)}
       style={themeVars}
-      tabIndex={0}
-      role="application"
-      aria-roledescription="XMB-Menü"
-      aria-label="Portfolio von Bilal Noori"
-      onKeyDown={onKeyDown}
-      onWheel={onWheel}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-      onContextMenu={(e) => {
-        e.preventDefault();
-        back();
-      }}
+      {...(embedded
+        ? { "aria-hidden": true }
+        : {
+            tabIndex: 0,
+            role: "application",
+            "aria-roledescription": "XMB-Menü",
+            "aria-label": "Portfolio von Bilal Noori",
+            onKeyDown,
+            onWheel,
+            onTouchStart,
+            onTouchEnd,
+            onContextMenu: (e: MouseEvent) => {
+              e.preventDefault();
+              back();
+            },
+          })}
     >
       <XmbDefs />
       <div className={styles.bg} />
@@ -723,7 +758,7 @@ export default function Xmb() {
       <button
         type="button"
         tabIndex={-1}
-        className={cx(styles.pill, focusedOptions.length > 0 && !optionsOpen && !infoOpen && styles.pillShow)}
+        className={cx(styles.pill, focusedOptions.length > 0 && !optionsOpen && !infoOpen && !exitOpen && styles.pillShow)}
         onMouseDown={keepFocus}
         onClick={toggleOptions}
       >
@@ -806,9 +841,35 @@ export default function Xmb() {
         </button>
       </div>
 
-      <div className="sr-only" aria-live="polite">
-        {infoOpen && info ? info.title : focused.label}
+      {/* Systemdialog: PSP-Modus verlassen */}
+      <div className={cx(styles.dialog, exitOpen && styles.dialogOpen)} aria-hidden={!exitOpen}>
+        <div className={styles.dialogBand} role="alertdialog" aria-label="PSP-Modus verlassen">
+          <p>Möchtest du den PSP-Modus verlassen und zum Portfolio zurückkehren?</p>
+          <div className={styles.dialogButtons}>
+            {[true, false].map((yes) => (
+              <button
+                key={String(yes)}
+                type="button"
+                tabIndex={-1}
+                className={cx(styles.dialogButton, exitYes === yes && styles.dialogButtonFocus)}
+                onMouseDown={keepFocus}
+                onClick={() => {
+                  setExitOpen(false);
+                  if (yes) router.push("/");
+                }}
+              >
+                {yes ? "Ja" : "Nein"}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {!embedded && (
+        <div className="sr-only" aria-live="polite">
+          {exitOpen ? "PSP-Modus verlassen? Ja oder Nein" : infoOpen && info ? info.title : focused.label}
+        </div>
+      )}
     </div>
   );
 }

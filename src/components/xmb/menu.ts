@@ -205,9 +205,9 @@ export function buildMenu(state: { theme: string; sound: string; month: number }
         },
         {
           id: "classic",
-          label: "Klassische Ansicht",
+          label: "Zurück zum Portfolio",
           icon: "monitor",
-          subtitle: "Zum bisherigen Portfolio-Design wechseln",
+          subtitle: "PSP-Modus verlassen",
           href: "/",
         },
       ],

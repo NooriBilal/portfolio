@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { Mail, Download } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
+import PspLauncher from "@/components/xmb/PspLauncher";
 import { personalInfo } from "@/data/portfolio";
 import gsap from "gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -197,6 +198,11 @@ export default function Hero() {
             <GithubIcon size={16} />
           </a>
         </div>
+      </div>
+
+      {/* PSP-Modus: verspielte Zweitansicht des Portfolios */}
+      <div className="relative z-10 mx-auto mt-16 mb-20 w-[min(88vw,520px)] lg:absolute lg:m-0 lg:right-[4vw] lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[720px]">
+        <PspLauncher />
       </div>
 
       {/* Bottom divider */}

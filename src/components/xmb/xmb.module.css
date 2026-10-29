@@ -5,6 +5,7 @@
 
 .root {
   --u: min(calc(100vw / 480), calc(100dvh / 272));
+  --vw: 100vw;
   --stage-dx: 0;
   --ease: cubic-bezier(0.22, 0.8, 0.3, 1);
   --text-glow: 0 0 calc(var(--u) * 3) rgba(255, 255, 255, 0.45), 0 0 calc(var(--u) * 0.7) rgba(255, 255, 255, 0.35);
@@ -34,6 +35,16 @@
     --u: max(min(calc(100vw / 480), calc(100dvh / 272)), 1.3px);
     --stage-dx: -42;
   }
+}
+
+/* Live-Vorschau in einem Container (PSP-Bildschirm): skaliert über Container-Einheiten */
+.root.embedded {
+  --u: min(calc(100cqw / 480), calc(100cqh / 272));
+  --vw: 100cqw;
+  --stage-dx: 0;
+  position: absolute;
+  z-index: auto;
+  pointer-events: none;
 }
 
 :where(.root) button {
@@ -618,4 +629,57 @@
 
 .infoBody p + p {
   margin-top: calc(var(--u) * 6);
+}
+
+/* ─── Systemdialog (PSP-Modus verlassen) ─── */
+.dialog {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.dialogOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dialogBand {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  padding: calc(var(--u) * 18) calc(var(--u) * 30) calc(var(--u) * 14);
+  border-top: max(1px, calc(var(--u) * 0.5)) solid rgba(255, 255, 255, 0.4);
+  border-bottom: max(1px, calc(var(--u) * 0.5)) solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.82));
+  font-size: calc(var(--u) * 11.5);
+  text-align: center;
+  transform: translateY(-50%) scaleY(0.85);
+  transition: transform 0.18s var(--ease);
+}
+
+.dialogOpen .dialogBand {
+  transform: translateY(-50%);
+}
+
+.dialogButtons {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 46);
+  margin-top: calc(var(--u) * 12);
+}
+
+.dialogButton {
+  min-width: calc(var(--u) * 44);
+  padding: calc(var(--u) * 2) calc(var(--u) * 8);
+  font-size: calc(var(--u) * 12);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.dialogButtonFocus {
+  color: #fff;
+  text-shadow: var(--text-glow);
 }

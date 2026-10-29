@@ -124,7 +124,13 @@ export default function XmbWave({ className }: { className?: string }) {
       }
     };
 
+    // Außerhalb des Viewports (z. B. Startseite weitergescrollt) pausiert die Animation
+    let visible = true;
     const loop = (ms: number) => {
+      if (!visible) {
+        raf = 0;
+        return;
+      }
       raf = requestAnimationFrame(loop);
       draw(ms);
     };
@@ -135,12 +141,18 @@ export default function XmbWave({ className }: { className?: string }) {
       if (reduced) draw(0);
     });
     ro.observe(canvas);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !raf && !reduced) raf = requestAnimationFrame(loop);
+    });
+    io.observe(canvas);
     if (reduced) draw(0);
     else raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      io.disconnect();
     };
   }, []);
 
