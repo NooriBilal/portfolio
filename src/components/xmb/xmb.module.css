@@ -1,0 +1,606 @@
+/* ============================================================
+   XMB — PSP-Home-Menü
+   1 PSP-Pixel = var(--u); der PSP-Bildschirm ist 480 × 272 groß.
+   ============================================================ */
+
+.root {
+  --u: min(calc(100vw / 480), calc(100dvh / 272));
+  --stage-dx: 0;
+  --ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+  --text-glow: 0 0 calc(var(--u) * 3) rgba(255, 255, 255, 0.45), 0 0 calc(var(--u) * 0.7) rgba(255, 255, 255, 0.35);
+  --text-shade: 0 calc(var(--u) * 0.4) calc(var(--u) * 1.4) rgba(0, 0, 0, 0.16);
+
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  color: #fff;
+  background: var(--theme-mid);
+  font-family: var(--font-xmb), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  outline: none;
+  cursor: default;
+}
+
+/* Hochformat (Smartphone): Mindestgröße + Leiste etwas nach links */
+@media (max-aspect-ratio: 1/1) {
+  .root {
+    --u: max(min(calc(100vw / 480), calc(100dvh / 272)), 1.3px);
+    --stage-dx: -42;
+  }
+}
+
+:where(.root) button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ─── Hintergrund ─── */
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(85% 55% at 28% 102%, color-mix(in srgb, var(--theme-bottom) 90%, transparent), transparent 72%),
+    radial-gradient(70% 45% at 95% 100%, color-mix(in srgb, var(--theme-bottom) 55%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--theme-top) 0%, var(--theme-mid) 32%, var(--theme-mid) 58%, var(--theme-bottom) 100%);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ─── PIC1: Projekt-Hintergrund ─── */
+.pic1 {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.05) 100%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px calc(var(--u) * 14)),
+    radial-gradient(65% 85% at 76% 38%, hsl(var(--h) 78% 46% / 0.9), transparent 70%),
+    radial-gradient(55% 60% at 18% 92%, hsl(calc(var(--h) + 40) 70% 30%), transparent 70%),
+    linear-gradient(160deg, hsl(var(--h) 62% 22%), hsl(calc(var(--h) + 30) 70% 7%));
+}
+
+.pic1Show {
+  opacity: 1;
+}
+
+.pic1Art {
+  position: absolute;
+  right: calc(var(--u) * 20);
+  bottom: calc(var(--u) * 42);
+  width: calc(var(--u) * 250);
+  text-align: right;
+}
+
+.pic1Title {
+  font-size: calc(var(--u) * 27);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 12) rgba(0, 0, 0, 0.45);
+}
+
+.pic1Caption {
+  margin-top: calc(var(--u) * 5);
+  font-size: calc(var(--u) * 7.5);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.pic1Summary {
+  margin-top: calc(var(--u) * 9);
+  margin-left: auto;
+  max-width: calc(var(--u) * 210);
+  font-size: calc(var(--u) * 8.5);
+  line-height: 1.5;
+  opacity: 0.88;
+  text-shadow: 0 0 calc(var(--u) * 6) rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Statusleiste ─── */
+.status {
+  position: absolute;
+  top: calc(var(--u) * 2.5);
+  right: calc(var(--u) * 4.5);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 6);
+  font-size: calc(var(--u) * 12.5);
+  font-variant-numeric: tabular-nums;
+  text-shadow: var(--text-shade);
+}
+
+.battery {
+  width: calc(var(--u) * 22);
+  height: calc(var(--u) * 10);
+  filter: drop-shadow(0 calc(var(--u) * 0.4) calc(var(--u) * 0.8) rgba(0, 0, 0, 0.18));
+}
+
+/* ─── Bühne ─── */
+.stage {
+  position: absolute;
+  inset: 0;
+  transform: translateX(calc(var(--u) * var(--stage-dx)));
+}
+
+.abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition:
+    transform 0.2s var(--ease),
+    opacity 0.18s ease;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.glow {
+  filter: drop-shadow(0 0 calc(var(--u) * 2.6) rgba(255, 255, 255, 0.6));
+}
+
+.soft {
+  filter: drop-shadow(0 calc(var(--u) * 0.6) calc(var(--u) * 0.9) rgba(0, 0, 0, 0.16));
+}
+
+.cat {
+  width: calc(var(--u) * 48);
+  height: calc(var(--u) * 48);
+}
+
+.catLabel {
+  font-size: calc(var(--u) * 11);
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: var(--text-glow);
+}
+
+.item {
+  width: calc(var(--u) * 44);
+  height: calc(var(--u) * 44);
+}
+
+.label {
+  font-size: calc(var(--u) * 14);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.labelFocus {
+  text-shadow: var(--text-glow);
+}
+
+.labelIdle {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: calc(var(--u) * 13);
+  text-shadow: var(--text-shade);
+}
+
+.labelText {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Titel über der Linie, Untertitel + Kästchen darunter */
+.labelBlock {
+  position: relative;
+  display: block;
+  height: 0;
+}
+
+.labelTitle {
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--u) * 1.8);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.labelRule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: max(1px, calc(var(--u) * 0.5));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.35));
+  box-shadow: 0 0 calc(var(--u) * 2) rgba(255, 255, 255, 0.35);
+}
+
+.labelMeta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--u) * 2.6);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 6);
+  font-size: calc(var(--u) * 9.5);
+}
+
+.labelSub {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.92;
+}
+
+.labelTag {
+  flex: none;
+  margin-left: auto;
+  padding: calc(var(--u) * 0.4) calc(var(--u) * 3);
+  border: max(1px, calc(var(--u) * 0.5)) solid rgba(255, 255, 255, 0.8);
+  border-radius: calc(var(--u) * 2);
+  font-size: calc(var(--u) * 7.5);
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.levelBar {
+  position: relative;
+  width: calc(var(--u) * 80);
+  height: calc(var(--u) * 3);
+  border-radius: calc(var(--u) * 2);
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.levelBar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: #fff;
+  box-shadow: 0 0 calc(var(--u) * 2) rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Unterliste ─── */
+.arrow {
+  width: calc(var(--u) * 6);
+  height: calc(var(--u) * 8);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+
+.arrowGlyph {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sub {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(calc(var(--u) * 26));
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s var(--ease);
+}
+
+.sub > * {
+  pointer-events: none;
+}
+
+.subOpen {
+  opacity: 1;
+  transform: none;
+}
+
+.subOpen > * {
+  pointer-events: auto;
+}
+
+.subIcon {
+  display: grid;
+  place-items: center;
+  width: calc(var(--u) * 40);
+  height: calc(var(--u) * 40);
+}
+
+.trackBox {
+  display: grid;
+  place-items: center;
+  width: calc(var(--u) * 27);
+  height: calc(var(--u) * 22);
+  border: max(1px, calc(var(--u) * 1.4)) solid rgba(255, 255, 255, 0.95);
+  border-radius: calc(var(--u) * 3.5);
+  background: color-mix(in srgb, var(--theme-mid) 62%, #000);
+  font-size: calc(var(--u) * 10.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch {
+  display: block;
+  width: calc(var(--u) * 28);
+  height: calc(var(--u) * 28);
+  border: max(1px, calc(var(--u) * 1.4)) solid #fff;
+  border-radius: calc(var(--u) * 4);
+}
+
+/* ─── Spielkacheln (ICON0, 144 × 80) ─── */
+.tileButton {
+  width: calc(var(--u) * 144);
+  height: calc(var(--u) * 80);
+}
+
+.tileFocus {
+  z-index: 1;
+}
+
+.tile {
+  position: relative;
+  width: calc(var(--u) * 144);
+  height: calc(var(--u) * 80);
+  overflow: hidden;
+  text-align: left;
+  background: linear-gradient(135deg, hsl(var(--h) 72% 44%), hsl(calc(var(--h) + 35) 75% 15%));
+  box-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 4) rgba(0, 0, 0, 0.35);
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(118deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px calc(var(--u) * 9));
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 46%);
+}
+
+.tileName {
+  position: absolute;
+  left: calc(var(--u) * 9);
+  right: calc(var(--u) * 9);
+  bottom: calc(var(--u) * 19);
+  font-size: calc(var(--u) * 14.5);
+  font-weight: 800;
+  line-height: 1.02;
+  text-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 3) rgba(0, 0, 0, 0.35);
+}
+
+.tileCaption {
+  position: absolute;
+  left: calc(var(--u) * 9);
+  right: calc(var(--u) * 9);
+  bottom: calc(var(--u) * 8);
+  overflow: hidden;
+  font-size: calc(var(--u) * 6.5);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.tileBadge {
+  position: absolute;
+  top: calc(var(--u) * 6);
+  right: calc(var(--u) * 6);
+  z-index: 1;
+  padding: calc(var(--u) * 1.2) calc(var(--u) * 4);
+  background: #fff;
+  color: hsl(var(--h) 60% 24%);
+  font-size: calc(var(--u) * 6);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+/* ─── △ Optionen / ○ Zurück ─── */
+.pill {
+  position: absolute;
+  right: calc(var(--u) * 6);
+  bottom: calc(var(--u) * 12);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 3.5);
+  padding: calc(var(--u) * 2.4) calc(var(--u) * 8) calc(var(--u) * 2.4) calc(var(--u) * 6);
+  border-radius: calc(var(--u) * 9);
+  background: rgba(0, 0, 0, 0.5);
+  font-size: calc(var(--u) * 10);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.pillShow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pillGlyph {
+  width: calc(var(--u) * 9);
+  height: calc(var(--u) * 9);
+}
+
+/* ─── Optionsmenü ─── */
+.options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(var(--u) * 175);
+  padding-left: calc(var(--u) * 30);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55) calc(var(--u) * 18), rgba(0, 0, 0, 0.72));
+  transform: translateX(100%);
+  transition: transform 0.2s var(--ease);
+}
+
+.optionsOpen {
+  transform: none;
+}
+
+.option {
+  padding: calc(var(--u) * 4) 0;
+  font-size: calc(var(--u) * 12);
+  text-align: left;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.optionFocus {
+  color: #fff;
+  text-shadow: var(--text-glow);
+}
+
+/* ─── Information ─── */
+.info {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.infoOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.infoPanel {
+  position: absolute;
+  top: calc(var(--u) * 30);
+  right: calc(var(--u) * 26);
+  bottom: calc(var(--u) * 36);
+  left: calc(var(--u) * 44);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(calc(var(--u) * 16));
+  transition: transform 0.22s var(--ease);
+}
+
+.infoOpen .infoPanel {
+  transform: none;
+}
+
+.infoHead {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 14);
+}
+
+.infoIcon {
+  flex: none;
+  width: calc(var(--u) * 40);
+  height: calc(var(--u) * 40);
+}
+
+.infoTile {
+  flex: none;
+  width: calc(var(--u) * 86.4);
+  height: calc(var(--u) * 48);
+}
+
+.infoTile > * {
+  transform: scale(0.6);
+  transform-origin: top left;
+}
+
+.infoHeadText {
+  flex: 1;
+  min-width: 0;
+}
+
+.infoTitle {
+  overflow: hidden;
+  font-size: calc(var(--u) * 15);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: var(--text-glow);
+}
+
+.infoRule {
+  height: max(1px, calc(var(--u) * 0.5));
+  margin-top: calc(var(--u) * 3);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.35));
+}
+
+.infoSub {
+  margin-top: calc(var(--u) * 3);
+  overflow: hidden;
+  font-size: calc(var(--u) * 9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.infoRows {
+  margin-top: calc(var(--u) * 12);
+}
+
+.infoRow {
+  display: grid;
+  grid-template-columns: calc(var(--u) * 84) 1fr;
+  gap: calc(var(--u) * 10);
+  padding: calc(var(--u) * 3.2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: calc(var(--u) * 9.5);
+}
+
+.infoRow dt {
+  text-align: right;
+  opacity: 0.62;
+}
+
+.infoRow a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 0.2em;
+}
+
+.infoBody {
+  flex: 1;
+  min-height: 0;
+  margin-top: calc(var(--u) * 10);
+  padding-right: calc(var(--u) * 8);
+  overflow-y: auto;
+  font-size: calc(var(--u) * 9.5);
+  line-height: 1.6;
+  opacity: 0.92;
+  touch-action: pan-y;
+  user-select: text;
+  -webkit-user-select: text;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.infoBody p + p {
+  margin-top: calc(var(--u) * 6);
+}
