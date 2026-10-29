@@ -9,6 +9,15 @@
 ---
 
 ## 2026-10-29 | Automatisch
+**Commit:** `62e0af4` — "fix(hero): Tagline und Buttons nach Intro-Animation sichtbar"
+**Was:** Hero-Fix: Tagline und Kontakt/Lebenslauf/GitHub-Buttons waren durch GSAP from() auf opacity 0 hängen geblieben — jetzt fromTo mit Endwert 1
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
 **Commit:** `aa47a8c` — "feat(hero): rote PSP im Hero öffnet den PSP-Modus"
 **Was:** Rote PSP im Hero (rechts) öffnet per Zoom den PSP-Modus /xmb; Portfolio bleibt Hauptseite (Branch design/psp-xmb)
 **TODOs noch offen:**
