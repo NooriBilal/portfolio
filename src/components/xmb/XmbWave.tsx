@@ -63,6 +63,8 @@ export default function XmbWave({ className }: { className?: string }) {
     };
 
     const draw = (ms: number) => {
+      // Vor dem ersten Layout ist die Fläche 0 × 0 — dann nichts zeichnen
+      if (!w || !h) return;
       const t = ms / 1000;
       ctx.clearRect(0, 0, w, h);
       const step = Math.max(6, w / 120);
@@ -123,8 +125,8 @@ export default function XmbWave({ className }: { className?: string }) {
     };
 
     const loop = (ms: number) => {
-      draw(ms);
       raf = requestAnimationFrame(loop);
+      draw(ms);
     };
 
     resize();

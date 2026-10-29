@@ -578,7 +578,7 @@ export default function Xmb() {
         </svg>
       </div>
 
-      <div className={styles.stage}>
+      <div className={cx(styles.stage, infoOpen && styles.stageHidden)}>
         {categories.map((c, ci) => {
           const d = ci - cat;
           const isSel = d === 0;
