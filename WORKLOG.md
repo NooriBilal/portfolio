@@ -9,6 +9,15 @@
 ---
 
 ## 2026-10-29 | Automatisch
+**Commit:** `aa47a8c` — "feat(hero): rote PSP im Hero öffnet den PSP-Modus"
+**Was:** Rote PSP im Hero (rechts) öffnet per Zoom den PSP-Modus /xmb; Portfolio bleibt Hauptseite (Branch design/psp-xmb)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
 **Commit:** `fab9114` — "feat(xmb): PSP-XMB-Design als Entwurf unter /xmb"
 **Was:** PSP-XMB-Design als Entwurf unter /xmb (Branch design/psp-xmb, nur Vercel-Preview, main unverändert)
 **TODOs noch offen:**
