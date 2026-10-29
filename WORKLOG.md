@@ -9,6 +9,15 @@
 ---
 
 ## 2026-10-29 | Automatisch
+**Commit:** `e615eb2` — "feat(psp): PSP originalgetreu nach PSP-3000 nachgezeichnet"
+**Was:** PSP im Hero originalgetreu nach PSP-3000-Foto nachgezeichnet (SONY-, PSP- und PS-Logo, alle Tasten), Shell in PspShell.tsx ausgelagert
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
 **Commit:** `62e0af4` — "fix(hero): Tagline und Buttons nach Intro-Animation sichtbar"
 **Was:** Hero-Fix: Tagline und Kontakt/Lebenslauf/GitHub-Buttons waren durch GSAP from() auf opacity 0 hängen geblieben — jetzt fromTo mit Endwert 1
 **TODOs noch offen:**
