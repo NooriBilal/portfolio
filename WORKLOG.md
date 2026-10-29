@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-10-29 | Automatisch
+**Commit:** `fab9114` — "feat(xmb): PSP-XMB-Design als Entwurf unter /xmb"
+**Was:** PSP-XMB-Design als Entwurf unter /xmb (Branch design/psp-xmb, nur Vercel-Preview, main unverändert)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-31 | Automatisch
 **Commit:** `1730ba0` — "feat(hero): Lebenslauf-Download-Button eingebunden"
 **Was:** Lebenslauf-PDF eingebunden: cvUrl korrigiert, Download-Button im Hero reaktiviert
