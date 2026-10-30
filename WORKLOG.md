@@ -8,6 +8,42 @@
 
 ---
 
+## 2026-10-29 | Automatisch
+**Commit:** `e615eb2` — "feat(psp): PSP originalgetreu nach PSP-3000 nachgezeichnet"
+**Was:** PSP im Hero originalgetreu nach PSP-3000-Foto nachgezeichnet (SONY-, PSP- und PS-Logo, alle Tasten), Shell in PspShell.tsx ausgelagert
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
+**Commit:** `62e0af4` — "fix(hero): Tagline und Buttons nach Intro-Animation sichtbar"
+**Was:** Hero-Fix: Tagline und Kontakt/Lebenslauf/GitHub-Buttons waren durch GSAP from() auf opacity 0 hängen geblieben — jetzt fromTo mit Endwert 1
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
+**Commit:** `aa47a8c` — "feat(hero): rote PSP im Hero öffnet den PSP-Modus"
+**Was:** Rote PSP im Hero (rechts) öffnet per Zoom den PSP-Modus /xmb; Portfolio bleibt Hauptseite (Branch design/psp-xmb)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-10-29 | Automatisch
+**Commit:** `fab9114` — "feat(xmb): PSP-XMB-Design als Entwurf unter /xmb"
+**Was:** PSP-XMB-Design als Entwurf unter /xmb (Branch design/psp-xmb, nur Vercel-Preview, main unverändert)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-07-31 | Automatisch
 **Commit:** `1730ba0` — "feat(hero): Lebenslauf-Download-Button eingebunden"
 **Was:** Lebenslauf-PDF eingebunden: cvUrl korrigiert, Download-Button im Hero reaktiviert

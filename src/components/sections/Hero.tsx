@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { Mail, Download } from "lucide-react";
 import GithubIcon from "@/components/ui/GithubIcon";
+import PspLauncher from "@/components/xmb/PspLauncher";
 import { personalInfo } from "@/data/portfolio";
 import gsap from "gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -17,13 +18,14 @@ export default function Hero() {
   useEffect(() => {
     if (prefersReduced || !heroRef.current) return;
 
+    // fromTo statt from: Die Elemente starten per Inline-Style mit opacity 0,
+    // from() würde sonst genau dorthin (also unsichtbar) zurück animieren.
     const tl = gsap.timeline({ delay: 0.1 });
-    tl.from(".hero-eyebrow", {
-      y: 14,
-      opacity: 0,
-      duration: 0.55,
-      ease: "power3.out",
-    })
+    tl.fromTo(
+      ".hero-eyebrow",
+      { y: 14, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }
+    )
       .from(
         ".hero-name-line",
         {
@@ -34,14 +36,16 @@ export default function Hero() {
         },
         "-=0.2"
       )
-      .from(
+      .fromTo(
         ".hero-sub",
-        { y: 18, opacity: 0, duration: 0.5, ease: "power3.out" },
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
         "-=0.3"
       )
-      .from(
+      .fromTo(
         ".hero-cta",
-        { y: 14, opacity: 0, duration: 0.45, stagger: 0.1, ease: "power3.out" },
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, stagger: 0.1, ease: "power3.out" },
         "-=0.25"
       );
 
@@ -197,6 +201,11 @@ export default function Hero() {
             <GithubIcon size={16} />
           </a>
         </div>
+      </div>
+
+      {/* PSP-Modus: verspielte Zweitansicht des Portfolios */}
+      <div className="relative z-10 mx-auto mt-16 mb-20 w-[min(88vw,520px)] lg:absolute lg:m-0 lg:right-[4vw] lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[720px]">
+        <PspLauncher />
       </div>
 
       {/* Bottom divider */}
