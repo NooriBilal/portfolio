@@ -9,6 +9,15 @@
 ---
 
 ## 2026-11-02 | Automatisch
+**Commit:** `f8a0c18` — "fix(psp): UFC-Projekt aus dem PSP-Menü entfernen"
+**Was:** UFC-Projekt aus dem PSP-Menü entfernt (nur noch projects, nicht upcomingProjects)
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-11-02 | Automatisch
 **Commit:** `1016f0e` — "fix(xmb): lange Infotitel im Hochformat silbentrennen"
 **Was:** Mobile-Check: Hero-Abstand, Tippflächen, Zurück-Button und Infotitel im PSP-Modus behoben
 **TODOs noch offen:**
