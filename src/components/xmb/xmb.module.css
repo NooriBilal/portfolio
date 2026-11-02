@@ -467,6 +467,19 @@
   pointer-events: auto;
 }
 
+/* Nur auf Touch-Geräten sichtbar, links unten neben △ Optionen */
+.pillBack {
+  right: auto;
+  left: calc(var(--u) * 6);
+  display: none;
+}
+
+@media (hover: none) {
+  .pillBack {
+    display: flex;
+  }
+}
+
 .pillGlyph {
   width: calc(var(--u) * 9);
   height: calc(var(--u) * 9);
@@ -682,4 +695,21 @@
 .dialogButtonFocus {
   color: #fff;
   text-shadow: var(--text-glow);
+}
+
+/* Hochformat: größere Tippflächen, Titel umbrechen statt abschneiden
+   (steht am Ende, damit es die Grundregeln oben überschreibt) */
+@media (max-aspect-ratio: 1/1) {
+  .pill {
+    padding: calc(var(--u) * 5) calc(var(--u) * 10) calc(var(--u) * 5) calc(var(--u) * 8);
+  }
+
+  .infoTitle,
+  .infoSub {
+    white-space: normal;
+  }
+
+  .dialogButton {
+    padding: calc(var(--u) * 7) calc(var(--u) * 12);
+  }
 }
