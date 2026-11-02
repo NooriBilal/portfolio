@@ -766,6 +766,18 @@ export default function Xmb({ embedded = false }: { embedded?: boolean }) {
         Optionen
       </button>
 
+      {/* ○ Zurück für Touch: ohne Esc/Rechtsklick gäbe es sonst keinen Weg zurück */}
+      <button
+        type="button"
+        tabIndex={-1}
+        className={cx(styles.pill, styles.pillBack, !infoOpen && !exitOpen && styles.pillShow)}
+        onMouseDown={keepFocus}
+        onClick={back}
+      >
+        <ButtonGlyph kind="circle" />
+        Zurück
+      </button>
+
       {/* Optionsmenü */}
       <div className={cx(styles.options, optionsOpen && styles.optionsOpen)} aria-hidden={!optionsOpen}>
         {options.map((o, i) => (

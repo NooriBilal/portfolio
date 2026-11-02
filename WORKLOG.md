@@ -9,6 +9,15 @@
 ---
 
 ## 2026-11-02 | Automatisch
+**Commit:** `1016f0e` — "fix(xmb): lange Infotitel im Hochformat silbentrennen"
+**Was:** Mobile-Check: Hero-Abstand, Tippflächen, Zurück-Button und Infotitel im PSP-Modus behoben
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
+## 2026-11-02 | Automatisch
 **Commit:** `9b12577` — "Merge pull request #3 from NooriBilal/design/psp-xmb"
 **Was:** PSP-Design auf main gemergt, Produktions-Deploy neu angestoßen
 **TODOs noch offen:**

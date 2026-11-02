@@ -120,9 +120,10 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 transition-colors duration-150"
+            className="md:hidden p-3 -mr-2 transition-colors duration-150"
             style={{ color: "var(--ink-dim)" }}
             aria-label="Menü"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>

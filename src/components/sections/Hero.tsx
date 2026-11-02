@@ -56,7 +56,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center pt-14 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pt-24 lg:pt-14 overflow-hidden"
       style={{ background: "var(--background)" }}
     >
       {/* Subtle red atmosphere */}
@@ -190,7 +190,7 @@ export default function Hero() {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta flex items-center gap-2.5 px-4 py-3 border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            className="hero-cta flex items-center self-stretch gap-2.5 px-4 py-3 border transition duration-150 hover:border-[var(--red)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
               color: "var(--ink-dim)",
               borderColor: "var(--border-mid)",
