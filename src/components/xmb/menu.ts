@@ -5,7 +5,6 @@ import {
   education,
   certificates,
   projects,
-  upcomingProjects,
   type Project,
 } from "@/data/portfolio";
 import type { IconName } from "./icons";
@@ -147,7 +146,6 @@ function projectEntry(p: Project, i: number): XmbEntry {
 
 export function buildMenu(state: { theme: string; sound: string; month: number }): XmbCategory[] {
   const currentTheme = state.theme === "standard" ? "Standard" : resolveTheme(state.theme, state.month).label;
-  const allProjects = [...projects, ...upcomingProjects];
 
   return [
     {
@@ -308,7 +306,7 @@ export function buildMenu(state: { theme: string; sound: string; month: number }
           label: "Alle Projekte",
           icon: "memorystick",
           layout: "games",
-          children: allProjects.map(projectEntry),
+          children: projects.map(projectEntry),
         },
         {
           id: "github",
