@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-11-02 | Automatisch
+**Commit:** `9b12577` — "Merge pull request #3 from NooriBilal/design/psp-xmb"
+**Was:** PSP-Design auf main gemergt, Produktions-Deploy neu angestoßen
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-10-29 | Automatisch
 **Commit:** `e615eb2` — "feat(psp): PSP originalgetreu nach PSP-3000 nachgezeichnet"
 **Was:** PSP im Hero originalgetreu nach PSP-3000-Foto nachgezeichnet (SONY-, PSP- und PS-Logo, alle Tasten), Shell in PspShell.tsx ausgelagert
