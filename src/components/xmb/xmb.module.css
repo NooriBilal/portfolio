@@ -480,6 +480,11 @@
   }
 }
 
+/* In der Live-Vorschau auf dem PSP-Bildschirm nicht anzeigen */
+.embedded .pillBack {
+  display: none;
+}
+
 .pillGlyph {
   width: calc(var(--u) * 9);
   height: calc(var(--u) * 9);
