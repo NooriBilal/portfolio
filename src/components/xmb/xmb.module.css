@@ -712,6 +712,8 @@
   .infoTitle,
   .infoSub {
     white-space: normal;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
 
   .dialogButton {
