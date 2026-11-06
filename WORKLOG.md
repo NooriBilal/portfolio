@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-11-06 | Automatisch
+**Commit:** `0b98f65` — "fix(responsive): PSP an Inhaltsspalte binden, Untertitel im Querformat"
+**Was:** Gerätecheck: PSP auf großen Monitoren an Inhaltsspalte gebunden, Untertitel im Handy-Querformat umgebrochen
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-11-02 | Automatisch
 **Commit:** `f8a0c18` — "fix(psp): UFC-Projekt aus dem PSP-Menü entfernen"
 **Was:** UFC-Projekt aus dem PSP-Menü entfernt (nur noch projects, nicht upcomingProjects)
