@@ -720,3 +720,10 @@
     padding: calc(var(--u) * 7) calc(var(--u) * 12);
   }
 }
+
+/* Handy quer: Untertitel der Info-Ansicht umbrechen statt abschneiden */
+@media (max-height: 500px) {
+  .infoSub {
+    white-space: normal;
+  }
+}

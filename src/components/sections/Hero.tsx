@@ -203,8 +203,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* PSP-Modus: verspielte Zweitansicht des Portfolios */}
-      <div className="relative z-10 mx-auto mt-16 mb-20 w-[min(88vw,520px)] lg:absolute lg:m-0 lg:right-[4vw] lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[720px]">
+      {/* PSP-Modus: verspielte Zweitansicht des Portfolios.
+          Rechte Kante folgt ab großen Monitoren der Inhaltsspalte (max-w-7xl + px-10) */}
+      <div className="relative z-10 mx-auto mt-16 mb-20 w-[min(88vw,520px)] lg:absolute lg:m-0 lg:right-[max(4vw,calc((100vw-80rem)/2+2.5rem))] lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[620px]">
         <PspLauncher />
       </div>
 
