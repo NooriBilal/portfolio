@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-11-26 | Automatisch
+**Commit:** `9d2d4ba` — "feat(projekte): Website Fahrschule Move hinzugefügt"
+**Was:** Projekt 'Website Fahrschule Move' (Next.js, Keystatic, Cloudflare Workers) in portfolio.ts ergänzt – erscheint in Projekt-Section und PSP
+**TODOs noch offen:**
+1 TODO-Marker in portfolio.ts
+
+
+---
+
 ## 2026-11-06 | Automatisch
 **Commit:** `0b98f65` — "fix(responsive): PSP an Inhaltsspalte binden, Untertitel im Querformat"
 **Was:** Gerätecheck: PSP auf großen Monitoren an Inhaltsspalte gebunden, Untertitel im Handy-Querformat umgebrochen
