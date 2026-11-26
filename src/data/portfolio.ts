@@ -189,6 +189,17 @@ export const projects: Project[] = [
     status: "live",
     featured: true,
   },
+  {
+    name: "Website Fahrschule Move",
+    shortDescription:
+      "Kundenprojekt: neue Website für die Fahrschule Move in Hilden — mit eigenem CMS, sodass Preise, Kurstermine und Team ohne Entwickler gepflegt werden. Live unter fahrschulemove.de.",
+    longDescription:
+      "Für die Fahrschule Move habe ich die komplette Website neu gebaut: Next.js 16 mit App Router als statischer Export, TypeScript und Tailwind CSS 4. Damit die Fahrschule ihre Inhalte selbst pflegen kann, hängt ein Keystatic-CMS dahinter — Preise, Ferien- und Intensivkurse, Theorietermine, Öffnungszeiten, Team, Galerie und Stellenangebote liegen als JSON im Repository, jede Änderung löst einen neuen Build aus. Widersprüchliche Eingaben (z. B. Kursende vor Beginn) brechen den Build bewusst ab, damit online immer die letzte gültige Version bleibt; ein nächtlicher Rebuild per GitHub Actions blendet abgelaufene Kurse und Angebote automatisch aus. Für Besucher gibt es interaktive Werkzeuge wie einen Kostenrechner, einen Klassen-Finder und einen Theorie-Schnellcheck, dazu eine Karte mit MapLibre und Animationen mit GSAP, Lenis und React Three Fiber. Kontakt- und Bewerbungsformular laufen über einen Cloudflare Worker, der die Mails über Brevo verschickt und mit Honeypot und Turnstile gegen Spam geschützt ist. Gehostet wird die Seite auf Cloudflare, Vorschauen für Kundenfeedback laufen als eigener Worker bzw. auf Vercel.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Keystatic CMS", "Cloudflare Workers", "GSAP", "Three.js", "GitHub Actions"],
+    liveUrl: "https://fahrschulemove.de",
+    status: "live",
+    featured: true,
+  },
 ];
 
 // Noch nicht vorzeigbar, aber die Daten bleiben erhalten: zum Aktivieren
